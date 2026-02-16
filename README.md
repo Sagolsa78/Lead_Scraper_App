@@ -1,148 +1,131 @@
-# Google Places Lead Finder (Proof Backend)
+# Google Places Lead Finder (Enterprise Edition) 🚀
 
-A Node.js Express backend application that fetches business leads using Google Places & Geocoding APIs, filters them, and saves valid leads to a Google Sheet.
+A professional-grade SaaS application designed to extract high-intent business leads from Google Places. It filters for businesses missing websites, stores them in PostgreSQL/Google Sheets, and facilitates automated WhatsApp outreach.
 
-## Features
+## 🌟 Key Features
 
-- **Geocoding**: Converts city names to latitude/longitude.
-- **Places Search**: Finds businesses by type and radius using official Google API.
-- **Lead Filtering**:
-  - Filters out businesses that already have a website.
-  - Skips businesses without a phone number.
-- **Duplicate Prevention**: Checks existing phone numbers in the Google Sheet before adding.
-- **Google Sheets Integration**: Appends valid leads directly to a specified Sheet.
+### Data Extraction & Enrichment
 
-## Prerequisites
+- **Google Places API**: Real-time extraction of business data (name, phone, address, rating).
+- **Website Filtering**: Automatically identifies and prioritizes businesses without websites.
+- **Geocoding & Caching**: Precise location mapping with Redis-based caching to minimize costs and latency.
+- **Duplicate Prevention**: Phone number normalization and unique indexing prevent redundant leads.
 
-- Node.js installed.
-- Google Cloud Platform Project with billing enabled.
-- Enabled APIs:
-  - Places API (New)
-  - Geocoding API
-  - Google Sheets API
-  - Google Drive API
-- Service Account with Editor access to the Google Sheet.
+### CRM & Lead Management
 
-## Installation
+- **Enterprise Storage**: PostgreSQL database managed via Prisma ORM for high performance.
+- **Dynamic Dashboard**: Full-featured CRM UI with advanced search, multi-field filtering, and pagination.
+- **Sync to Sheets**: Automatic secondary export to Google Sheets for collaboration and backup.
 
-1. Clone the repository:
+### WhatsApp Integration
 
-   ```bash
-   git clone <repository_url>
-   cd lead-proof-app
-   ```
+- **Hybrid Messaging**: Supports Meta Cloud API for automated scale and manual `wa.me` fallback.
+- **Background Workers**: BullMQ and Redis handle bulk message queueing with exponential backoff retries.
+- **Secure Configuration**: WhatsApp tokens are AES-256 encrypted before being stored.
 
-2. Install dependencies:
+### Robust Architecture
 
-   ```bash
-   npm install
-   ```
+- **Clean Architecture & SOLID**: Maintainable and testable codebase.
+- **Structured Logging**: Winston logger with Request ID tracking for production monitoring.
+- **Security**: Centralized error handling, Zod validation, and rate limiting.
 
-3. Configure Environment Variables:
-   - Copy `.env.example` to `.env`:
-     ```bash
-     cp .env.example .env
-     ```
-   - Fill in your API keys and credentials in `.env`.
+## 🛠 Tech Stack
 
-## Google Cloud Setup
+- **Backend**: Node.js, Express.js, Prisma ORM, PostgreSQL.
+- **Frontend**: React (Vite), Tailwind CSS, Lucide Icons, React Router.
+- **Infrastructure**: Redis (Caching & Queues), BullMQ.
+- **APIs**: Google Places, Google Geocoding, Google Sheets, Meta WhatsApp Cloud API.
 
-1. **Create Project**: Go to [Google Cloud Console](https://console.cloud.google.com/) and create a new project.
-2. **Enable APIs**: Enable Places API, Geocoding API, Sheets API, and Drive API.
-3. **Create Service Account**:
-   - Go to "IAM & Admin" > "Service Accounts".
-   - Create a new service account.
-   - Create a JSON key for this account.
-   - Open the JSON key file and copy the `private_key` (including `-----BEGIN PRIVATE KEY-----` and `-----END PRIVATE KEY-----`) and `client_email`.
-4. **Share Sheet**:
-   - Create a new Google Sheet.
-   - Share the sheet with the `client_email` from your service account (Give "Editor" permission).
-   - Copy the Sheet ID from the URL (e.g., `https://docs.google.com/spreadsheets/d/YOUR_SHEET_ID/edit`).
+## 🚀 Getting Started
 
-## Running the Application
+### Prerequisites
 
-### Development Mode
+- Node.js v18+
+- PostgreSQL
+- Redis Server
+- Google Cloud Project (API Key & Service Account)
+- Meta Developer Account (WhatsApp Cloud API)
+
+### 1. Project Initialization
 
 ```bash
+# Clone the repository
+git clone <repository-url>
+cd lead-proof-app
+```
+
+### 2. Backend Setup
+
+```bash
+cd backend
+npm install
+
+# Setup Environment Variables
+cp .env.example .env
+# Edit .env with your credentials
+
+# Database Migration
+npx prisma migrate dev --name init
+
+# Generate Prisma Client
+npx prisma generate
+
+# Start Server
 npm run dev
 ```
 
-### Production Mode
+### 3. Frontend Setup
 
 ```bash
-npm start
+cd client
+npm install
+
+# Setup Environment Variables
+echo "VITE_API_URL=http://localhost:5005/api/v1" > .env
+
+# Start Client
+npm run dev
 ```
 
-## Troubleshooting
+## 📖 Environment Variables (Detailed)
 
-### Error: "Google Sheets API has not been used in project..."
+### Backend (`/backend/.env`)
 
-**Cause**: The Google Sheets API is not enabled in your Google Cloud Project.
-**Fix**:
+| Variable                   | Description                          |
+| :------------------------- | :----------------------------------- |
+| `DATABASE_URL`             | PostgreSQL connection string.        |
+| `REDIS_URL`                | Redis for BullMQ and Caching.        |
+| `GOOGLE_PLACES_API_KEY`    | Google Maps API Key.                 |
+| `GOOGLE_SHEET_ID`          | ID of the target Google Sheet.       |
+| `ENCRYPTION_KEY`           | 32-character key for token security. |
+| `WHATSAPP_PHONE_NUMBER_ID` | From Meta Business settings.         |
 
-1. Click the link provided in the error message (e.g., `https://console.developers.google.com/apis/api/sheets.googleapis.com/overview...`).
-2. Click the **"ENABLE"** button.
-3. Wait a few minutes for changes to propagate.
+### Client (`/client/.env`)
 
-### Error: "The caller does not have permission"
+| Variable       | Description                    |
+| :------------- | :----------------------------- |
+| `VITE_API_URL` | Base path of your backend API. |
 
-**Cause**: The Service Account does not have access to your Google Sheet.
-**Fix**:
+## 📁 Project Structure
 
-1. Open your `.env` file and look for `GOOGLE_CLIENT_EMAIL`. Copy that email address.
-2. Open your Google Sheet in your browser.
-3. Click the **"Share"** button in the top right.
-4. Paste the Service Account email.
-5. Ensure the permission is set to **"Editor"**.
-6. Click **"Send"** (uncick "Notify people" if you want).
-
-### Error: "getaddrinfo EAI_AGAIN maps.googleapis.com"
-
-**Cause**: Temporary network or DNS issue. Your server cannot reach Google.
-**Fix**:
-
-1. Check your internet connection.
-2. Restart the server (`npm run dev`).
-3. Try again in a few minutes.
-
-## API usage
-
-### Health Check
-
-**Endpoint**: `GET /health`
-
-**Response**:
-
-```json
-{
-  "status": "running"
-}
+```text
+lead-proof-app/
+├── backend/            # Express API & Workers
+│   ├── config/         # Database, Redis, Logger configs
+│   ├── controllers/    # Request handlers
+│   ├── middleware/     # Validation, Auth, Error handling
+│   ├── prisma/         # Schema & Migrations
+│   ├── routes/         # API Route definitions
+│   ├── services/       # Business logic (WhatsApp, Places, Sheets)
+│   └── workers/        # BullMQ background processors
+└── client/             # Vite + React Frontend
+    ├── src/
+    │   ├── api/        # Axios service definitions
+    │   ├── components/ # Reusable UI components
+    │   ├── pages/      # Dashboard, Settings, Generator views
+    │   └── layouts/    # Sidebar and navigation layouts
 ```
 
-### Generate Leads
+## 🛡 License
 
-**Endpoint**: `POST /generate-leads`
-
-**Body**:
-
-```json
-{
-  "location": "Lucknow",
-  "businessType": "salon",
-  "radius": 3000,
-  "limit": 15
-}
-```
-
-**Response**:
-
-```json
-{
-  "success": true,
-  "totalFetched": 15,
-  "noWebsiteLeads": 5,
-  "savedToSheet": 3,
-  "duplicatesSkipped": 2,
-  "data": [...]
-}
-```
+Built with ❤️ for professional lead generation experts.

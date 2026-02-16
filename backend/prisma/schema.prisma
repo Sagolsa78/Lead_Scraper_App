@@ -1,0 +1,44 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Lead {
+  id              String       @id @default(uuid())
+  name            String
+  address         String?
+  phone           String       @unique
+  rating          Float?
+  website         String?
+  googleMapsUrl   String?
+  businessType    String?
+  city            String?
+  searchKeyword   String?
+  whatsapp_sent   Boolean      @default(false)
+  createdAt       DateTime     @default(now())
+  updatedAt       DateTime     @updatedAt
+  messageLogs     MessageLog[]
+
+  @@index([phone])
+}
+
+model MessageLog {
+  id        String   @id @default(uuid())
+  leadId    String
+  lead      Lead     @relation(fields: [leadId], references: [id])
+  status    String   // 'sent' or 'failed'
+  response  Json?
+  createdAt DateTime @default(now())
+
+  @@index([leadId])
+}
+
+model Settings {
+  id              Int      @id @default(1)
+  whatsappToken   String?  // Will be encrypted
+  whatsappMode    String   @default("manual") // 'cloud' or 'manual'
+  updatedAt       DateTime @updatedAt
+}
