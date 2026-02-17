@@ -5984,3 +5984,13 @@ The table `public.Lead` does not exist in the current database.
 2026-02-17 12:15:31 [INFO] Server running in development mode on port 5005 
 2026-02-17 12:16:03 [INFO] PostgreSQL Database connected successfully via Prisma. 
 2026-02-17 12:16:03 [INFO] Server running in development mode on port 5005 
+2026-02-17 12:17:19 [INFO] Lead generation started: Any in Lucknow (radius: 3000, limit: 50) 
+2026-02-17 12:17:19 [INFO] Geocode cache hit for Lucknow 
+2026-02-17 12:17:20 [INFO] Found 20 nearby places. Has next page: true 
+2026-02-17 12:17:25 [INFO] Fetching more leads... (Current: 0/50) 
+2026-02-17 12:17:28 [INFO] Found 20 nearby places. Has next page: true 
+2026-02-17 12:17:33 [INFO] Fetching more leads... (Current: 0/50) 
+2026-02-17 12:17:36 [INFO] Found 20 nearby places. Has next page: false 
+2026-02-17 12:17:40 [INFO] ::1 - - [17/Feb/2026:06:47:40 +0000] "POST /api/v1/leads/generate HTTP/1.1" 200 239 "http://localhost:5173/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" 
+2026-02-17 12:19:38 [INFO] PostgreSQL Database connected successfully via Prisma. 
+2026-02-17 12:19:38 [INFO] Server running in development mode on port 5005 
