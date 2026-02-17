@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "Proof of concept backend for fetching business leads using Google Places API",
   "main": "server.js",
-
   "engines": {
     "node": "20.x"
   },
@@ -13,6 +12,7 @@
     "build": "npm install && npx prisma generate"
   },
   "dependencies": {
+    "@google/generative-ai": "^0.24.1",
     "@prisma/adapter-pg": "^7.4.0",
     "@prisma/client": "^7.4.0",
     "axios": "^1.6.0",

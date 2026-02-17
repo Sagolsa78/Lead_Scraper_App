@@ -70,16 +70,28 @@ const LeadsDashboard = () => {
     e.preventDefault();
     setIsSearching(true);
     try {
-      if (response.data.validLeadsCount === 0) {
-        toast.info("No new leads found matching the criteria in this area.");
+      const response = await leadService.searchLeads(smartSearch);
+
+      // response.data exists because leadApi.js returns response.data which is the formatter object
+      // The formatter object has a 'data' property which contains the result from controller
+      const resultData = response.data;
+
+      if (resultData.validLeadsCount === 0) {
+        toast("No new leads found matching the criteria in this area.", {
+          icon: "ℹ️",
+        });
       } else {
         toast.success(
-          `Smart search complete! Found ${response.data.validLeadsCount} new leads.`,
+          `Smart search complete! Found ${resultData.validLeadsCount} new leads.`,
         );
       }
       fetchLeads(1);
     } catch (error) {
-      toast.error(error.response?.data?.message || "Smart search failed");
+      // Improved error message handling
+      const errorMessage =
+        error.response?.data?.message || error.message || "Smart search failed";
+      toast.error(errorMessage);
+      console.error("Smart search error:", error);
     } finally {
       setIsSearching(false);
     }

@@ -5994,3 +5994,584 @@ The table `public.Lead` does not exist in the current database.
 2026-02-17 12:17:40 [INFO] ::1 - - [17/Feb/2026:06:47:40 +0000] "POST /api/v1/leads/generate HTTP/1.1" 200 239 "http://localhost:5173/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" 
 2026-02-17 12:19:38 [INFO] PostgreSQL Database connected successfully via Prisma. 
 2026-02-17 12:19:38 [INFO] Server running in development mode on port 5005 
+2026-02-17 16:49:28 [INFO] PostgreSQL Database connected successfully via Prisma. 
+2026-02-17 16:49:28 [INFO] Server running in development mode on port 5005 
+2026-02-17 16:52:58 [INFO] Lead generation started: Any in lucknow (radius: 3000, limit: 20) 
+2026-02-17 16:52:58 [INFO] Geocode cache hit for lucknow 
+2026-02-17 16:52:59 [INFO] Found 20 nearby places. Has next page: true 
+2026-02-17 16:53:03 [INFO] Fetching more leads... (Current: 0/20) 
+2026-02-17 16:53:06 [INFO] Found 20 nearby places. Has next page: true 
+2026-02-17 16:53:09 [INFO] Fetching more leads... (Current: 0/20) 
+2026-02-17 16:53:12 [INFO] Found 20 nearby places. Has next page: false 
+2026-02-17 16:53:16 [INFO] ::1 - - [17/Feb/2026:11:23:16 +0000] "POST /api/v1/leads/generate HTTP/1.1" 200 239 "http://localhost:5173/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" 
+2026-02-17 17:02:25 [INFO] PostgreSQL Database connected successfully via Prisma. 
+2026-02-17 17:02:25 [INFO] Server running in development mode on port 5005 
+2026-02-17 17:02:47 [INFO] Lead generation started: Any in lucknow (radius: 3000, limit: 20) 
+2026-02-17 17:02:47 [INFO] Geocode cache hit for lucknow 
+2026-02-17 17:02:48 [INFO] Found 20 nearby places. Has next page: true 
+2026-02-17 17:02:52 [INFO] Fetching more leads... (Current: 0/20) 
+2026-02-17 17:02:55 [INFO] Found 20 nearby places. Has next page: true 
+2026-02-17 17:02:59 [INFO] Fetching more leads... (Current: 0/20) 
+2026-02-17 17:03:01 [INFO] Found 20 nearby places. Has next page: false 
+2026-02-17 17:03:05 [INFO] ::1 - - [17/Feb/2026:11:33:05 +0000] "POST /api/v1/leads/generate HTTP/1.1" 200 239 "http://localhost:5173/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" 
+2026-02-17 17:03:19 [INFO] Lead generation started: Any in lucknow (radius: 3000, limit: 20) 
+2026-02-17 17:03:19 [INFO] Geocode cache hit for lucknow 
+2026-02-17 17:03:19 [INFO] Found 20 nearby places. Has next page: true 
+2026-02-17 17:03:24 [INFO] Fetching more leads... (Current: 0/20) 
+2026-02-17 17:03:26 [INFO] Found 20 nearby places. Has next page: true 
+2026-02-17 17:03:29 [INFO] Fetching more leads... (Current: 0/20) 
+2026-02-17 17:03:31 [INFO] Found 20 nearby places. Has next page: false 
+2026-02-17 17:03:33 [INFO] ::1 - - [17/Feb/2026:11:33:33 +0000] "POST /api/v1/leads/generate HTTP/1.1" 200 239 "http://localhost:5173/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" 
+2026-02-17 17:03:46 [INFO] Lead generation started: salon in lucknow (radius: 3000, limit: 20) 
+2026-02-17 17:03:46 [INFO] Geocode cache hit for lucknow 
+2026-02-17 17:03:47 [INFO] Found 20 nearby places. Has next page: true 
+2026-02-17 17:03:48 [INFO] Mapped (types: [beauty_salon, establishment, point_of_interest], keyword: "salon") to: {"businessType":"Beauty salon","subCategory":"Health & Medical"} 
+2026-02-17 17:03:49 [INFO] Mapped (types: [beauty_salon, establishment, hair_care, point_of_interest, spa], keyword: "salon") to: {"businessType":"Beauty salon","subCategory":"Fitness & Recreation"} 
+2026-02-17 17:03:49 [INFO] Mapped (types: [beauty_salon, establishment, point_of_interest], keyword: "salon") to: {"businessType":"Beauty salon","subCategory":"Health & Medical"} 
+2026-02-17 17:03:50 [INFO] Mapped (types: [beauty_salon, establishment, point_of_interest], keyword: "salon") to: {"businessType":"Beauty salon","subCategory":"Health & Medical"} 
+2026-02-17 17:03:50 [INFO] Mapped (types: [beauty_salon, establishment, hair_care, point_of_interest], keyword: "salon") to: {"businessType":"Beauty salon","subCategory":"Health & Medical"} 
+2026-02-17 17:03:50 [INFO] Mapped (types: [beauty_salon, establishment, point_of_interest, spa], keyword: "salon") to: {"businessType":"Beauty salon","subCategory":"Fitness & Recreation"} 
+2026-02-17 17:03:50 [INFO] Mapped (types: [beauty_salon, establishment, hair_care, point_of_interest, spa, store], keyword: "salon") to: {"businessType":"Beauty salon","subCategory":"Fitness & Recreation"} 
+2026-02-17 17:03:51 [INFO] Fetching more leads... (Current: 7/20) 
+2026-02-17 17:03:54 [INFO] Found 20 nearby places. Has next page: true 
+2026-02-17 17:03:54 [INFO] Mapped (types: [beauty_salon, establishment, hair_care, point_of_interest, spa], keyword: "salon") to: {"businessType":"Beauty salon","subCategory":"Fitness & Recreation"} 
+2026-02-17 17:03:54 [INFO] Mapped (types: [beauty_salon, establishment, point_of_interest], keyword: "salon") to: {"businessType":"Beauty salon","subCategory":"Health & Medical"} 
+2026-02-17 17:03:54 [INFO] Mapped (types: [beauty_salon, establishment, point_of_interest, store], keyword: "salon") to: {"businessType":"Beauty salon","subCategory":"Retail Stores"} 
+2026-02-17 17:03:55 [INFO] Mapped (types: [beauty_salon, establishment, point_of_interest], keyword: "salon") to: {"businessType":"Beauty salon","subCategory":"Health & Medical"} 
+2026-02-17 17:03:55 [INFO] Mapped (types: [beauty_salon, establishment, hair_care, health, point_of_interest], keyword: "salon") to: {"businessType":"Beauty salon","subCategory":"Health & Medical"} 
+2026-02-17 17:03:55 [INFO] Mapped (types: [beauty_salon, establishment, point_of_interest], keyword: "salon") to: {"businessType":"Beauty salon","subCategory":"Health & Medical"} 
+2026-02-17 17:03:55 [INFO] Mapped (types: [establishment, hair_care, point_of_interest], keyword: "salon") to: {"businessType":"Hair care","subCategory":"Health & Medical"} 
+2026-02-17 17:03:56 [INFO] Mapped (types: [beauty_salon, establishment, point_of_interest, spa], keyword: "salon") to: {"businessType":"Beauty salon","subCategory":"Fitness & Recreation"} 
+2026-02-17 17:03:56 [INFO] Mapped (types: [beauty_salon, establishment, point_of_interest], keyword: "salon") to: {"businessType":"Beauty salon","subCategory":"Health & Medical"} 
+2026-02-17 17:03:57 [INFO] Mapped (types: [beauty_salon, establishment, hair_care, point_of_interest], keyword: "salon") to: {"businessType":"Beauty salon","subCategory":"Health & Medical"} 
+2026-02-17 17:03:57 [INFO] Mapped (types: [beauty_salon, establishment, point_of_interest], keyword: "salon") to: {"businessType":"Beauty salon","subCategory":"Health & Medical"} 
+2026-02-17 17:03:57 [INFO] Fetching more leads... (Current: 18/20) 
+2026-02-17 17:04:00 [INFO] Found 20 nearby places. Has next page: false 
+2026-02-17 17:04:00 [INFO] Mapped (types: [beauty_salon, establishment, hair_care, point_of_interest], keyword: "salon") to: {"businessType":"Beauty salon","subCategory":"Health & Medical"} 
+2026-02-17 17:04:01 [INFO] Mapped (types: [beauty_salon, establishment, point_of_interest], keyword: "salon") to: {"businessType":"Beauty salon","subCategory":"Health & Medical"} 
+2026-02-17 17:04:03 [INFO] Successfully appended 20 leads to Google Sheets 
+2026-02-17 17:04:03 [INFO] Lead generation completed {"totalFetched":60,"validLeadsCount":20,"duplicatesRemoved":2,"savedToPostgres":20,"savedToSheet":20}
+2026-02-17 17:04:03 [INFO] ::1 - - [17/Feb/2026:11:34:03 +0000] "POST /api/v1/leads/generate HTTP/1.1" 200 232 "http://localhost:5173/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" 
+2026-02-17 17:18:16 [INFO] PostgreSQL Database connected successfully via Prisma. 
+2026-02-17 17:18:16 [INFO] Server running in development mode on port 5005 
+2026-02-17 17:18:37 [INFO] PostgreSQL Database connected successfully via Prisma. 
+2026-02-17 17:18:37 [INFO] Server running in development mode on port 5005 
+2026-02-17 17:18:39 [INFO] PostgreSQL Database connected successfully via Prisma. 
+2026-02-17 17:18:39 [INFO] Server running in development mode on port 5005 
+2026-02-17 17:18:46 [INFO] PostgreSQL Database connected successfully via Prisma. 
+2026-02-17 17:18:46 [INFO] Server running in development mode on port 5005 
+2026-02-17 17:19:01 [INFO] PostgreSQL Database connected successfully via Prisma. 
+2026-02-17 17:19:01 [INFO] Server running in development mode on port 5005 
+2026-02-17 17:19:07 [INFO] PostgreSQL Database connected successfully via Prisma. 
+2026-02-17 17:19:07 [INFO] Server running in development mode on port 5005 
+2026-02-17 17:19:12 [WARN] GEMINI_API_KEY not found in environment, skipping AI categorization 
+2026-02-17 17:19:12 [INFO] Fallback mapping for "Domino's Pizza": {"businessType":"Pizza restaurant","subCategory":"Food and Drink"} 
+2026-02-17 17:19:12 [WARN] GEMINI_API_KEY not found in environment, skipping AI categorization 
+2026-02-17 17:19:12 [INFO] Fallback mapping for "Anytime Fitness": {"businessType":"Gym","subCategory":"Health and Wellness"} 
+2026-02-17 17:19:12 [WARN] GEMINI_API_KEY not found in environment, skipping AI categorization 
+2026-02-17 17:19:12 [INFO] Fallback mapping for "St. Mary's School": {"businessType":"School","subCategory":"Education"} 
+2026-02-17 17:19:12 [WARN] GEMINI_API_KEY not found in environment, skipping AI categorization 
+2026-02-17 17:19:12 [INFO] Fallback mapping for "HDFC Bank": {"businessType":"Bank","subCategory":"Finance"} 
+2026-02-17 17:20:24 [INFO] Lead generation started: Any in lucknow (radius: 3000, limit: 20) 
+2026-02-17 17:20:24 [INFO] Geocode cache hit for lucknow 
+2026-02-17 17:20:25 [INFO] Found 20 nearby places. Has next page: true 
+2026-02-17 17:20:29 [INFO] Fetching more leads... (Current: 0/20) 
+2026-02-17 17:20:32 [INFO] Found 20 nearby places. Has next page: true 
+2026-02-17 17:20:36 [INFO] Fetching more leads... (Current: 0/20) 
+2026-02-17 17:20:38 [INFO] Found 20 nearby places. Has next page: false 
+2026-02-17 17:20:42 [INFO] ::1 - - [17/Feb/2026:11:50:42 +0000] "POST /api/v1/leads/generate HTTP/1.1" 200 239 "http://localhost:5173/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" 
+2026-02-17 17:21:19 [INFO] Lead generation started: restraunts in lucknow (radius: 3000, limit: 20) 
+2026-02-17 17:21:19 [INFO] Geocode cache hit for lucknow 
+2026-02-17 17:21:21 [INFO] Found 20 nearby places. Has next page: true 
+2026-02-17 17:21:21 [WARN] GEMINI_API_KEY not found in environment, skipping AI categorization 
+2026-02-17 17:21:21 [INFO] Fallback mapping for "Vito's Pizzeria Restaurant and Caffe Lucknow": {"businessType":"Food","subCategory":"Food and Drink"} 
+2026-02-17 17:21:22 [WARN] GEMINI_API_KEY not found in environment, skipping AI categorization 
+2026-02-17 17:21:22 [INFO] Fallback mapping for "The Mughal's Dastarkhwan": {"businessType":"Food","subCategory":"Food and Drink"} 
+2026-02-17 17:21:22 [WARN] GEMINI_API_KEY not found in environment, skipping AI categorization 
+2026-02-17 17:21:22 [INFO] Fallback mapping for "City Restaurant | Best Restaurant in Lucknow": {"businessType":"Food","subCategory":"Food and Drink"} 
+2026-02-17 17:21:22 [WARN] GEMINI_API_KEY not found in environment, skipping AI categorization 
+2026-02-17 17:21:22 [INFO] Fallback mapping for "Sicily Cafe & Dine Ik": {"businessType":"Food","subCategory":"Food and Drink"} 
+2026-02-17 17:21:23 [WARN] GEMINI_API_KEY not found in environment, skipping AI categorization 
+2026-02-17 17:21:23 [INFO] Fallback mapping for "Hons - All day Dining": {"businessType":"Cafe","subCategory":"Food and Drink"} 
+2026-02-17 17:21:23 [WARN] GEMINI_API_KEY not found in environment, skipping AI categorization 
+2026-02-17 17:21:23 [INFO] Fallback mapping for "The Cartman": {"businessType":"Food","subCategory":"Food and Drink"} 
+2026-02-17 17:21:24 [WARN] GEMINI_API_KEY not found in environment, skipping AI categorization 
+2026-02-17 17:21:24 [INFO] Fallback mapping for "Spicy Bite": {"businessType":"Food","subCategory":"Food and Drink"} 
+2026-02-17 17:21:24 [WARN] GEMINI_API_KEY not found in environment, skipping AI categorization 
+2026-02-17 17:21:24 [INFO] Fallback mapping for "Dasdarkhan": {"businessType":"Food","subCategory":"Food and Drink"} 
+2026-02-17 17:21:24 [INFO] Fetching more leads... (Current: 8/20) 
+2026-02-17 17:21:27 [INFO] Found 20 nearby places. Has next page: true 
+2026-02-17 17:21:27 [WARN] GEMINI_API_KEY not found in environment, skipping AI categorization 
+2026-02-17 17:21:27 [INFO] Fallback mapping for "Marksmen": {"businessType":"Food","subCategory":"Food and Drink"} 
+2026-02-17 17:21:28 [WARN] GEMINI_API_KEY not found in environment, skipping AI categorization 
+2026-02-17 17:21:28 [INFO] Fallback mapping for "Durgma Restaurant": {"businessType":"Food","subCategory":"Food and Drink"} 
+2026-02-17 17:21:28 [WARN] GEMINI_API_KEY not found in environment, skipping AI categorization 
+2026-02-17 17:21:28 [INFO] Fallback mapping for "Mughal Zaika": {"businessType":"Food","subCategory":"Food and Drink"} 
+2026-02-17 17:21:28 [WARN] GEMINI_API_KEY not found in environment, skipping AI categorization 
+2026-02-17 17:21:28 [INFO] Fallback mapping for "Vicky Restaurant": {"businessType":"Food","subCategory":"Food and Drink"} 
+2026-02-17 17:21:28 [WARN] GEMINI_API_KEY not found in environment, skipping AI categorization 
+2026-02-17 17:21:28 [INFO] Fallback mapping for "Moti Mahal Restaurant": {"businessType":"Food","subCategory":"Food and Drink"} 
+2026-02-17 17:21:29 [WARN] GEMINI_API_KEY not found in environment, skipping AI categorization 
+2026-02-17 17:21:29 [INFO] Fallback mapping for "Panchayat: Bistro and Bar AUnit Of Silver Spoon": {"businessType":"Food","subCategory":"Food and Drink"} 
+2026-02-17 17:21:29 [WARN] GEMINI_API_KEY not found in environment, skipping AI categorization 
+2026-02-17 17:21:29 [INFO] Fallback mapping for "Foodiez Restaurant": {"businessType":"Food","subCategory":"Food and Drink"} 
+2026-02-17 17:21:29 [WARN] GEMINI_API_KEY not found in environment, skipping AI categorization 
+2026-02-17 17:21:29 [INFO] Fallback mapping for "Hotel Charminar": {"businessType":"Food","subCategory":"Food and Drink"} 
+2026-02-17 17:21:30 [WARN] GEMINI_API_KEY not found in environment, skipping AI categorization 
+2026-02-17 17:21:30 [INFO] Fallback mapping for "MasalaKechup": {"businessType":"Food","subCategory":"Food and Drink"} 
+2026-02-17 17:21:30 [WARN] GEMINI_API_KEY not found in environment, skipping AI categorization 
+2026-02-17 17:21:30 [INFO] Fallback mapping for "Eat N Eat (Late Night Food Ordering, Open Theatre)": {"businessType":"Food","subCategory":"Food and Drink"} 
+2026-02-17 17:21:30 [WARN] GEMINI_API_KEY not found in environment, skipping AI categorization 
+2026-02-17 17:21:30 [INFO] Fallback mapping for "Parambhoj - Best Veg Thali": {"businessType":"Food","subCategory":"Food and Drink"} 
+2026-02-17 17:21:30 [WARN] GEMINI_API_KEY not found in environment, skipping AI categorization 
+2026-02-17 17:21:30 [INFO] Fallback mapping for "The habsi Restaurant": {"businessType":"Food","subCategory":"Food and Drink"} 
+2026-02-17 17:21:32 [INFO] Successfully appended 20 leads to Google Sheets 
+2026-02-17 17:21:32 [INFO] Lead generation completed {"totalFetched":40,"validLeadsCount":20,"duplicatesRemoved":0,"savedToPostgres":20,"savedToSheet":20}
+2026-02-17 17:21:32 [INFO] ::1 - - [17/Feb/2026:11:51:32 +0000] "POST /api/v1/leads/generate HTTP/1.1" 200 232 "http://localhost:5173/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" 
+2026-02-17 17:23:05 [INFO] Lead generation started: hotels in lucknow (radius: 3000, limit: 50) 
+2026-02-17 17:23:05 [INFO] Geocode cache hit for lucknow 
+2026-02-17 17:23:06 [INFO] Found 20 nearby places. Has next page: true 
+2026-02-17 17:23:06 [WARN] GEMINI_API_KEY not found in environment, skipping AI categorization 
+2026-02-17 17:23:06 [INFO] Fallback mapping for "Hotel Aryan": {"businessType":"Lodging","subCategory":"Lodging"} 
+2026-02-17 17:23:08 [WARN] GEMINI_API_KEY not found in environment, skipping AI categorization 
+2026-02-17 17:23:08 [INFO] Fallback mapping for "Hotel Alfa - Hotel in Charbagh": {"businessType":"Lodging","subCategory":"Lodging"} 
+2026-02-17 17:23:09 [WARN] GEMINI_API_KEY not found in environment, skipping AI categorization 
+2026-02-17 17:23:09 [INFO] Fallback mapping for "The Maple Leaf": {"businessType":"Lodging","subCategory":"Lodging"} 
+2026-02-17 17:23:09 [WARN] GEMINI_API_KEY not found in environment, skipping AI categorization 
+2026-02-17 17:23:09 [INFO] Fallback mapping for "Hotel Classic Residency": {"businessType":"Lodging","subCategory":"Lodging"} 
+2026-02-17 17:23:10 [WARN] GEMINI_API_KEY not found in environment, skipping AI categorization 
+2026-02-17 17:23:10 [INFO] Fallback mapping for "Hotel Radical palace": {"businessType":"Lodging","subCategory":"Lodging"} 
+2026-02-17 17:23:10 [WARN] GEMINI_API_KEY not found in environment, skipping AI categorization 
+2026-02-17 17:23:10 [INFO] Fallback mapping for "Hotel Dayal": {"businessType":"Lodging","subCategory":"Lodging"} 
+2026-02-17 17:23:10 [INFO] Fetching more leads... (Current: 6/50) 
+2026-02-17 17:23:14 [INFO] Found 20 nearby places. Has next page: true 
+2026-02-17 17:23:15 [WARN] GEMINI_API_KEY not found in environment, skipping AI categorization 
+2026-02-17 17:23:15 [INFO] Fallback mapping for "Backpackers Den": {"businessType":"Lodging","subCategory":"Lodging"} 
+2026-02-17 17:23:15 [WARN] GEMINI_API_KEY not found in environment, skipping AI categorization 
+2026-02-17 17:23:15 [INFO] Fallback mapping for "Hotel GS Palace": {"businessType":"Lodging","subCategory":"Lodging"} 
+2026-02-17 17:23:16 [WARN] GEMINI_API_KEY not found in environment, skipping AI categorization 
+2026-02-17 17:23:16 [INFO] Fallback mapping for "Richa Garden Hotel": {"businessType":"Lodging","subCategory":"Health and Wellness"} 
+2026-02-17 17:23:16 [WARN] GEMINI_API_KEY not found in environment, skipping AI categorization 
+2026-02-17 17:23:16 [INFO] Fallback mapping for "Hotel Charans Plaza": {"businessType":"Food","subCategory":"Food and Drink"} 
+2026-02-17 17:23:16 [WARN] GEMINI_API_KEY not found in environment, skipping AI categorization 
+2026-02-17 17:23:16 [INFO] Fallback mapping for "Ecotel Hotel": {"businessType":"Lodging","subCategory":"Lodging"} 
+2026-02-17 17:23:17 [WARN] GEMINI_API_KEY not found in environment, skipping AI categorization 
+2026-02-17 17:23:17 [INFO] Fallback mapping for "Hotel Shimla Inn Lucknow": {"businessType":"Lodging","subCategory":"Lodging"} 
+2026-02-17 17:23:17 [WARN] GEMINI_API_KEY not found in environment, skipping AI categorization 
+2026-02-17 17:23:17 [INFO] Fallback mapping for "Hotel Atithi Residency": {"businessType":"Lodging","subCategory":"Lodging"} 
+2026-02-17 17:23:18 [WARN] GEMINI_API_KEY not found in environment, skipping AI categorization 
+2026-02-17 17:23:18 [INFO] Fallback mapping for "Hotel Metro Regency": {"businessType":"Lodging","subCategory":"Lodging"} 
+2026-02-17 17:23:18 [INFO] Fetching more leads... (Current: 14/50) 
+2026-02-17 17:23:21 [INFO] Found 20 nearby places. Has next page: false 
+2026-02-17 17:23:21 [WARN] GEMINI_API_KEY not found in environment, skipping AI categorization 
+2026-02-17 17:23:21 [INFO] Fallback mapping for "Hotel Kanha Inn": {"businessType":"Lodging","subCategory":"Lodging"} 
+2026-02-17 17:23:22 [WARN] GEMINI_API_KEY not found in environment, skipping AI categorization 
+2026-02-17 17:23:22 [INFO] Fallback mapping for "Nueston Walk Inn, Lucknow": {"businessType":"Lodging","subCategory":"Lodging"} 
+2026-02-17 17:23:22 [WARN] GEMINI_API_KEY not found in environment, skipping AI categorization 
+2026-02-17 17:23:22 [INFO] Fallback mapping for "Hotel Raj Palace": {"businessType":"Lodging","subCategory":"Lodging"} 
+2026-02-17 17:23:23 [WARN] GEMINI_API_KEY not found in environment, skipping AI categorization 
+2026-02-17 17:23:23 [INFO] Fallback mapping for "JC Guest House": {"businessType":"Food","subCategory":"Food and Drink"} 
+2026-02-17 17:23:23 [WARN] GEMINI_API_KEY not found in environment, skipping AI categorization 
+2026-02-17 17:23:23 [INFO] Fallback mapping for "Sharma Regency": {"businessType":"Lodging","subCategory":"Lodging"} 
+2026-02-17 17:23:24 [WARN] GEMINI_API_KEY not found in environment, skipping AI categorization 
+2026-02-17 17:23:24 [INFO] Fallback mapping for "Hotel grand": {"businessType":"Lodging","subCategory":"Lodging"} 
+2026-02-17 17:23:25 [WARN] GEMINI_API_KEY not found in environment, skipping AI categorization 
+2026-02-17 17:23:25 [INFO] Fallback mapping for "Sky High - Hotel And Banquet": {"businessType":"Lodging","subCategory":"Lodging"} 
+2026-02-17 17:23:27 [INFO] Successfully appended 21 leads to Google Sheets 
+2026-02-17 17:23:27 [INFO] Lead generation completed {"totalFetched":60,"validLeadsCount":21,"duplicatesRemoved":0,"savedToPostgres":21,"savedToSheet":21}
+2026-02-17 17:23:27 [INFO] ::1 - - [17/Feb/2026:11:53:27 +0000] "POST /api/v1/leads/generate HTTP/1.1" 200 232 "http://localhost:5173/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" 
+2026-02-17 17:26:52 [INFO] Lead generation started: bar in lucknow (radius: 3000, limit: 50) 
+2026-02-17 17:26:52 [INFO] Geocode cache hit for lucknow 
+2026-02-17 17:26:53 [INFO] Found 20 nearby places. Has next page: true 
+2026-02-17 17:26:54 [WARN] GEMINI_API_KEY not found in environment, skipping AI categorization 
+2026-02-17 17:26:54 [INFO] Fallback mapping for "Woodpecker": {"businessType":"Bar","subCategory":"Food and Drink"} 
+2026-02-17 17:26:54 [WARN] GEMINI_API_KEY not found in environment, skipping AI categorization 
+2026-02-17 17:26:54 [INFO] Fallback mapping for "Blue Fox Bar": {"businessType":"Bar","subCategory":"Food and Drink"} 
+2026-02-17 17:26:55 [WARN] GEMINI_API_KEY not found in environment, skipping AI categorization 
+2026-02-17 17:26:55 [INFO] Fallback mapping for "MOLECULE AIR BAR LUCKNOW": {"businessType":"Bar","subCategory":"Entertainment and Recreation"} 
+2026-02-17 17:26:55 [WARN] GEMINI_API_KEY not found in environment, skipping AI categorization 
+2026-02-17 17:26:55 [INFO] Fallback mapping for "Wings Of Fire": {"businessType":"Bar","subCategory":"Entertainment and Recreation"} 
+2026-02-17 17:26:56 [WARN] GEMINI_API_KEY not found in environment, skipping AI categorization 
+2026-02-17 17:26:56 [INFO] Fallback mapping for "Pink Panther Bar And Restaurant": {"businessType":"Bar","subCategory":"Food and Drink"} 
+2026-02-17 17:26:58 [WARN] GEMINI_API_KEY not found in environment, skipping AI categorization 
+2026-02-17 17:26:58 [INFO] Fallback mapping for "Friends Bar & Restaurant | Best Price Bar | Drinks @ Best Price | 1st Best Price Bar in Lucknow": {"businessType":"Bar","subCategory":"Food and Drink"} 
+2026-02-17 17:26:58 [INFO] Fetching more leads... (Current: 6/50) 
+2026-02-17 17:27:01 [INFO] Found 19 nearby places. Has next page: false 
+2026-02-17 17:27:02 [WARN] GEMINI_API_KEY not found in environment, skipping AI categorization 
+2026-02-17 17:27:02 [INFO] Fallback mapping for "Rajendra Jaiswal Beer Bar": {"businessType":"Bar","subCategory":"Food and Drink"} 
+2026-02-17 17:27:03 [WARN] GEMINI_API_KEY not found in environment, skipping AI categorization 
+2026-02-17 17:27:03 [INFO] Fallback mapping for "369The Coffee Bar": {"businessType":"Food","subCategory":"Food and Drink"} 
+2026-02-17 17:27:03 [WARN] GEMINI_API_KEY not found in environment, skipping AI categorization 
+2026-02-17 17:27:03 [INFO] Fallback mapping for "Monarch BAR": {"businessType":"Bar","subCategory":"Food and Drink"} 
+2026-02-17 17:27:03 [WARN] GEMINI_API_KEY not found in environment, skipping AI categorization 
+2026-02-17 17:27:03 [INFO] Fallback mapping for "Bombay stylez": {"businessType":"Bar","subCategory":"Food and Drink"} 
+2026-02-17 17:27:04 [WARN] GEMINI_API_KEY not found in environment, skipping AI categorization 
+2026-02-17 17:27:04 [INFO] Fallback mapping for "MOMENTS LOUNGE": {"businessType":"Bar","subCategory":"Entertainment and Recreation"} 
+2026-02-17 17:27:06 [INFO] Successfully appended 11 leads to Google Sheets 
+2026-02-17 17:27:06 [INFO] Lead generation completed {"totalFetched":39,"validLeadsCount":11,"duplicatesRemoved":1,"savedToPostgres":11,"savedToSheet":11}
+2026-02-17 17:27:06 [INFO] ::1 - - [17/Feb/2026:11:57:06 +0000] "POST /api/v1/leads/generate HTTP/1.1" 200 232 "http://localhost:5173/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" 
+2026-02-17 17:31:42 [INFO] Lead generation started: salon in lucknow (radius: 3000, limit: 50) 
+2026-02-17 17:31:42 [INFO] Geocode cache hit for lucknow 
+2026-02-17 17:31:43 [INFO] Found 20 nearby places. Has next page: true 
+2026-02-17 17:31:48 [INFO] Fetching more leads... (Current: 0/50) 
+2026-02-17 17:31:51 [INFO] Found 20 nearby places. Has next page: true 
+2026-02-17 17:31:55 [INFO] Fetching more leads... (Current: 0/50) 
+2026-02-17 17:31:58 [INFO] Found 20 nearby places. Has next page: false 
+2026-02-17 17:32:00 [WARN] GEMINI_API_KEY not found in environment, skipping AI categorization 
+2026-02-17 17:32:00 [INFO] Fallback mapping for "Glitters and Glam- Pro Makeup Studio & Beauty Salon": {"businessType":"Point of interest","subCategory":"Other"} 
+2026-02-17 17:32:00 [WARN] GEMINI_API_KEY not found in environment, skipping AI categorization 
+2026-02-17 17:32:00 [INFO] Fallback mapping for "Sajid Iqbal Hair & Beauty": {"businessType":"Beauty salon","subCategory":"Health and Wellness"} 
+2026-02-17 17:32:01 [WARN] GEMINI_API_KEY not found in environment, skipping AI categorization 
+2026-02-17 17:32:01 [INFO] Fallback mapping for "The Head Masters Men’s Salon": {"businessType":"Hair care","subCategory":"Other"} 
+2026-02-17 17:32:01 [WARN] GEMINI_API_KEY not found in environment, skipping AI categorization 
+2026-02-17 17:32:01 [INFO] Fallback mapping for "Abeer’s Unisex Salon": {"businessType":"Beauty salon","subCategory":"Health and Wellness"} 
+2026-02-17 17:32:02 [WARN] GEMINI_API_KEY not found in environment, skipping AI categorization 
+2026-02-17 17:32:02 [INFO] Fallback mapping for "MBS The Family Salon & Academy": {"businessType":"Beauty salon","subCategory":"Health and Wellness"} 
+2026-02-17 17:32:02 [WARN] GEMINI_API_KEY not found in environment, skipping AI categorization 
+2026-02-17 17:32:02 [INFO] Fallback mapping for "The Invite Unisex Salon": {"businessType":"Beauty salon","subCategory":"Health and Wellness"} 
+2026-02-17 17:32:02 [WARN] GEMINI_API_KEY not found in environment, skipping AI categorization 
+2026-02-17 17:32:02 [INFO] Fallback mapping for "Noire by Tahani": {"businessType":"Beauty salon","subCategory":"Health and Wellness"} 
+2026-02-17 17:32:04 [INFO] Successfully appended 7 leads to Google Sheets 
+2026-02-17 17:32:04 [INFO] Lead generation completed {"totalFetched":60,"validLeadsCount":7,"duplicatesRemoved":22,"savedToPostgres":7,"savedToSheet":7}
+2026-02-17 17:32:04 [INFO] ::1 - - [17/Feb/2026:12:02:04 +0000] "POST /api/v1/leads/generate HTTP/1.1" 200 230 "http://localhost:5173/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" 
+2026-02-17 17:32:37 [INFO] PostgreSQL Database connected successfully via Prisma. 
+2026-02-17 17:32:37 [INFO] Server running in development mode on port 5005 
+2026-02-17 17:32:40 [INFO] PostgreSQL Database connected successfully via Prisma. 
+2026-02-17 17:32:40 [INFO] Server running in development mode on port 5005 
+2026-02-17 17:32:45 [INFO] PostgreSQL Database connected successfully via Prisma. 
+2026-02-17 17:32:45 [INFO] Server running in development mode on port 5005 
+2026-02-17 17:32:47 [INFO] PostgreSQL Database connected successfully via Prisma. 
+2026-02-17 17:32:47 [INFO] Server running in development mode on port 5005 
+2026-02-17 17:32:52 [INFO] Lead generation started: salon in lucknow (radius: 3000, limit: 10) 
+2026-02-17 17:32:52 [INFO] Geocode cache hit for lucknow 
+2026-02-17 17:32:53 [INFO] Found 20 nearby places. Has next page: true 
+2026-02-17 17:32:56 [INFO] Fetching more leads... (Current: 0/10) 
+2026-02-17 17:32:59 [INFO] Found 20 nearby places. Has next page: true 
+2026-02-17 17:33:02 [INFO] Fetching more leads... (Current: 0/10) 
+2026-02-17 17:33:05 [INFO] Found 20 nearby places. Has next page: false 
+2026-02-17 17:33:09 [ERROR] AI Categorization failed for "Club salon": [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods. 
+2026-02-17 17:33:09 [INFO] Fallback mapping for "Club salon": {"businessType":"Hair care","subCategory":"Other"} 
+2026-02-17 17:33:11 [INFO] Successfully appended 1 leads to Google Sheets 
+2026-02-17 17:33:11 [INFO] Lead generation completed {"totalFetched":60,"validLeadsCount":1,"duplicatesRemoved":28,"savedToPostgres":1,"savedToSheet":1}
+2026-02-17 17:33:11 [INFO] ::1 - - [17/Feb/2026:12:03:11 +0000] "POST /api/v1/leads/generate HTTP/1.1" 200 230 "http://localhost:5173/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" 
+2026-02-17 17:39:43 [INFO] PostgreSQL Database connected successfully via Prisma. 
+2026-02-17 17:39:43 [INFO] Server running in development mode on port 5005 
+2026-02-17 17:40:25 [INFO] Lead generation started: Any in lucknow (radius: 3000, limit: 10) 
+2026-02-17 17:40:25 [INFO] Geocode cache hit for lucknow 
+2026-02-17 17:40:26 [INFO] Found 20 nearby places. Has next page: true 
+2026-02-17 17:40:30 [INFO] Fetching more leads... (Current: 0/10) 
+2026-02-17 17:40:32 [INFO] Found 20 nearby places. Has next page: true 
+2026-02-17 17:40:37 [INFO] Fetching more leads... (Current: 0/10) 
+2026-02-17 17:40:39 [INFO] Found 20 nearby places. Has next page: false 
+2026-02-17 17:40:43 [INFO] ::1 - - [17/Feb/2026:12:10:43 +0000] "POST /api/v1/leads/generate HTTP/1.1" 200 239 "http://localhost:5173/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" 
+2026-02-17 17:42:17 [INFO] Lead generation started: service in lucknow (radius: 3000, limit: 10) 
+2026-02-17 17:42:17 [INFO] Geocode cache hit for lucknow 
+2026-02-17 17:42:18 [INFO] Found 20 nearby places. Has next page: true 
+2026-02-17 17:42:19 [ERROR] AI Categorization failed for "Realme Authorised service center": [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods. 
+2026-02-17 17:42:19 [INFO] Fallback mapping for "Realme Authorised service center": {"businessType":"Point of interest","subCategory":"Other"} 
+2026-02-17 17:42:20 [ERROR] AI Categorization failed for "Premium Service center, Station Rd Lucknow (Ittech)": [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods. 
+2026-02-17 17:42:20 [INFO] Fallback mapping for "Premium Service center, Station Rd Lucknow (Ittech)": {"businessType":"Point of interest","subCategory":"Other"} 
+2026-02-17 17:42:20 [ERROR] AI Categorization failed for "Samad service centre": [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods. 
+2026-02-17 17:42:20 [INFO] Fallback mapping for "Samad service centre": {"businessType":"Car repair","subCategory":"Automotive"} 
+2026-02-17 17:42:21 [ERROR] AI Categorization failed for "STAR YAMAHA SERVICE LALBAGH": [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods. 
+2026-02-17 17:42:21 [INFO] Fallback mapping for "STAR YAMAHA SERVICE LALBAGH": {"businessType":"Car repair","subCategory":"Automotive"} 
+2026-02-17 17:42:21 [ERROR] AI Categorization failed for "LG Service Centre": [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods. 
+2026-02-17 17:42:21 [INFO] Fallback mapping for "LG Service Centre": {"businessType":"Point of interest","subCategory":"Other"} 
+2026-02-17 17:42:22 [ERROR] AI Categorization failed for "Nadeem Auto Service": [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods. 
+2026-02-17 17:42:22 [INFO] Fallback mapping for "Nadeem Auto Service": {"businessType":"Car repair","subCategory":"Automotive"} 
+2026-02-17 17:42:22 [ERROR] AI Categorization failed for "Annpurna tifin service": [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods. 
+2026-02-17 17:42:22 [INFO] Fallback mapping for "Annpurna tifin service": {"businessType":"Food","subCategory":"Shopping"} 
+2026-02-17 17:42:23 [ERROR] AI Categorization failed for "Lenovo Service Center - Infocare Digital System": [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods. 
+2026-02-17 17:42:23 [INFO] Fallback mapping for "Lenovo Service Center - Infocare Digital System": {"businessType":"Electronics store","subCategory":"Shopping"} 
+2026-02-17 17:42:24 [ERROR] AI Categorization failed for "Awadh Delicious Tiffin Service": [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods. 
+2026-02-17 17:42:24 [INFO] Fallback mapping for "Awadh Delicious Tiffin Service": {"businessType":"Food","subCategory":"Food and Drink"} 
+2026-02-17 17:42:24 [INFO] Fetching more leads... (Current: 9/10) 
+2026-02-17 17:42:27 [INFO] Found 20 nearby places. Has next page: true 
+2026-02-17 17:42:29 [ERROR] AI Categorization failed for "GENRATOR SERVICE": [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods. 
+2026-02-17 17:42:29 [INFO] Fallback mapping for "GENRATOR SERVICE": {"businessType":"Car repair","subCategory":"Automotive"} 
+2026-02-17 17:42:31 [INFO] Successfully appended 10 leads to Google Sheets 
+2026-02-17 17:42:31 [INFO] Lead generation completed {"totalFetched":40,"validLeadsCount":10,"duplicatesRemoved":0,"savedToPostgres":10,"savedToSheet":10}
+2026-02-17 17:42:31 [INFO] ::1 - - [17/Feb/2026:12:12:31 +0000] "POST /api/v1/leads/generate HTTP/1.1" 200 232 "http://localhost:5173/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" 
+2026-02-17 17:43:06 [INFO] PostgreSQL Database connected successfully via Prisma. 
+2026-02-17 17:43:06 [INFO] Server running in development mode on port 5005 
+2026-02-17 17:44:22 [INFO] PostgreSQL Database connected successfully via Prisma. 
+2026-02-17 17:44:22 [INFO] Server running in development mode on port 5005 
+2026-02-17 17:44:36 [INFO] PostgreSQL Database connected successfully via Prisma. 
+2026-02-17 17:44:36 [INFO] Server running in development mode on port 5005 
+2026-02-17 17:45:23 [INFO] PostgreSQL Database connected successfully via Prisma. 
+2026-02-17 17:45:23 [INFO] Server running in development mode on port 5005 
+2026-02-17 17:46:05 [INFO] PostgreSQL Database connected successfully via Prisma. 
+2026-02-17 17:46:05 [INFO] Server running in development mode on port 5005 
+2026-02-17 17:46:08 [ERROR] AI Categorization attempt failed for "Domino's Pizza": [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods. 
+2026-02-17 17:46:08 [INFO] Attempting fallback with gemini-pro... 
+2026-02-17 17:46:08 [ERROR] AI Fallback categorization also failed: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent: [404 Not Found] models/gemini-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods. 
+2026-02-17 17:46:08 [INFO] Fallback mapping for "Domino's Pizza": {"businessType":"Pizza restaurant","subCategory":"Food and Drink"} 
+2026-02-17 17:46:08 [ERROR] AI Categorization attempt failed for "Anytime Fitness": [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods. 
+2026-02-17 17:46:08 [INFO] Attempting fallback with gemini-pro... 
+2026-02-17 17:46:08 [ERROR] AI Fallback categorization also failed: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent: [404 Not Found] models/gemini-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods. 
+2026-02-17 17:46:08 [INFO] Fallback mapping for "Anytime Fitness": {"businessType":"Gym","subCategory":"Health and Wellness"} 
+2026-02-17 17:46:09 [ERROR] AI Categorization attempt failed for "St. Mary's School": [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods. 
+2026-02-17 17:46:09 [INFO] Attempting fallback with gemini-pro... 
+2026-02-17 17:46:09 [ERROR] AI Fallback categorization also failed: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent: [404 Not Found] models/gemini-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods. 
+2026-02-17 17:46:09 [INFO] Fallback mapping for "St. Mary's School": {"businessType":"School","subCategory":"Education"} 
+2026-02-17 17:46:09 [ERROR] AI Categorization attempt failed for "HDFC Bank": [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods. 
+2026-02-17 17:46:09 [INFO] Attempting fallback with gemini-pro... 
+2026-02-17 17:46:09 [ERROR] AI Fallback categorization also failed: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent: [404 Not Found] models/gemini-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods. 
+2026-02-17 17:46:09 [INFO] Fallback mapping for "HDFC Bank": {"businessType":"Bank","subCategory":"Finance"} 
+2026-02-17 17:46:54 [INFO] PostgreSQL Database connected successfully via Prisma. 
+2026-02-17 17:46:54 [INFO] Server running in development mode on port 5005 
+2026-02-17 17:50:14 [INFO] PostgreSQL Database connected successfully via Prisma. 
+2026-02-17 17:50:14 [INFO] Server running in development mode on port 5005 
+2026-02-17 17:50:17 [ERROR] AI (1.5-flash) failed for "Domino's Pizza": [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods. 
+2026-02-17 17:50:17 [INFO] Attempting fallback with gemini-1.5-flash-latest... 
+2026-02-17 17:50:17 [ERROR] AI Fallback gemini-1.5-flash-latest failed: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent: [404 Not Found] models/gemini-1.5-flash-latest is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods. 
+2026-02-17 17:50:17 [INFO] Attempting fallback with gemini-1.5-pro... 
+2026-02-17 17:50:17 [ERROR] AI Fallback gemini-1.5-pro failed: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-pro:generateContent: [404 Not Found] models/gemini-1.5-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods. 
+2026-02-17 17:50:17 [INFO] Attempting fallback with gemini-pro... 
+2026-02-17 17:50:18 [ERROR] AI Fallback gemini-pro failed: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent: [404 Not Found] models/gemini-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods. 
+2026-02-17 17:50:18 [INFO] Fallback mapping for "Domino's Pizza": {"businessType":"Pizza restaurant","subCategory":"Food and Drink"} 
+2026-02-17 17:50:18 [ERROR] AI (1.5-flash) failed for "Anytime Fitness": [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods. 
+2026-02-17 17:50:18 [INFO] Attempting fallback with gemini-1.5-flash-latest... 
+2026-02-17 17:50:18 [ERROR] AI Fallback gemini-1.5-flash-latest failed: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent: [404 Not Found] models/gemini-1.5-flash-latest is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods. 
+2026-02-17 17:50:18 [INFO] Attempting fallback with gemini-1.5-pro... 
+2026-02-17 17:50:18 [ERROR] AI Fallback gemini-1.5-pro failed: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-pro:generateContent: [404 Not Found] models/gemini-1.5-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods. 
+2026-02-17 17:50:18 [INFO] Attempting fallback with gemini-pro... 
+2026-02-17 17:50:19 [ERROR] AI Fallback gemini-pro failed: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent: [404 Not Found] models/gemini-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods. 
+2026-02-17 17:50:19 [INFO] Fallback mapping for "Anytime Fitness": {"businessType":"Gym","subCategory":"Health and Wellness"} 
+2026-02-17 17:50:19 [ERROR] AI (1.5-flash) failed for "St. Mary's School": [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods. 
+2026-02-17 17:50:19 [INFO] Attempting fallback with gemini-1.5-flash-latest... 
+2026-02-17 17:50:19 [ERROR] AI Fallback gemini-1.5-flash-latest failed: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent: [404 Not Found] models/gemini-1.5-flash-latest is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods. 
+2026-02-17 17:50:19 [INFO] Attempting fallback with gemini-1.5-pro... 
+2026-02-17 17:50:19 [ERROR] AI Fallback gemini-1.5-pro failed: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-pro:generateContent: [404 Not Found] models/gemini-1.5-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods. 
+2026-02-17 17:50:19 [INFO] Attempting fallback with gemini-pro... 
+2026-02-17 17:50:20 [ERROR] AI Fallback gemini-pro failed: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent: [404 Not Found] models/gemini-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods. 
+2026-02-17 17:50:20 [INFO] Fallback mapping for "St. Mary's School": {"businessType":"School","subCategory":"Education"} 
+2026-02-17 17:50:20 [ERROR] AI (1.5-flash) failed for "HDFC Bank": [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods. 
+2026-02-17 17:50:20 [INFO] Attempting fallback with gemini-1.5-flash-latest... 
+2026-02-17 17:50:20 [ERROR] AI Fallback gemini-1.5-flash-latest failed: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent: [404 Not Found] models/gemini-1.5-flash-latest is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods. 
+2026-02-17 17:50:20 [INFO] Attempting fallback with gemini-1.5-pro... 
+2026-02-17 17:50:21 [ERROR] AI Fallback gemini-1.5-pro failed: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-pro:generateContent: [404 Not Found] models/gemini-1.5-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods. 
+2026-02-17 17:50:21 [INFO] Attempting fallback with gemini-pro... 
+2026-02-17 17:50:21 [ERROR] AI Fallback gemini-pro failed: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent: [404 Not Found] models/gemini-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods. 
+2026-02-17 17:50:21 [INFO] Fallback mapping for "HDFC Bank": {"businessType":"Bank","subCategory":"Finance"} 
+2026-02-17 17:50:44 [INFO] PostgreSQL Database connected successfully via Prisma. 
+2026-02-17 17:50:44 [INFO] Server running in development mode on port 5005 
+2026-02-17 17:51:03 [INFO] PostgreSQL Database connected successfully via Prisma. 
+2026-02-17 17:51:03 [INFO] Server running in development mode on port 5005 
+2026-02-17 17:52:28 [INFO] PostgreSQL Database connected successfully via Prisma. 
+2026-02-17 17:52:28 [INFO] Server running in development mode on port 5005 
+2026-02-17 17:52:31 [ERROR] AI Categorization failed: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash
+Please retry in 28.65212695s. [{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-2.0-flash"}},{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerMinutePerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-2.0-flash"}},{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_input_token_count","quotaId":"GenerateContentInputTokensPerModelPerMinute-FreeTier","quotaDimensions":{"model":"gemini-2.0-flash","location":"global"}}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"28s"}] 
+2026-02-17 17:52:31 [INFO] Attempting fallback with gemini-2.5-flash... 
+2026-02-17 17:52:34 [ERROR] AI Categorization failed: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash
+Please retry in 25.82570543s. [{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_input_token_count","quotaId":"GenerateContentInputTokensPerModelPerMinute-FreeTier","quotaDimensions":{"location":"global","model":"gemini-2.0-flash"}},{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerMinutePerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-2.0-flash"}},{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-2.0-flash"}}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"25s"}] 
+2026-02-17 17:52:34 [INFO] Attempting fallback with gemini-2.5-flash... 
+2026-02-17 17:52:41 [ERROR] AI Categorization failed: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash
+Please retry in 18.146489027s. [{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_input_token_count","quotaId":"GenerateContentInputTokensPerModelPerMinute-FreeTier","quotaDimensions":{"location":"global","model":"gemini-2.0-flash"}},{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerMinutePerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-2.0-flash"}},{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"model":"gemini-2.0-flash","location":"global"}}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"18s"}] 
+2026-02-17 17:52:41 [INFO] Attempting fallback with gemini-2.5-flash... 
+2026-02-17 17:52:44 [ERROR] AI Categorization failed: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash
+Please retry in 15.498211968s. [{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_input_token_count","quotaId":"GenerateContentInputTokensPerModelPerMinute-FreeTier","quotaDimensions":{"location":"global","model":"gemini-2.0-flash"}},{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerMinutePerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-2.0-flash"}},{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-2.0-flash"}}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"15s"}] 
+2026-02-17 17:52:44 [INFO] Attempting fallback with gemini-2.5-flash... 
+2026-02-17 17:53:25 [INFO] PostgreSQL Database connected successfully via Prisma. 
+2026-02-17 17:53:25 [INFO] Server running in development mode on port 5005 
+2026-02-17 17:53:28 [ERROR] AI (REST) failed for "Domino's Pizza": {"error":{"code":429,"message":"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash\nPlease retry in 31.353407606s.","status":"RESOURCE_EXHAUSTED","details":[{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_input_token_count","quotaId":"GenerateContentInputTokensPerModelPerMinute-FreeTier","quotaDimensions":{"location":"global","model":"gemini-2.0-flash"}},{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerMinutePerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-2.0-flash"}},{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-2.0-flash"}}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"31s"}]}} 
+2026-02-17 17:53:28 [INFO] Fallback mapping for "Domino's Pizza": {"businessType":"Pizza restaurant","subCategory":"Food and Drink"} 
+2026-02-17 17:53:29 [ERROR] AI (REST) failed for "Anytime Fitness": {"error":{"code":429,"message":"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash\nPlease retry in 31.013391425s.","status":"RESOURCE_EXHAUSTED","details":[{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_input_token_count","quotaId":"GenerateContentInputTokensPerModelPerMinute-FreeTier","quotaDimensions":{"location":"global","model":"gemini-2.0-flash"}},{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerMinutePerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-2.0-flash"}},{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-2.0-flash"}}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"31s"}]}} 
+2026-02-17 17:53:29 [INFO] Fallback mapping for "Anytime Fitness": {"businessType":"Gym","subCategory":"Health and Wellness"} 
+2026-02-17 17:53:29 [ERROR] AI (REST) failed for "St. Mary's School": {"error":{"code":429,"message":"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash\nPlease retry in 30.681709923s.","status":"RESOURCE_EXHAUSTED","details":[{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_input_token_count","quotaId":"GenerateContentInputTokensPerModelPerMinute-FreeTier","quotaDimensions":{"location":"global","model":"gemini-2.0-flash"}},{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerMinutePerProjectPerModel-FreeTier","quotaDimensions":{"model":"gemini-2.0-flash","location":"global"}},{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-2.0-flash"}}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"30s"}]}} 
+2026-02-17 17:53:29 [INFO] Fallback mapping for "St. Mary's School": {"businessType":"School","subCategory":"Education"} 
+2026-02-17 17:53:29 [ERROR] AI (REST) failed for "HDFC Bank": {"error":{"code":429,"message":"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash\nPlease retry in 30.488412001s.","status":"RESOURCE_EXHAUSTED","details":[{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_input_token_count","quotaId":"GenerateContentInputTokensPerModelPerMinute-FreeTier","quotaDimensions":{"location":"global","model":"gemini-2.0-flash"}},{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerMinutePerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-2.0-flash"}},{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-2.0-flash"}}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"30s"}]}} 
+2026-02-17 17:53:29 [INFO] Fallback mapping for "HDFC Bank": {"businessType":"Bank","subCategory":"Finance"} 
+2026-02-17 17:54:20 [INFO] PostgreSQL Database connected successfully via Prisma. 
+2026-02-17 17:54:20 [INFO] Server running in development mode on port 5005 
+2026-02-17 17:54:53 [INFO] PostgreSQL Database connected successfully via Prisma. 
+2026-02-17 17:54:53 [INFO] Server running in development mode on port 5005 
+2026-02-17 17:55:07 [INFO] PostgreSQL Database connected successfully via Prisma. 
+2026-02-17 17:55:07 [INFO] Server running in development mode on port 5005 
+2026-02-17 17:55:15 [INFO] AI Categorized "Domino's Pizza" as: Food and Drink > Pizza Restaurant 
+2026-02-17 17:55:18 [INFO] AI Categorized "Anytime Fitness" as: Health and Wellness > Gym 
+2026-02-17 17:55:19 [INFO] AI Categorized "St. Mary's School" as: Education > School 
+2026-02-17 17:55:21 [INFO] AI Categorized "HDFC Bank" as: Finance > Bank 
+2026-02-17 17:55:30 [INFO] PostgreSQL Database connected successfully via Prisma. 
+2026-02-17 17:55:30 [INFO] Server running in development mode on port 5005 
+2026-02-17 17:57:17 [INFO] Lead generation started: Any in lucknow (radius: 3000, limit: 10) 
+2026-02-17 17:57:17 [INFO] Geocode cache hit for lucknow 
+2026-02-17 17:57:18 [INFO] Found 20 nearby places. Has next page: true 
+2026-02-17 17:57:22 [INFO] Fetching more leads... (Current: 0/10) 
+2026-02-17 17:57:25 [INFO] Found 20 nearby places. Has next page: true 
+2026-02-17 17:57:29 [INFO] Fetching more leads... (Current: 0/10) 
+2026-02-17 17:57:32 [INFO] Found 20 nearby places. Has next page: false 
+2026-02-17 17:57:36 [INFO] ::1 - - [17/Feb/2026:12:27:36 +0000] "POST /api/v1/leads/generate HTTP/1.1" 200 239 "http://localhost:5173/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" 
+2026-02-17 17:58:16 [INFO] Lead generation started: service in lucknow (radius: 3000, limit: 10) 
+2026-02-17 17:58:16 [INFO] Geocode cache hit for lucknow 
+2026-02-17 17:58:17 [INFO] Found 20 nearby places. Has next page: true 
+2026-02-17 17:58:22 [INFO] Fetching more leads... (Current: 0/10) 
+2026-02-17 17:58:25 [INFO] Found 20 nearby places. Has next page: true 
+2026-02-17 17:58:29 [INFO] AI Categorized "Pureit Ro water purifier service R S Enterprises" as: Services > Water Purifier Service 
+2026-02-17 17:58:32 [INFO] AI Categorized "Deepak service center" as: Automotive > Car Repair Shop 
+2026-02-17 17:58:36 [INFO] AI Categorized "Maa Annapurna tifin service" as: Food and Drink > Tiffin Service 
+2026-02-17 17:58:50 [INFO] AI Categorized "Gateway Stationers" as: Services > Travel Agency 
+2026-02-17 17:58:50 [INFO] Fetching more leads... (Current: 4/10) 
+2026-02-17 17:58:53 [INFO] Found 20 nearby places. Has next page: false 
+2026-02-17 17:58:58 [INFO] AI Categorized "Ayansh Cab Service Lucknow" as: Transportation > Cab Service 
+2026-02-17 17:59:00 [INFO] AI Categorized "Modular furniture repair & service centre" as: Services > Furniture Repair Service 
+2026-02-17 17:59:04 [INFO] AI Categorized "AC Repair In Lucknow | Washing Machine Repair | Home Appliance Service Center" as: Services > Home Appliance Repair Service 
+2026-02-17 17:59:06 [INFO] AI Categorized "Aminabad Silai Machine Service Center" as: Services > Sewing Machine Repair Service 
+2026-02-17 17:59:07 [ERROR] AI (REST) failed for "URBAN MARKET HUB / DSC SERVICE": {"error":{"code":429,"message":"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-2.5-flash\nPlease retry in 52.329930901s.","status":"RESOURCE_EXHAUSTED","details":[{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerMinutePerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-2.5-flash"},"quotaValue":"5"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"52s"}]}} 
+2026-02-17 17:59:07 [INFO] Fallback mapping for "URBAN MARKET HUB / DSC SERVICE": {"businessType":"Point of interest","subCategory":"Other"} 
+2026-02-17 17:59:10 [INFO] Successfully appended 9 leads to Google Sheets 
+2026-02-17 17:59:10 [INFO] Lead generation completed {"totalFetched":60,"validLeadsCount":9,"duplicatesRemoved":10,"savedToPostgres":9,"savedToSheet":9}
+2026-02-17 17:59:10 [INFO] ::1 - - [17/Feb/2026:12:29:10 +0000] "POST /api/v1/leads/generate HTTP/1.1" 200 230 "http://localhost:5173/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" 
+2026-02-17 18:07:20 [INFO] PostgreSQL Database connected successfully via Prisma. 
+2026-02-17 18:07:20 [INFO] Server running in development mode on port 5005 
+2026-02-17 18:07:32 [ERROR] [RID: dd768ae9-a50f-435f-a50a-7687940852d8] 404 - Not Found - /api/leads/generate - POST - ::ffff:127.0.0.1 {"stack":"Error: Not Found\n    at /mnt/Drive_01/bhuexpert_test/Lead_Scrapper/Lead_Scraper_App/backend/app.js:70:17\n    at Layer.handle [as handle_request] (/mnt/Drive_01/bhuexpert_test/Lead_Scrapper/Lead_Scraper_App/backend/node_modules/express/lib/router/layer.js:95:5)\n    at trim_prefix (/mnt/Drive_01/bhuexpert_test/Lead_Scrapper/Lead_Scraper_App/backend/node_modules/express/lib/router/index.js:328:13)\n    at /mnt/Drive_01/bhuexpert_test/Lead_Scrapper/Lead_Scraper_App/backend/node_modules/express/lib/router/index.js:286:9\n    at Function.process_params (/mnt/Drive_01/bhuexpert_test/Lead_Scrapper/Lead_Scraper_App/backend/node_modules/express/lib/router/index.js:346:12)\n    at next (/mnt/Drive_01/bhuexpert_test/Lead_Scrapper/Lead_Scraper_App/backend/node_modules/express/lib/router/index.js:280:10)\n    at serveStatic (/mnt/Drive_01/bhuexpert_test/Lead_Scrapper/Lead_Scraper_App/backend/node_modules/serve-static/index.js:75:16)\n    at Layer.handle [as handle_request] (/mnt/Drive_01/bhuexpert_test/Lead_Scrapper/Lead_Scraper_App/backend/node_modules/express/lib/router/layer.js:95:5)\n    at trim_prefix (/mnt/Drive_01/bhuexpert_test/Lead_Scrapper/Lead_Scraper_App/backend/node_modules/express/lib/router/index.js:328:13)\n    at /mnt/Drive_01/bhuexpert_test/Lead_Scrapper/Lead_Scraper_App/backend/node_modules/express/lib/router/index.js:286:9"}
+2026-02-17 18:07:32 [INFO] ::ffff:127.0.0.1 - - [17/Feb/2026:12:37:32 +0000] "POST /api/leads/generate HTTP/1.1" 404 52 "-" "axios/1.13.5" 
+2026-02-17 18:07:42 [INFO] PostgreSQL Database connected successfully via Prisma. 
+2026-02-17 18:07:42 [INFO] Server running in development mode on port 5005 
+2026-02-17 18:08:11 [INFO] PostgreSQL Database connected successfully via Prisma. 
+2026-02-17 18:08:11 [INFO] Server running in development mode on port 5005 
+2026-02-17 18:08:13 [INFO] Lead generation started: Any in Varanasi (radius: 500, limit: 5) 
+2026-02-17 18:08:13 [INFO] Geocode cache hit for Varanasi 
+2026-02-17 18:08:13 [INFO] Found 20 nearby places. Has next page: true 
+2026-02-17 18:08:20 [INFO] AI Categorized "S.S.CYBER ZONE" as: Services > Travel Agency 
+2026-02-17 18:08:23 [INFO] AI Categorized "Aviva Life Insurance" as: Finance > Insurance Agency 
+2026-02-17 18:08:28 [INFO] AI Categorized "ROTER LOTUS MEDICAL CARE HOSPITAL" as: Health and Wellness > Hospital 
+2026-02-17 18:08:30 [INFO] Fetching more leads... (Current: 3/5) 
+2026-02-17 18:08:33 [INFO] Found 20 nearby places. Has next page: true 
+2026-02-17 18:08:35 [INFO] AI Categorized "Dexters Logistics Pvt. Ltd." as: Transportation > Logistics Company 
+2026-02-17 18:08:36 [ERROR] AI (REST) failed for "Rahi Travels": {"error":{"code":429,"message":"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 24.127312265s.","status":"RESOURCE_EXHAUSTED","details":[{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-2.5-flash"},"quotaValue":"20"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"24s"}]}} 
+2026-02-17 18:08:36 [INFO] Fallback mapping for "Rahi Travels": {"businessType":"Car rental","subCategory":"Automotive"} 
+2026-02-17 18:08:38 [INFO] Successfully appended 5 leads to Google Sheets 
+2026-02-17 18:08:38 [INFO] Lead generation completed {"totalFetched":40,"validLeadsCount":5,"duplicatesRemoved":0,"savedToPostgres":5,"savedToSheet":5}
+2026-02-17 18:08:38 [INFO] ::ffff:127.0.0.1 - - [17/Feb/2026:12:38:38 +0000] "POST /api/v1/leads/generate HTTP/1.1" 200 229 "-" "axios/1.13.5" 
+2026-02-17 18:18:25 [INFO] PostgreSQL Database connected successfully via Prisma. 
+2026-02-17 18:18:25 [INFO] Server running in development mode on port 5005 
+2026-02-17 18:18:39 [INFO] Lead generation started: Any in lucknow (radius: 3000, limit: 10) 
+2026-02-17 18:18:39 [INFO] Geocode cache hit for lucknow 
+2026-02-17 18:18:40 [INFO] Found 20 nearby places. Has next page: true 
+2026-02-17 18:18:44 [INFO] Fetching more leads... (Current: 0/10) 
+2026-02-17 18:18:46 [INFO] Found 20 nearby places. Has next page: true 
+2026-02-17 18:18:50 [INFO] Fetching more leads... (Current: 0/10) 
+2026-02-17 18:18:53 [INFO] Found 20 nearby places. Has next page: false 
+2026-02-17 18:18:57 [INFO] ::1 - - [17/Feb/2026:12:48:57 +0000] "POST /api/v1/leads/generate HTTP/1.1" 200 239 "http://localhost:5173/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" 
+2026-02-17 18:19:13 [INFO] Lead generation started: Any in lucknow (radius: 3000, limit: 10) 
+2026-02-17 18:19:13 [INFO] Geocode cache hit for lucknow 
+2026-02-17 18:19:13 [INFO] Found 20 nearby places. Has next page: true 
+2026-02-17 18:19:17 [INFO] Fetching more leads... (Current: 0/10) 
+2026-02-17 18:19:19 [INFO] Found 20 nearby places. Has next page: true 
+2026-02-17 18:19:22 [INFO] Fetching more leads... (Current: 0/10) 
+2026-02-17 18:19:25 [INFO] Found 20 nearby places. Has next page: false 
+2026-02-17 18:19:28 [INFO] ::1 - - [17/Feb/2026:12:49:28 +0000] "POST /api/v1/leads/generate HTTP/1.1" 200 239 "http://localhost:5173/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" 
+2026-02-17 18:22:53 [INFO] PostgreSQL Database connected successfully via Prisma. 
+2026-02-17 18:22:53 [INFO] Server running in development mode on port 5005 
+2026-02-17 18:26:34 [INFO] Lead generation started: Any in lucknow (radius: 3000, limit: 10) 
+2026-02-17 18:26:34 [INFO] Geocode cache hit for lucknow 
+2026-02-17 18:26:35 [INFO] Found 20 nearby places. Has next page: true 
+2026-02-17 18:26:39 [INFO] Fetching more leads... (Current: 0/10) 
+2026-02-17 18:26:41 [INFO] Found 20 nearby places. Has next page: true 
+2026-02-17 18:26:45 [INFO] Fetching more leads... (Current: 0/10) 
+2026-02-17 18:26:48 [INFO] Found 20 nearby places. Has next page: false 
+2026-02-17 18:26:51 [INFO] ::1 - - [17/Feb/2026:12:56:51 +0000] "POST /api/v1/leads/generate HTTP/1.1" 200 239 "http://localhost:5173/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" 
+2026-02-17 18:29:58 [INFO] Lead generation started: Any in lucknow (radius: 3000, limit: 10) 
+2026-02-17 18:29:58 [INFO] Geocode cache hit for lucknow 
+2026-02-17 18:29:59 [INFO] Found 20 nearby places. Has next page: true 
+2026-02-17 18:30:03 [INFO] Fetching more leads... (Current: 0/10) 
+2026-02-17 18:30:06 [INFO] Found 20 nearby places. Has next page: true 
+2026-02-17 18:30:11 [INFO] Fetching more leads... (Current: 0/10) 
+2026-02-17 18:30:14 [INFO] Found 20 nearby places. Has next page: false 
+2026-02-17 18:30:17 [INFO] ::1 - - [17/Feb/2026:13:00:17 +0000] "POST /api/v1/leads/generate HTTP/1.1" 200 239 "http://localhost:5173/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" 
+2026-02-17 18:37:07 [INFO] Lead generation started: Any in Lucknow (radius: 3000, limit: 20) 
+2026-02-17 18:37:07 [INFO] Geocode cache hit for Lucknow 
+2026-02-17 18:37:08 [INFO] Found 20 nearby places. Has next page: true 
+2026-02-17 18:37:13 [INFO] Fetching more leads... (Current: 0/20) 
+2026-02-17 18:37:15 [INFO] Found 20 nearby places. Has next page: true 
+2026-02-17 18:37:20 [INFO] Fetching more leads... (Current: 0/20) 
+2026-02-17 18:37:23 [INFO] Found 20 nearby places. Has next page: false 
+2026-02-17 18:37:27 [INFO] ::1 - - [17/Feb/2026:13:07:27 +0000] "POST /api/v1/leads/generate HTTP/1.1" 200 239 "http://localhost:5173/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" 
+2026-02-17 18:52:15 [INFO] PostgreSQL Database connected successfully via Prisma. 
+2026-02-17 18:52:15 [INFO] Server running in development mode on port 5005 
+2026-02-17 19:04:37 [INFO] Lead generation started: Any in Lucknow (radius: 5000, limit: 2) 
+2026-02-17 19:04:37 [INFO] Geocode cache hit for Lucknow 
+2026-02-17 19:04:38 [INFO] Found 20 nearby places. Has next page: true 
+2026-02-17 19:04:45 [INFO] Fetching more leads for 'All'... (Current: 0/2) 
+2026-02-17 19:04:47 [INFO] Found 20 nearby places. Has next page: true 
+2026-02-17 19:04:55 [INFO] Fetching more leads for 'All'... (Current: 0/2) 
+2026-02-17 19:04:58 [INFO] Found 20 nearby places. Has next page: false 
+2026-02-17 19:05:02 [INFO] No leads found with initial search. Engaging fallback strategy with random keywords... 
+2026-02-17 19:05:02 [INFO] Fallback Attempt 1/3: Searching for 'pest control' 
+2026-02-17 19:05:03 [INFO] Found 18 nearby places. Has next page: false 
+2026-02-17 19:05:07 [INFO] AI Categorized "Pestron Services Private Limited" as: Services > Pest Control 
+2026-02-17 19:05:10 [ERROR] AI (REST) failed for "Signature Pest Control and Cleaning Services": {"error":{"code":429,"message":"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 49.889089787s.","status":"RESOURCE_EXHAUSTED","details":[{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-2.5-flash"},"quotaValue":"20"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"49s"}]}} 
+2026-02-17 19:05:10 [INFO] Fallback mapping for "Signature Pest Control and Cleaning Services": {"businessType":"Point of interest","subCategory":"Other"} 
+2026-02-17 19:05:14 [INFO] Successfully appended 2 leads to Google Sheets 
+2026-02-17 19:05:14 [INFO] Lead generation completed {"totalFetched":78,"validLeadsCount":2,"duplicatesRemoved":14,"savedToPostgres":2,"savedToSheet":2}
+2026-02-17 19:05:14 [INFO] ::1 - - [17/Feb/2026:13:35:14 +0000] "POST /api/v1/leads/generate HTTP/1.1" 200 230 "-" "curl/8.5.0" 
+2026-02-17 21:47:00 [INFO] Lead generation started: Any in lucknow (radius: 3000, limit: 20) 
+2026-02-17 21:47:00 [INFO] Geocode cache hit for lucknow 
+2026-02-17 21:47:02 [INFO] Found 20 nearby places. Has next page: true 
+2026-02-17 21:47:08 [INFO] Fetching more leads for 'All'... (Current: 0/20) 
+2026-02-17 21:47:10 [INFO] Found 20 nearby places. Has next page: true 
+2026-02-17 21:47:16 [INFO] Fetching more leads for 'All'... (Current: 0/20) 
+2026-02-17 21:47:19 [INFO] Found 20 nearby places. Has next page: false 
+2026-02-17 21:47:25 [INFO] No leads found with initial search. Engaging fallback strategy with random keywords... 
+2026-02-17 21:47:25 [INFO] Fallback Attempt 1/3: Searching for 'lawyer' 
+2026-02-17 21:47:26 [INFO] Found 20 nearby places. Has next page: false 
+2026-02-17 21:47:31 [INFO] AI Categorized "Law Office Of ADVOCATE ZAID KHAN | Best Cyber Crime Lawyer | Best Divorce Lawyer | Best RERA lawyer in Lucknow" as: Services > Law Office 
+2026-02-17 21:47:33 [ERROR] AI (REST) failed for "Paritosh Sharma Advocate Chamber and Tax Consultant (GST/ Income Tax)": {"error":{"code":429,"message":"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 27.275576089s.","status":"RESOURCE_EXHAUSTED","details":[{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-2.5-flash"},"quotaValue":"20"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"27s"}]}} 
+2026-02-17 21:47:33 [INFO] Fallback mapping for "Paritosh Sharma Advocate Chamber and Tax Consultant (GST/ Income Tax)": {"businessType":"Accounting","subCategory":"Finance"} 
+2026-02-17 21:47:37 [INFO] AI Categorized "Advocate Harshit Gupta" as: Services > Lawyer 
+2026-02-17 21:47:38 [ERROR] AI (REST) failed for "Jaideep Narain Mathur Senior Advocate": {"error":{"code":429,"message":"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 21.751898285s.","status":"RESOURCE_EXHAUSTED","details":[{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-2.5-flash"},"quotaValue":"20"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"21s"}]}} 
+2026-02-17 21:47:38 [INFO] Fallback mapping for "Jaideep Narain Mathur Senior Advocate": {"businessType":"Lawyer","subCategory":"Services"} 
+2026-02-17 21:47:39 [ERROR] AI (REST) failed for "Advocate Mahendra Singh Rawat": {"error":{"code":429,"message":"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 20.937814577s.","status":"RESOURCE_EXHAUSTED","details":[{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"model":"gemini-2.5-flash","location":"global"},"quotaValue":"20"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"20s"}]}} 
+2026-02-17 21:47:39 [INFO] Fallback mapping for "Advocate Mahendra Singh Rawat": {"businessType":"Lawyer","subCategory":"Services"} 
+2026-02-17 21:47:40 [ERROR] AI (REST) failed for "Advocate Yash Anand": {"error":{"code":429,"message":"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 20.322402771s.","status":"RESOURCE_EXHAUSTED","details":[{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"model":"gemini-2.5-flash","location":"global"},"quotaValue":"20"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"20s"}]}} 
+2026-02-17 21:47:40 [INFO] Fallback mapping for "Advocate Yash Anand": {"businessType":"Lawyer","subCategory":"Services"} 
+2026-02-17 21:47:41 [INFO] Fallback Attempt 2/3: Searching for 'electrician' 
+2026-02-17 21:47:42 [INFO] Found 13 nearby places. Has next page: false 
+2026-02-17 21:47:43 [ERROR] AI (REST) failed for "Pradum Electrician and house wiring": {"error":{"code":429,"message":"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 17.262321393s.","status":"RESOURCE_EXHAUSTED","details":[{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-2.5-flash"},"quotaValue":"20"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"17s"}]}} 
+2026-02-17 21:47:43 [INFO] Fallback mapping for "Pradum Electrician and house wiring": {"businessType":"Electrician","subCategory":"Other"} 
+2026-02-17 21:47:44 [ERROR] AI (REST) failed for "happy electrician68": {"error":{"code":429,"message":"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 16.021725806s.","status":"RESOURCE_EXHAUSTED","details":[{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-2.5-flash"},"quotaValue":"20"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"16s"}]}} 
+2026-02-17 21:47:44 [INFO] Fallback mapping for "happy electrician68": {"businessType":"Electrician","subCategory":"Other"} 
+2026-02-17 21:47:46 [ERROR] AI (REST) failed for "Rs electrician": {"error":{"code":429,"message":"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 14.574603639s.","status":"RESOURCE_EXHAUSTED","details":[{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-2.5-flash"},"quotaValue":"20"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"14s"}]}} 
+2026-02-17 21:47:46 [INFO] Fallback mapping for "Rs electrician": {"businessType":"Electrician","subCategory":"Other"} 
+2026-02-17 21:47:46 [ERROR] AI (REST) failed for "Hamza Electrician": {"error":{"code":429,"message":"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 13.56154673s.","status":"RESOURCE_EXHAUSTED","details":[{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-2.5-flash"},"quotaValue":"20"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"13s"}]}} 
+2026-02-17 21:47:46 [INFO] Fallback mapping for "Hamza Electrician": {"businessType":"Electrician","subCategory":"Other"} 
+2026-02-17 21:47:48 [ERROR] AI (REST) failed for "Electric Solution": {"error":{"code":429,"message":"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 12.542622546s.","status":"RESOURCE_EXHAUSTED","details":[{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-2.5-flash"},"quotaValue":"20"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"12s"}]}} 
+2026-02-17 21:47:48 [INFO] Fallback mapping for "Electric Solution": {"businessType":"Point of interest","subCategory":"Shopping"} 
+2026-02-17 21:47:49 [INFO] Fallback Attempt 3/3: Searching for 'real estate agency' 
+2026-02-17 21:47:50 [INFO] Found 20 nearby places. Has next page: true 
+2026-02-17 21:47:51 [ERROR] AI (REST) failed for "nest infrastructure": {"error":{"code":429,"message":"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 9.257778907s.","status":"RESOURCE_EXHAUSTED","details":[{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-2.5-flash"},"quotaValue":"20"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"9s"}]}} 
+2026-02-17 21:47:51 [INFO] Fallback mapping for "nest infrastructure": {"businessType":"Point of interest","subCategory":"Services"} 
+2026-02-17 21:47:52 [ERROR] AI (REST) failed for "Rich Built Homes Property": {"error":{"code":429,"message":"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 8.438331175s.","status":"RESOURCE_EXHAUSTED","details":[{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-2.5-flash"},"quotaValue":"20"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"8s"}]}} 
+2026-02-17 21:47:52 [INFO] Fallback mapping for "Rich Built Homes Property": {"businessType":"Point of interest","subCategory":"Services"} 
+2026-02-17 21:47:53 [ERROR] AI (REST) failed for "VTS REALTY": {"error":{"code":429,"message":"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 7.217377565s.","status":"RESOURCE_EXHAUSTED","details":[{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-2.5-flash"},"quotaValue":"20"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"7s"}]}} 
+2026-02-17 21:47:53 [INFO] Fallback mapping for "VTS REALTY": {"businessType":"Point of interest","subCategory":"Services"} 
+2026-02-17 21:47:54 [ERROR] AI (REST) failed for "REBI (Real Estate Bank India)": {"error":{"code":429,"message":"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 6.184813797s.","status":"RESOURCE_EXHAUSTED","details":[{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-2.5-flash"},"quotaValue":"20"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"6s"}]}} 
+2026-02-17 21:47:54 [INFO] Fallback mapping for "REBI (Real Estate Bank India)": {"businessType":"Point of interest","subCategory":"Services"} 
+2026-02-17 21:47:55 [ERROR] AI (REST) failed for "Properties on wheel": {"error":{"code":429,"message":"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 5.168954631s.","status":"RESOURCE_EXHAUSTED","details":[{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-2.5-flash"},"quotaValue":"20"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"5s"}]}} 
+2026-02-17 21:47:55 [INFO] Fallback mapping for "Properties on wheel": {"businessType":"Finance","subCategory":"Services"} 
+2026-02-17 21:47:56 [ERROR] AI (REST) failed for "Akshat Associates": {"error":{"code":429,"message":"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 4.15653451s.","status":"RESOURCE_EXHAUSTED","details":[{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-2.5-flash"},"quotaValue":"20"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"4s"}]}} 
+2026-02-17 21:47:56 [INFO] Fallback mapping for "Akshat Associates": {"businessType":"Point of interest","subCategory":"Services"} 
+2026-02-17 21:47:58 [ERROR] AI (REST) failed for "IRA HOUSING AND DEVELOPMENTS PVT. LTD.": {"error":{"code":429,"message":"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 2.100659732s.","status":"RESOURCE_EXHAUSTED","details":[{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-2.5-flash"},"quotaValue":"20"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"2s"}]}} 
+2026-02-17 21:47:58 [INFO] Fallback mapping for "IRA HOUSING AND DEVELOPMENTS PVT. LTD.": {"businessType":"Point of interest","subCategory":"Services"} 
+2026-02-17 21:47:58 [INFO] Fetching more leads for 'real estate agency'... (Current: 7/9) 
+2026-02-17 21:48:01 [INFO] Found 20 nearby places. Has next page: true 
+2026-02-17 21:48:03 [ERROR] AI (REST) failed for "Vilson Property Dealer": {"error":{"code":429,"message":"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 57.395531229s.","status":"RESOURCE_EXHAUSTED","details":[{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"model":"gemini-2.5-flash","location":"global"},"quotaValue":"20"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"57s"}]}} 
+2026-02-17 21:48:03 [INFO] Fallback mapping for "Vilson Property Dealer": {"businessType":"Point of interest","subCategory":"Services"} 
+2026-02-17 21:48:03 [ERROR] AI (REST) failed for "Plots at Nagaram Road": {"error":{"code":429,"message":"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 56.577729751s.","status":"RESOURCE_EXHAUSTED","details":[{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"model":"gemini-2.5-flash","location":"global"},"quotaValue":"20"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"56s"}]}} 
+2026-02-17 21:48:03 [INFO] Fallback mapping for "Plots at Nagaram Road": {"businessType":"Point of interest","subCategory":"Services"} 
+2026-02-17 21:48:07 [INFO] Successfully appended 20 leads to Google Sheets 
+2026-02-17 21:48:07 [INFO] Lead generation completed {"totalFetched":133,"validLeadsCount":20,"duplicatesRemoved":14,"savedToPostgres":20,"savedToSheet":20}
+2026-02-17 21:48:07 [INFO] ::1 - - [17/Feb/2026:16:18:07 +0000] "POST /api/v1/leads/generate HTTP/1.1" 200 234 "http://localhost:5173/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" 

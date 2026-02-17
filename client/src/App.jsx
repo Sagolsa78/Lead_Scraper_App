@@ -33,7 +33,16 @@ const Home = () => {
     try {
       const response = await leadService.generateLeads(data);
       setResults(response.data);
-      toast.success("Leads generated and saved successfully!");
+
+      if (response.data.validLeadsCount === 0) {
+        toast(response.message || "No leads found matching your criteria.", {
+          icon: "ℹ️",
+        });
+      } else {
+        toast.success(
+          `Success! Generated ${response.data.validLeadsCount} new leads.`,
+        );
+      }
     } catch (error) {
       console.error(error);
       const message =

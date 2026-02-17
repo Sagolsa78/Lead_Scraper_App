@@ -7,32 +7,71 @@ const logger = require("../config/logger");
  * @param {string[]} types
  * @returns {object}
  */
+const aiService = require("./aiService");
+
+/**
+ * Enhanced Category Mapping based on Google Maps Place Types Table A
+ */
 const CATEGORY_MAPPING = [
   {
-    group: "Fitness & Recreation",
+    group: "Automotive",
     googleTypes: [
-      "gym",
-      "yoga_studio",
-      "sports_complex",
-      "stadium",
-      "amusement_park",
-      "spa",
+      "car_dealer",
+      "car_rental",
+      "car_repair",
+      "car_wash",
+      "gas_station",
+      "parking",
+      "tire_shop",
     ],
   },
   {
-    group: "Education & Training",
+    group: "Business",
+    googleTypes: [
+      "business_center",
+      "corporate_office",
+      "coworking_space",
+      "manufacturer",
+      "supplier",
+    ],
+  },
+  {
+    group: "Culture",
+    googleTypes: [
+      "art_gallery",
+      "museum",
+      "performing_arts_theater",
+      "library",
+    ],
+  },
+  {
+    group: "Education",
     googleTypes: [
       "school",
       "university",
-      "library",
       "primary_school",
       "secondary_school",
-      "tutoring",
-      "test_preparation_center",
+      "preschool",
     ],
   },
   {
-    group: "Restaurants & Food",
+    group: "Entertainment and Recreation",
+    googleTypes: [
+      "amusement_park",
+      "aquarium",
+      "casino",
+      "movie_theater",
+      "night_club",
+      "zoo",
+      "park",
+    ],
+  },
+  {
+    group: "Finance",
+    googleTypes: ["bank", "accounting", "atm"],
+  },
+  {
+    group: "Food and Drink",
     googleTypes: [
       "restaurant",
       "cafe",
@@ -40,99 +79,104 @@ const CATEGORY_MAPPING = [
       "bakery",
       "meal_takeaway",
       "meal_delivery",
-      "food",
-      "night_club",
+      "coffee_shop",
     ],
   },
   {
-    group: "Retail Stores",
+    group: "Government",
     googleTypes: [
-      "clothing_store",
-      "electronics_store",
-      "grocery_or_supermarket",
-      "furniture_store",
-      "department_store",
-      "shoe_store",
-      "shopping_mall",
-      "store",
+      "city_hall",
+      "courthouse",
+      "embassy",
+      "fire_station",
+      "police",
+      "post_office",
     ],
   },
   {
-    group: "Health & Medical",
+    group: "Health and Wellness",
     googleTypes: [
       "doctor",
       "dentist",
       "hospital",
       "pharmacy",
-      "health",
-      "physiotherapist",
-      "veterinary_care",
+      "spa",
+      "gym",
+      "yoga_studio",
       "beauty_salon",
-      "hair_care",
     ],
   },
   {
-    group: "Professional Services",
+    group: "Lodging",
+    googleTypes: [
+      "hotel",
+      "motel",
+      "resort_hotel",
+      "lodging",
+      "bed_and_breakfast",
+    ],
+  },
+  {
+    group: "Services",
     googleTypes: [
       "lawyer",
-      "accountant",
-      "real_estate_agency",
-      "insurance_agency",
-      "bank",
-      "finance",
-    ],
-  },
-  {
-    group: "Hospitality & Travel",
-    googleTypes: ["lodging", "hotel", "travel_agency", "car_rental", "airport"],
-  },
-  {
-    group: "Automotive",
-    googleTypes: ["car_repair", "car_dealer", "gas_station", "car_wash"],
-  },
-  {
-    group: "Home & Local Services",
-    googleTypes: [
-      "plumber",
-      "electrician",
-      "cleaning_service",
       "locksmith",
       "painter",
+      "plumber",
+      "real_estate_agency",
       "roofing_contractor",
-      "moving_company",
+      "travel_agency",
     ],
   },
   {
-    group: "Entertainment & Attractions",
+    group: "Shopping",
     googleTypes: [
-      "movie_theater",
-      "museum",
-      "art_gallery",
-      "zoo",
-      "aquarium",
-      "park",
+      "clothing_store",
+      "electronics_store",
+      "grocery_store",
+      "shopping_mall",
+      "supermarket",
+      "store",
     ],
+  },
+  {
+    group: "Sports",
+    googleTypes: ["stadium", "sports_complex", "fitness_center"],
+  },
+  {
+    group: "Transportation",
+    googleTypes: ["airport", "bus_station", "train_station", "transit_station"],
   },
 ];
 
 /**
  * Extract businessType (Main Category) and subCategory from Google Places types array
  * @param {string[]} types
- * @returns {object}
+ * @param {string} keyword
+ * @param {string} placeName
+ * @returns {Promise<object>}
  */
-const extractCategories = (types, keyword = "") => {
+const extractCategories = async (types, keyword = "", placeName = "") => {
   if (!types || types.length === 0) {
     return {
-      businessType: "Unknown",
-      subCategory: "General",
+      businessType: "General",
+      subCategory: "Unknown",
     };
   }
 
-  let mainCategory = "Other";
-  let subCategory = types[0].replace(/_/g, " ");
-  const normalizedKeyword = (keyword || "").toLowerCase();
+  // 1. Try AI Categorization first
+  const aiResult = await aiService.categorizeLead(placeName, types, keyword);
+  if (aiResult) {
+    return {
+      businessType: aiResult.subCategory, // Mapping specific type to businessType as per current schema
+      subCategory: aiResult.mainCategory, // Mapping broad group to subCategory as per current schema
+    };
+  }
 
-  // 1. Try to match based on Google Types (high priority)
+  // 2. Fallback to Rule-based mapping
+  let mainCategory = "Other";
+  let specificType = types[0].replace(/_/g, " ");
+
   for (const mapping of CATEGORY_MAPPING) {
     if (types.some((t) => mapping.googleTypes.includes(t))) {
       mainCategory = mapping.group;
@@ -140,93 +184,22 @@ const extractCategories = (types, keyword = "") => {
     }
   }
 
-  // 2. Fallback to Keyword matching if still "Other" or generic
-  if (mainCategory === "Other") {
-    if (
-      normalizedKeyword.includes("coach") ||
-      normalizedKeyword.includes("school") ||
-      normalizedKeyword.includes("tutor") ||
-      normalizedKeyword.includes("train") ||
-      normalizedKeyword.includes("education")
-    ) {
-      mainCategory = "Education & Training";
-    } else if (
-      normalizedKeyword.includes("gym") ||
-      normalizedKeyword.includes("fitness") ||
-      normalizedKeyword.includes("yoga")
-    ) {
-      mainCategory = "Fitness & Recreation";
-    } else if (
-      normalizedKeyword.includes("restaurant") ||
-      normalizedKeyword.includes("food") ||
-      normalizedKeyword.includes("cafe")
-    ) {
-      mainCategory = "Restaurants & Food";
-    } else if (
-      normalizedKeyword.includes("store") ||
-      normalizedKeyword.includes("shop") ||
-      normalizedKeyword.includes("retail")
-    ) {
-      mainCategory = "Retail Stores";
-    } else if (
-      normalizedKeyword.includes("doctor") ||
-      normalizedKeyword.includes("hospital") ||
-      normalizedKeyword.includes("medical")
-    ) {
-      mainCategory = "Health & Medical";
-    } else if (
-      normalizedKeyword.includes("lawyer") ||
-      normalizedKeyword.includes("legal") ||
-      normalizedKeyword.includes("law")
-    ) {
-      mainCategory = "Professional Services";
-    } else if (
-      normalizedKeyword.includes("hotel") ||
-      normalizedKeyword.includes("travel")
-    ) {
-      mainCategory = "Hospitality & Travel";
-    } else if (
-      normalizedKeyword.includes("auto") ||
-      normalizedKeyword.includes("car")
-    ) {
-      mainCategory = "Automotive";
-    } else if (
-      normalizedKeyword.includes("plumb") ||
-      normalizedKeyword.includes("repair") ||
-      normalizedKeyword.includes("service")
-    ) {
-      mainCategory = "Home & Local Services";
-    }
-  }
-
-  // Use the first type provided by Google as the subCategory (more specific)
-  // but if it's the same as a main category group name, try to find a better one
+  // Clean up specificType
   if (
     types.length > 1 &&
     (types[0] === "point_of_interest" || types[0] === "establishment")
   ) {
-    subCategory = types[1].replace(/_/g, " ");
+    specificType = types[1].replace(/_/g, " ");
   }
 
-  // If subCategory is still generic and we have a keyword, use the keyword as subCategory
-  if (
-    (subCategory === "establishment" || subCategory === "point of interest") &&
-    keyword
-  ) {
-    subCategory = keyword.charAt(0).toUpperCase() + keyword.slice(1);
-  }
-
-  // Result Swapped as per user request (Main Category is now the specific Google Type)
   const result = {
     businessType:
-      subCategory.charAt(0).toUpperCase() + subCategory.slice(1).toLowerCase(),
+      specificType.charAt(0).toUpperCase() +
+      specificType.slice(1).toLowerCase(),
     subCategory: mainCategory,
   };
 
-  logger.info(
-    `Mapped (types: [${types.join(", ")}], keyword: "${keyword}") to: ${JSON.stringify(result)}`,
-  );
-
+  logger.info(`Fallback mapping for "${placeName}": ${JSON.stringify(result)}`);
   return result;
 };
 
@@ -265,22 +238,28 @@ const fetchLeadsWithPagination = async (
       nextPageToken,
     );
 
-    const formattedResults = response.results.map((place) => {
-      // Use Google's types directly as the subCategory (fetched from API)
-      const categories = extractCategories(place.types, businessType);
+    const formattedResults = await Promise.all(
+      response.results.map(async (place) => {
+        // Use Google's types directly as the subCategory (fetched from API)
+        const categories = await extractCategories(
+          place.types,
+          businessType,
+          place.name,
+        );
 
-      return {
-        placeId: place.place_id,
-        name: place.name,
-        address: place.vicinity || place.formatted_address,
-        phone: "Pending", // Usually requires extra Details call
-        rating: place.rating,
-        googleMapsUrl: `https://www.google.com/maps/place/?q=place_id:${place.place_id}`,
-        businessType: categories.businessType,
-        subCategory: categories.subCategory,
-        types: place.types,
-      };
-    });
+        return {
+          placeId: place.place_id,
+          name: place.name,
+          address: place.vicinity || place.formatted_address,
+          phone: "Pending", // Usually requires extra Details call
+          rating: place.rating,
+          googleMapsUrl: `https://www.google.com/maps/place/?q=place_id:${place.place_id}`,
+          businessType: categories.businessType,
+          subCategory: categories.subCategory,
+          types: place.types,
+        };
+      }),
+    );
 
     allLeads = [...allLeads, ...formattedResults];
     nextPageToken = response.nextPageToken;
