@@ -5930,3 +5930,5 @@ The table `public.Lead` does not exist in the current database.
 2026-02-17 11:25:00 [INFO] PostgreSQL Database connected successfully via Prisma. 
 2026-02-17 11:25:00 [INFO] Server running in development mode on port 5005 
 2026-02-17 11:25:56 [INFO] Received shutdown signal. Closing server... 
+2026-02-17 11:27:31 [INFO] PostgreSQL Database connected successfully via Prisma. 
+2026-02-17 11:27:31 [INFO] Server running in development mode on port 5005 
