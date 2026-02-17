@@ -33,11 +33,19 @@ const Lead = sequelize.define(
     businessType: {
       type: DataTypes.STRING,
     },
+    subCategory: {
+      type: DataTypes.STRING,
+      defaultValue: "General",
+    },
     city: {
       type: DataTypes.STRING,
     },
     searchKeyword: {
       type: DataTypes.STRING,
+    },
+    placeId: {
+      type: DataTypes.STRING,
+      unique: true,
     },
   },
   {
@@ -46,6 +54,13 @@ const Lead = sequelize.define(
       {
         unique: true,
         fields: ["phone"],
+      },
+      {
+        unique: true,
+        fields: ["placeId"],
+      },
+      {
+        fields: ["city", "businessType"],
       },
     ],
   },

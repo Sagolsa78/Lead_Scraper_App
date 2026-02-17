@@ -15,14 +15,17 @@ model Lead {
   website         String?
   googleMapsUrl   String?
   businessType    String?
+  subCategory     String       @default("General")
   city            String?
   searchKeyword   String?
+  placeId         String?      @unique
   whatsapp_sent   Boolean      @default(false)
   createdAt       DateTime     @default(now())
   updatedAt       DateTime     @updatedAt
   messageLogs     MessageLog[]
 
   @@index([phone])
+  @@index([city, businessType])
 }
 
 model MessageLog {

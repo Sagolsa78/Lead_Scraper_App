@@ -7,7 +7,7 @@ import { cn } from "../utils/cn";
 
 const schema = z.object({
   city: z.string().min(1, "City is required"),
-  keyword: z.string().min(1, "Keyword is required"),
+  keyword: z.string().optional(),
   radius: z.number().min(100).max(50000).default(3000),
   limit: z.number().min(1).max(60).default(20),
 });
@@ -22,6 +22,7 @@ const LeadForm = ({ onSubmit, isLoading }) => {
     defaultValues: {
       radius: 3000,
       limit: 20,
+      keyword: "",
     },
   });
 
@@ -49,7 +50,7 @@ const LeadForm = ({ onSubmit, isLoading }) => {
 
         <div className="space-y-2">
           <label className="text-sm font-medium text-slate-700 dark:text-slate-300 flex items-center gap-2">
-            <Search className="w-4 h-4" /> Keyword
+            <Search className="w-4 h-4" /> Keyword (Optional)
           </label>
           <input
             {...register("keyword")}

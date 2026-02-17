@@ -12,6 +12,10 @@ export const leadService = {
     const response = await api.post("/leads/generate", params);
     return response.data;
   },
+  searchLeads: async (data) => {
+    const response = await api.post("/leads/search", data);
+    return response.data;
+  },
   getLeads: async (params) => {
     const response = await api.get("/leads", { params });
     return response.data;

@@ -15,14 +15,19 @@ const validate = (schema) => (req, res, next) => {
 
     next();
   } catch (error) {
-    logger.warn("Validation failed", { errors: error.errors, path: req.path });
+    logger.warn("Validation failed", {
+      errors: error.errors || error.message,
+      path: req.path,
+    });
     return res.status(400).json({
       success: false,
       message: "Validation Error",
-      errors: error.errors.map((e) => ({
-        path: e.path.join("."),
-        message: e.message,
-      })),
+      errors: error.errors
+        ? error.errors.map((e) => ({
+            path: e.path.join("."),
+            message: e.message,
+          }))
+        : [{ message: error.message }],
     });
   }
 };

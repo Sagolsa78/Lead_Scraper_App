@@ -9,7 +9,8 @@ const HEADERS = [
   "Website",
   "Google Maps URL",
   "Date Added",
-  "Business Type",
+  "Main Category",
+  "Sub Category",
   "City",
 ];
 
@@ -45,14 +46,14 @@ const initializeHeaders = async () => {
   try {
     const response = await sheetsConfig.sheets.spreadsheets.values.get({
       spreadsheetId: sheetsConfig.spreadsheetId,
-      range: "Leads!A1:I1",
+      range: "Leads!A1:J1",
     });
 
     if (!response.data.values || response.data.values.length === 0) {
       logger.info("Initializing headers for 'Leads' sheet...");
       await sheetsConfig.sheets.spreadsheets.values.update({
         spreadsheetId: sheetsConfig.spreadsheetId,
-        range: "Leads!A1:I1",
+        range: "Leads!A1:J1",
         valueInputOption: "USER_ENTERED",
         resource: { values: [HEADERS] },
       });
@@ -73,14 +74,15 @@ const appendLeads = async (leads, metadata = {}) => {
 
     const rows = leads.map((lead) => [
       lead.name,
-      lead.formatted_address,
-      lead.formatted_phone_number,
+      lead.formatted_address || lead.address,
+      lead.formatted_phone_number || lead.phone,
       lead.rating || "N/A",
       lead.website || "N/A",
-      lead.url,
+      lead.url || lead.googleMapsUrl,
       new Date().toISOString(),
-      metadata.businessType || "N/A",
-      metadata.city || "N/A",
+      lead.businessType || metadata.businessType || "N/A",
+      lead.subCategory || metadata.subCategory || "General",
+      lead.city || metadata.city || "N/A",
     ]);
 
     await sheetsConfig.sheets.spreadsheets.values.append({

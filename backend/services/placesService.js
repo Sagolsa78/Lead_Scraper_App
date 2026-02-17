@@ -2,17 +2,31 @@ const axios = require("axios");
 const logger = require("../config/logger");
 const googleConfig = require("../config/google");
 
-const findNearbyPlaces = async (lat, lng, radius, type, limit = 20) => {
+const findNearbyPlaces = async (
+  lat,
+  lng,
+  radius,
+  type,
+  limit = 20,
+  pageToken = null,
+) => {
   try {
+    const params = {
+      key: googleConfig.placesApiKey,
+    };
+
+    if (pageToken) {
+      params.pagetoken = pageToken;
+    } else {
+      params.location = `${lat},${lng}`;
+      params.radius = radius;
+      if (type) params.keyword = type;
+    }
+
     const response = await axios.get(
       "https://maps.googleapis.com/maps/api/place/nearbysearch/json",
       {
-        params: {
-          location: `${lat},${lng}`,
-          radius: radius,
-          keyword: type,
-          key: googleConfig.placesApiKey,
-        },
+        params,
         timeout: 10000,
       },
     );
@@ -27,12 +41,23 @@ const findNearbyPlaces = async (lat, lng, radius, type, limit = 20) => {
         error.status = 429;
         throw error;
       }
+      if (response.data.status === "INVALID_REQUEST" && pageToken) {
+        // Sometimes tokens are not yet valid (Google's weird delay)
+        logger.warn(
+          "Received INVALID_REQUEST for pageToken, possibly too fast",
+        );
+        return { results: [], next_page_token: pageToken };
+      }
       throw new Error(`Places API error: ${response.data.status}`);
     }
 
-    const results = response.data.results.slice(0, limit);
-    logger.info(`Found ${results.length} nearby places for ${type}`);
-    return results;
+    const results = response.data.results;
+    const nextPageToken = response.data.next_page_token;
+
+    logger.info(
+      `Found ${results.length} nearby places. Has next page: ${!!nextPageToken}`,
+    );
+    return { results, nextPageToken };
   } catch (error) {
     logger.error(`findNearbyPlaces failed: ${error.message}`);
     throw error;
@@ -47,7 +72,7 @@ const getPlaceDetails = async (placeId) => {
         params: {
           place_id: placeId,
           fields:
-            "name,formatted_address,formatted_phone_number,rating,website,url",
+            "name,formatted_address,formatted_phone_number,rating,website,url,types",
           key: googleConfig.placesApiKey,
         },
         timeout: 5000,

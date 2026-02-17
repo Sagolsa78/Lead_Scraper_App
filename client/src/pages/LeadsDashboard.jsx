@@ -10,6 +10,8 @@ import {
   Filter,
   CheckCircle2,
   XCircle,
+  Zap,
+  Loader2,
 } from "lucide-react";
 import { leadService } from "../api/leadApi";
 import { toast } from "react-hot-toast";
@@ -21,9 +23,16 @@ const LeadsDashboard = () => {
   const [filters, setFilters] = useState({
     city: "",
     keyword: "",
+    subCategory: "",
     whatsapp_status: "",
     search: "",
   });
+  const [smartSearch, setSmartSearch] = useState({
+    city: "",
+    businessType: "",
+    limit: 150,
+  });
+  const [isSearching, setIsSearching] = useState(false);
 
   const fetchLeads = async (page = 1) => {
     setLoading(true);
@@ -57,6 +66,25 @@ const LeadsDashboard = () => {
     }
   };
 
+  const handleSmartSearch = async (e) => {
+    e.preventDefault();
+    setIsSearching(true);
+    try {
+      if (response.data.validLeadsCount === 0) {
+        toast.info("No new leads found matching the criteria in this area.");
+      } else {
+        toast.success(
+          `Smart search complete! Found ${response.data.validLeadsCount} new leads.`,
+        );
+      }
+      fetchLeads(1);
+    } catch (error) {
+      toast.error(error.response?.data?.message || "Smart search failed");
+    } finally {
+      setIsSearching(false);
+    }
+  };
+
   return (
     <div className="space-y-6">
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
@@ -68,6 +96,67 @@ const LeadsDashboard = () => {
             Manage and contact your business leads
           </p>
         </div>
+      </div>
+
+      {/* Smart Search Section */}
+      <div className="glass rounded-2xl p-6 border-primary-500/20 bg-primary-50/10 dark:bg-primary-900/5">
+        <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
+          <Zap className="w-5 h-5 text-amber-500" /> Smart Lead Search
+        </h3>
+        <form
+          onSubmit={handleSmartSearch}
+          className="grid grid-cols-1 md:grid-cols-4 gap-4"
+        >
+          <input
+            type="text"
+            placeholder="City (e.g. Lucknow)"
+            required
+            className="w-full px-4 py-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl text-sm focus:ring-2 focus:ring-primary-500 outline-none"
+            value={smartSearch.city}
+            onChange={(e) =>
+              setSmartSearch({ ...smartSearch, city: e.target.value })
+            }
+          />
+          <input
+            type="text"
+            placeholder="Business Type (e.g. restaurant)"
+            required
+            className="w-full px-4 py-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl text-sm focus:ring-2 focus:ring-primary-500 outline-none"
+            value={smartSearch.businessType}
+            onChange={(e) =>
+              setSmartSearch({ ...smartSearch, businessType: e.target.value })
+            }
+          />
+          <input
+            type="number"
+            placeholder="Limit (Max 500)"
+            max="500"
+            min="1"
+            className="w-full px-4 py-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl text-sm focus:ring-2 focus:ring-primary-500 outline-none"
+            value={smartSearch.limit}
+            onChange={(e) =>
+              setSmartSearch({
+                ...smartSearch,
+                limit: parseInt(e.target.value),
+              })
+            }
+          />
+          <button
+            type="submit"
+            disabled={isSearching}
+            className="bg-primary-600 text-white rounded-xl py-2 px-4 text-sm font-bold hover:bg-primary-700 transition-colors flex items-center justify-center gap-2 disabled:opacity-50"
+          >
+            {isSearching ? (
+              <>
+                <Loader2 className="w-4 h-4 animate-spin" /> Searching...
+              </>
+            ) : (
+              <>
+                <Search className="w-4 h-4" /> Start Smart Search
+              </>
+            )}
+          </button>
+        </form>
       </div>
 
       {/* Filters */}
@@ -90,6 +179,17 @@ const LeadsDashboard = () => {
             className="w-full pl-10 pr-4 py-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl text-sm focus:ring-2 focus:ring-primary-500 outline-none"
             value={filters.city}
             onChange={(e) => setFilters({ ...filters, city: e.target.value })}
+          />
+        </div>
+        <div>
+          <input
+            type="text"
+            placeholder="Filter by sub category..."
+            className="w-full px-4 py-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl text-sm focus:ring-2 focus:ring-primary-500 outline-none"
+            value={filters.subCategory}
+            onChange={(e) =>
+              setFilters({ ...filters, subCategory: e.target.value })
+            }
           />
         </div>
         <div>
@@ -120,6 +220,9 @@ const LeadsDashboard = () => {
             <tr className="bg-slate-50 dark:bg-slate-900/50 border-b border-slate-200 dark:border-slate-800">
               <th className="px-6 py-4 text-xs font-bold text-slate-500 uppercase">
                 Business
+              </th>
+              <th className="px-6 py-4 text-xs font-bold text-slate-500 uppercase">
+                Sub Category
               </th>
               <th className="px-6 py-4 text-xs font-bold text-slate-500 uppercase">
                 Phone
@@ -166,9 +269,17 @@ const LeadsDashboard = () => {
                     <div className="font-semibold text-slate-900 dark:text-white uppercase text-sm truncate max-w-[200px]">
                       {lead.name}
                     </div>
+                    <div className="text-[10px] text-primary-500 font-bold uppercase tracking-wider">
+                      {lead.businessType}
+                    </div>
                     <div className="text-xs text-slate-500 truncate max-w-[200px]">
                       {lead.address}
                     </div>
+                  </td>
+                  <td className="px-6 py-4">
+                    <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 uppercase">
+                      {lead.subCategory || "N/A"}
+                    </span>
                   </td>
                   <td className="px-6 py-4 text-sm font-medium text-slate-700 dark:text-slate-300">
                     {lead.phone}

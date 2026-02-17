@@ -1,4 +1,5 @@
 const express = require("express");
+const path = require("path");
 const helmet = require("helmet");
 const cors = require("cors");
 const compression = require("compression");
@@ -48,6 +49,21 @@ app.get("/health", (req, res) => {
 // API Routes
 app.use("/api/v1/leads", leadRoutes);
 app.use("/api/v1/whatsapp", whatsappRoutes);
+
+// Serve Frontend in Production
+if (process.env.NODE_ENV === "production" || true) {
+  // Configured to work both locally and in web service environments
+  const clientDistPath = path.join(__dirname, "../client/dist");
+  app.use(express.static(clientDistPath));
+
+  app.get("*", (req, res, next) => {
+    // Only serve index.html if not an API route
+    if (req.path.startsWith("/api")) {
+      return next();
+    }
+    res.sendFile(path.join(clientDistPath, "index.html"));
+  });
+}
 
 // 404 Handler
 app.use((req, res, next) => {
