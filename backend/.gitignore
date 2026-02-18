@@ -6,3 +6,7 @@ node_modules/
 
 logs/combined.log
 logs/error.log
+
+/node_modules
+/logs/combined.log
+/logs/error.log

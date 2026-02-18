@@ -171,15 +171,15 @@ const generateLeads = async (req, res, next) => {
     grandTotalFetched += initialResult.totalFetched;
     grandDuplicatesRemoved += initialResult.duplicatesRemoved;
 
-    // 3. Fallback Strategy if no leads found (and no specific keyword was provided)
-    // Only engage fallback if user didn't specify a strict keyword (i.e., they wanted "Any")
-    // OR if they did specify a keyword but we found nothing (optional: usually we trust the user's explicit keyword,
-    // but the request was "if no leads are found then try searching randomly")
-    // Let's apply it generally if leads are 0.
+    // 3. Fallback Strategy if no leads found
+    let fallbackUsed = false;
+    let fallbackKeywords = [];
+
     if (allValidLeads.length === 0) {
       logger.info(
         "No leads found with initial search. Engaging fallback strategy with random keywords...",
       );
+      fallbackUsed = true;
 
       // Create a copy of keywords to pick from
       const fallbackOptions = [...FALLBACK_KEYWORDS];
@@ -196,6 +196,7 @@ const generateLeads = async (req, res, next) => {
         const randomKeyword = fallbackOptions[randomIndex];
         // Remove it so we don't pick it again
         fallbackOptions.splice(randomIndex, 1);
+        fallbackKeywords.push(randomKeyword);
 
         logger.info(
           `Fallback Attempt ${retries + 1}/${MAX_RETRIES}: Searching for '${randomKeyword}'`,
@@ -232,8 +233,12 @@ const generateLeads = async (req, res, next) => {
             duplicatesRemoved: grandDuplicatesRemoved,
             savedToPostgres: 0,
             savedToSheet: 0,
+            fallbackUsed,
+            fallbackKeywords,
           },
-          "No leads found matching the criteria in this area, even after fallback attempts.",
+          fallbackUsed
+            ? `No leads found even after fallback searches for: ${fallbackKeywords.join(", ")}`
+            : "No leads found matching the criteria in this area.",
         ),
       );
     }
@@ -256,14 +261,19 @@ const generateLeads = async (req, res, next) => {
             subCategory: lead.subCategory,
             city: lead.city,
             placeId: lead.place_id || lead.placeId,
-            searchKeyword: keyword || lead.businessType || "Fallback", // Record what actually found it if possible, or stick to initial
+            searchKeyword: keyword || lead.businessType || "Fallback",
           },
         });
         successfulSaves.push(savedLead);
       } catch (err) {
-        logger.warn(
-          `Failed to save lead to Postgres: ${lead.name} - ${err.message}`,
-        );
+        if (err.code === "P2002") {
+          // Unique constraint failed, lead already exists. This is expected in race conditions.
+          logger.debug(`Lead already exists (P2002): ${lead.name}`);
+        } else {
+          logger.warn(
+            `Failed to save lead to Postgres: ${lead.name} - ${err.message}`,
+          );
+        }
       }
     }
 
@@ -284,6 +294,8 @@ const generateLeads = async (req, res, next) => {
       duplicatesRemoved: grandDuplicatesRemoved,
       savedToPostgres: successfulSaves.length,
       savedToSheet: savedToSheetCount,
+      fallbackUsed,
+      fallbackKeywords,
     };
     console.log(result);
 
@@ -291,7 +303,12 @@ const generateLeads = async (req, res, next) => {
     res
       .status(200)
       .json(
-        responseFormatter(result, "Lead generation completed successfully"),
+        responseFormatter(
+          result,
+          fallbackUsed
+            ? `Leads found using fallback keywords: ${fallbackKeywords.join(", ")}`
+            : "Lead generation completed successfully",
+        ),
       );
   } catch (error) {
     next(error);

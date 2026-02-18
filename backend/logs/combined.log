@@ -6710,3 +6710,561 @@ Please retry in 15.498211968s. [{"@type":"type.googleapis.com/google.rpc.Help","
 2026-02-18 10:40:31 [INFO] Lead generation completed {"totalFetched":60,"validLeadsCount":1,"duplicatesRemoved":25,"savedToPostgres":1,"savedToSheet":1}
 2026-02-18 10:40:31 [INFO] ::1 - - [18/Feb/2026:05:10:31 +0000] "POST /api/v1/leads/generate HTTP/1.1" 200 230 "http://localhost:5173/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" 
 2026-02-18 11:29:15 [INFO] Received shutdown signal. Closing server... 
+2026-02-18 12:54:07 [ERROR] Failed to store raw data: SASL: SCRAM-SERVER-FIRST-MESSAGE: client password must be a string {"source":"test_script","dataType":"google_place"}
+2026-02-18 12:55:24 [INFO] Stored raw data from test_script (google_place) with ID: 98873aa4-22f9-440c-aa03-4d782f68e30c 
+2026-02-18 17:45:38 [INFO] PostgreSQL Database connected successfully via Prisma. 
+2026-02-18 17:45:38 [INFO] Server running in development mode on port 5005 
+2026-02-18 17:47:13 [INFO] ::1 - - [18/Feb/2026:12:17:13 +0000] "GET /api/v1/leads?city=&keyword=&subCategory=&whatsapp_status=&search=&page=1 HTTP/1.1" 200 191 "http://localhost:5173/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" 
+2026-02-18 17:47:13 [INFO] ::1 - - [18/Feb/2026:12:17:13 +0000] "GET /api/v1/leads?limit=1000 HTTP/1.1" 200 193 "http://localhost:5173/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" 
+2026-02-18 17:47:13 [INFO] ::1 - - [18/Feb/2026:12:17:13 +0000] "GET /api/v1/leads?limit=1000 HTTP/1.1" 200 193 "http://localhost:5173/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" 
+2026-02-18 17:47:14 [INFO] ::1 - - [18/Feb/2026:12:17:14 +0000] "GET /api/v1/whatsapp/settings HTTP/1.1" 200 201 "http://localhost:5173/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" 
+2026-02-18 17:47:14 [INFO] ::1 - - [18/Feb/2026:12:17:14 +0000] "GET /api/v1/whatsapp/settings HTTP/1.1" 200 201 "http://localhost:5173/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" 
+2026-02-18 17:51:09 [INFO] Received shutdown signal. Closing server... 
+2026-02-18 18:04:46 [INFO] PostgreSQL Database connected successfully via Prisma. 
+2026-02-18 18:04:46 [INFO] Server running in development mode on port 5005 
+2026-02-18 18:05:17 [INFO] Lead generation started: academy in lucknow (radius: 3000, limit: 10) 
+2026-02-18 18:05:18 [INFO] Geocoded lucknow to 26.8466937, 80.94616599999999 (Cached) 
+2026-02-18 18:05:18 [INFO] Found 20 nearby places. Has next page: true 
+2026-02-18 18:05:25 [INFO] AI Categorized "youth academy" as: Education > Academy 
+2026-02-18 18:05:30 [INFO] AI Categorized "City Academy School" as: Education > School 
+2026-02-18 18:05:33 [INFO] AI Categorized "ACE TABLE TENNIS ACADEMY" as: Sports > Sports Academy 
+2026-02-18 18:05:36 [INFO] AI Categorized "KRISHNA ACADEMY" as: Education > Academy 
+2026-02-18 18:05:36 [INFO] Fetching more leads for 'academy'... (Current: 4/10) 
+2026-02-18 18:05:39 [INFO] Found 20 nearby places. Has next page: true 
+2026-02-18 18:05:45 [INFO] AI Categorized "Black Belt Taekwondo Academy" as: Sports > Martial Arts School 
+2026-02-18 18:05:48 [INFO] AI Categorized "Arjuna cricket academy" as: Sports > Cricket Academy 
+2026-02-18 18:05:49 [ERROR] AI (REST) failed for "Shiva Academy": {"error":{"code":429,"message":"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-2.5-flash\nPlease retry in 11.012726245s.","status":"RESOURCE_EXHAUSTED","details":[{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerMinutePerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-2.5-flash"},"quotaValue":"5"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"11s"}]}} 
+2026-02-18 18:05:49 [INFO] Fallback mapping for "Shiva Academy": {"businessType":"Gym","subCategory":"Health and Wellness"} 
+2026-02-18 18:05:53 [INFO] AI Categorized "Precision Chess Academy" as: Education > Chess Academy 
+2026-02-18 18:05:54 [ERROR] AI (REST) failed for "SKATERS HUB LUCKNOW SPEED SKATING ACADEMY": {"error":{"code":429,"message":"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-2.5-flash\nPlease retry in 6.207294377s.","status":"RESOURCE_EXHAUSTED","details":[{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerMinutePerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-2.5-flash"},"quotaValue":"5"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"6s"}]}} 
+2026-02-18 18:05:54 [INFO] Fallback mapping for "SKATERS HUB LUCKNOW SPEED SKATING ACADEMY": {"businessType":"Point of interest","subCategory":"Other"} 
+2026-02-18 18:05:54 [ERROR] AI (REST) failed for "Genius Academy": {"error":{"code":429,"message":"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-2.5-flash\nPlease retry in 5.597135941s.","status":"RESOURCE_EXHAUSTED","details":[{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerMinutePerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-2.5-flash"},"quotaValue":"5"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"5s"}]}} 
+2026-02-18 18:05:54 [INFO] Fallback mapping for "Genius Academy": {"businessType":"Point of interest","subCategory":"Other"} 
+2026-02-18 18:05:57 [INFO] Successfully appended 10 leads to Google Sheets 
+2026-02-18 18:05:57 [INFO] Lead generation completed {"totalFetched":40,"validLeadsCount":10,"duplicatesRemoved":0,"savedToPostgres":10,"savedToSheet":10}
+2026-02-18 18:05:57 [INFO] ::1 - - [18/Feb/2026:12:35:57 +0000] "POST /api/v1/leads/generate HTTP/1.1" 200 232 "http://localhost:5173/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" 
+2026-02-18 18:16:44 [INFO] PostgreSQL Database connected successfully via Prisma. 
+2026-02-18 18:16:44 [INFO] Server running in development mode on port 5005 
+2026-02-18 18:17:00 [INFO] PostgreSQL Database connected successfully via Prisma. 
+2026-02-18 18:17:00 [INFO] Server running in development mode on port 5005 
+2026-02-18 18:17:16 [INFO] PostgreSQL Database connected successfully via Prisma. 
+2026-02-18 18:17:16 [INFO] Server running in development mode on port 5005 
+2026-02-18 18:17:18 [INFO] Static categorized "Test Restaurant" as Food and Drink 
+2026-02-18 18:20:37 [INFO] PostgreSQL Database connected successfully via Prisma. 
+2026-02-18 18:20:37 [INFO] Server running in development mode on port 5005 
+2026-02-18 18:20:39 [INFO] PostgreSQL Database connected successfully via Prisma. 
+2026-02-18 18:20:39 [INFO] Server running in development mode on port 5005 
+2026-02-18 18:20:40 [INFO] PostgreSQL Database connected successfully via Prisma. 
+2026-02-18 18:20:40 [INFO] Server running in development mode on port 5005 
+2026-02-18 18:20:43 [INFO] PostgreSQL Database connected successfully via Prisma. 
+2026-02-18 18:20:43 [INFO] Server running in development mode on port 5005 
+2026-02-18 18:30:08 [INFO] Lead generation started: academy in lucknow (radius: 3000, limit: 10) 
+2026-02-18 18:30:08 [INFO] Geocode cache hit for lucknow 
+2026-02-18 18:30:09 [INFO] Found 20 nearby places. Has next page: true 
+2026-02-18 18:30:14 [INFO] Fetching more leads for 'academy'... (Current: 0/10) 
+2026-02-18 18:30:17 [INFO] Found 20 nearby places. Has next page: true 
+2026-02-18 18:30:22 [INFO] Static categorized "Aurazen Makeup Studio and Academy" as Services 
+2026-02-18 18:30:22 [INFO] Fetching more leads for 'academy'... (Current: 2/10) 
+2026-02-18 18:30:25 [INFO] Found 20 nearby places. Has next page: false 
+2026-02-18 18:31:08 [INFO] Successfully appended 8 leads to Google Sheets 
+2026-02-18 18:31:08 [INFO] Lead generation completed {"totalFetched":60,"validLeadsCount":8,"duplicatesRemoved":10,"savedToPostgres":8,"savedToSheet":8}
+2026-02-18 18:31:08 [INFO] ::1 - - [18/Feb/2026:13:01:08 +0000] "POST /api/v1/leads/generate HTTP/1.1" 200 230 "http://localhost:5173/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" 
+2026-02-18 18:32:38 [INFO] Lead generation started: academy in lucknow (radius: 3000, limit: 30) 
+2026-02-18 18:32:38 [INFO] Geocode cache hit for lucknow 
+2026-02-18 18:32:39 [INFO] Found 20 nearby places. Has next page: true 
+2026-02-18 18:32:43 [INFO] Fetching more leads for 'academy'... (Current: 0/30) 
+2026-02-18 18:32:46 [INFO] Found 20 nearby places. Has next page: true 
+2026-02-18 18:32:50 [INFO] Fetching more leads for 'academy'... (Current: 0/30) 
+2026-02-18 18:32:54 [INFO] Found 20 nearby places. Has next page: false 
+2026-02-18 18:32:58 [INFO] No leads found with initial search. Engaging fallback strategy with random keywords... 
+2026-02-18 18:32:58 [INFO] Fallback Attempt 1/3: Searching for 'mechanic' 
+2026-02-18 18:32:58 [INFO] Found 20 nearby places. Has next page: true 
+2026-02-18 18:32:59 [INFO] Static categorized "Royal Motors" as Automotive 
+2026-02-18 18:32:59 [INFO] Static categorized "Noor Bullet Service" as Automotive 
+2026-02-18 18:33:00 [INFO] Static categorized "GoMechanic - Car Repair Lucknow" as Automotive 
+2026-02-18 18:33:00 [INFO] Static categorized "Faheem digitel meter repair lucknow" as Automotive 
+2026-02-18 18:33:00 [INFO] Static categorized "S A MOTORS" as Automotive 
+2026-02-18 18:33:01 [INFO] Static categorized "GoMechanic - Car Workshop Lucknow" as Automotive 
+2026-02-18 18:33:01 [INFO] Static categorized "Metro Motors" as Automotive 
+2026-02-18 18:33:02 [INFO] Static categorized "Amaan Automobile Service Centre" as Automotive 
+2026-02-18 18:33:02 [INFO] Fetching more leads for 'mechanic'... (Current: 8/30) 
+2026-02-18 18:33:05 [INFO] Found 20 nearby places. Has next page: true 
+2026-02-18 18:33:06 [INFO] Static categorized "Om Power Steering" as Automotive 
+2026-02-18 18:33:06 [INFO] Static categorized "GENRATOR SERVICE" as Automotive 
+2026-02-18 18:33:06 [INFO] Static categorized "GoMechanic - Car Battery Shop Lucknow" as Automotive 
+2026-02-18 18:33:06 [INFO] Static categorized "The Master Garage" as Automotive 
+2026-02-18 18:33:06 [INFO] Static categorized "Aman motors" as Automotive 
+2026-02-18 18:33:07 [INFO] Static categorized "Iqbal Motors - Car AC Service in Hazratganj Lucknow" as Automotive 
+2026-02-18 18:33:07 [INFO] Static categorized "GoMechanic - Car Insurance Repair Lucknow" as Automotive 
+2026-02-18 18:33:07 [INFO] Static categorized "Capital motor" as Automotive 
+2026-02-18 18:33:08 [INFO] Static categorized "GoMechanic - We Care Auto" as Automotive 
+2026-02-18 18:33:08 [INFO] Static categorized "GoMechanic - Car Tyre Shop Lucknow" as Automotive 
+2026-02-18 18:33:09 [INFO] Static categorized "Naseem Auto" as Automotive 
+2026-02-18 18:33:16 [INFO] Fetching more leads for 'mechanic'... (Current: 20/30) 
+2026-02-18 18:33:19 [INFO] Found 11 nearby places. Has next page: false 
+2026-02-18 18:33:24 [INFO] Static categorized "Generator on Rent/DG Set on Hire" as Automotive 
+2026-02-18 18:33:24 [INFO] Static categorized "Sindh Automobiles" as Automotive 
+2026-02-18 18:33:25 [INFO] Static categorized "Rencom Automobile" as Automotive 
+2026-02-18 18:33:25 [INFO] Static categorized "Guddu Mechanics" as Automotive 
+2026-02-18 18:33:29 [INFO] Fallback Attempt 2/3: Searching for 'dentist' 
+2026-02-18 18:33:30 [INFO] Found 20 nearby places. Has next page: true 
+2026-02-18 18:33:34 [INFO] Static categorized "BRITE SMILE DENTAL CARE | BEST DENTAL |BEST DENTIST |RCT| IMPLANT | FIXED TEETH| DENTURES l INVISALIGN DR.PRIYANK PRAKASH" as Health and Wellness 
+2026-02-18 18:33:44 [ERROR] AI categorization failed: {"0":"R","1":"e","2":"q","3":"u","4":"e","5":"s","6":"t","7":" ","8":"f","9":"a","10":"i","11":"l","12":"e","13":"d","14":" ","15":"w","16":"i","17":"t","18":"h","19":" ","20":"s","21":"t","22":"a","23":"t","24":"u","25":"s","26":" ","27":"c","28":"o","29":"d","30":"e","31":" ","32":"4","33":"2","34":"9"}
+2026-02-18 18:33:44 [WARN] Failed to save lead to Postgres: GoMechanic - Car Workshop Lucknow - 
+Invalid `prisma.lead.create()` invocation in
+/mnt/Drive_01/bhuexpert_test/Lead_Scrapper/Lead_Scraper_App/backend/controllers/leadController.js:245:45
+
+  242 const successfulSaves = [];
+  243 for (const lead of allValidLeads) {
+  244   try {
+→ 245     const savedLead = await prisma.lead.create(
+Unique constraint failed on the fields: (`phone`) 
+2026-02-18 18:33:44 [WARN] Failed to save lead to Postgres: GoMechanic - Car Insurance Repair Lucknow - 
+Invalid `prisma.lead.create()` invocation in
+/mnt/Drive_01/bhuexpert_test/Lead_Scrapper/Lead_Scraper_App/backend/controllers/leadController.js:245:45
+
+  242 const successfulSaves = [];
+  243 for (const lead of allValidLeads) {
+  244   try {
+→ 245     const savedLead = await prisma.lead.create(
+Unique constraint failed on the fields: (`phone`) 
+2026-02-18 18:33:44 [WARN] Failed to save lead to Postgres: GoMechanic - We Care Auto - 
+Invalid `prisma.lead.create()` invocation in
+/mnt/Drive_01/bhuexpert_test/Lead_Scrapper/Lead_Scraper_App/backend/controllers/leadController.js:245:45
+
+  242 const successfulSaves = [];
+  243 for (const lead of allValidLeads) {
+  244   try {
+→ 245     const savedLead = await prisma.lead.create(
+Unique constraint failed on the fields: (`phone`) 
+2026-02-18 18:33:44 [WARN] Failed to save lead to Postgres: GoMechanic - Car Tyre Shop Lucknow - 
+Invalid `prisma.lead.create()` invocation in
+/mnt/Drive_01/bhuexpert_test/Lead_Scrapper/Lead_Scraper_App/backend/controllers/leadController.js:245:45
+
+  242 const successfulSaves = [];
+  243 for (const lead of allValidLeads) {
+  244   try {
+→ 245     const savedLead = await prisma.lead.create(
+Unique constraint failed on the fields: (`phone`) 
+2026-02-18 18:33:44 [WARN] Failed to save lead to Postgres: GoMechanic - Car Breakdown | Towing | Road Side Assistance - 
+Invalid `prisma.lead.create()` invocation in
+/mnt/Drive_01/bhuexpert_test/Lead_Scrapper/Lead_Scraper_App/backend/controllers/leadController.js:245:45
+
+  242 const successfulSaves = [];
+  243 for (const lead of allValidLeads) {
+  244   try {
+→ 245     const savedLead = await prisma.lead.create(
+Unique constraint failed on the fields: (`phone`) 
+2026-02-18 18:33:46 [INFO] Successfully appended 30 leads to Google Sheets 
+2026-02-18 18:33:46 [INFO] Lead generation completed {"totalFetched":131,"validLeadsCount":30,"duplicatesRemoved":18,"savedToPostgres":25,"savedToSheet":30}
+2026-02-18 18:33:46 [INFO] ::1 - - [18/Feb/2026:13:03:46 +0000] "POST /api/v1/leads/generate HTTP/1.1" 200 234 "http://localhost:5173/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" 
+2026-02-18 18:45:18 [INFO] PostgreSQL Database connected successfully via Prisma. 
+2026-02-18 18:45:18 [INFO] Server running in development mode on port 5005 
+2026-02-18 18:45:35 [INFO] PostgreSQL Database connected successfully via Prisma. 
+2026-02-18 18:45:35 [INFO] Server running in development mode on port 5005 
+2026-02-18 18:46:51 [INFO] Lead generation started: sdfsdfsdf in New York (radius: 500, limit: 1) 
+2026-02-18 18:46:51 [INFO] Geocoded New York to 40.7127753, -74.0059728 (Cached) 
+2026-02-18 18:46:52 [INFO] Found 0 nearby places. Has next page: false 
+2026-02-18 18:46:52 [INFO] No leads found with initial search. Engaging fallback strategy with random keywords... 
+2026-02-18 18:46:52 [INFO] Fallback Attempt 1/3: Searching for 'landscaper' 
+2026-02-18 18:46:52 [INFO] Found 7 nearby places. Has next page: false 
+2026-02-18 18:46:54 [ERROR] AI categorization failed for "Hester Gardens". Status: 429, Message: Request failed with status code 429, Data: {"error":{"code":429,"message":"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 6.041894265s.","status":"RESOURCE_EXHAUSTED","details":[{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"model":"gemini-2.5-flash","location":"global"},"quotaValue":"20"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"6s"}]}} 
+2026-02-18 18:46:56 [INFO] Successfully appended 1 leads to Google Sheets 
+2026-02-18 18:46:56 [INFO] Lead generation completed {"totalFetched":7,"validLeadsCount":1,"duplicatesRemoved":0,"savedToPostgres":1,"savedToSheet":1,"fallbackUsed":true,"fallbackKeywords":["landscaper"]}
+2026-02-18 18:46:56 [INFO] ::1 - - [18/Feb/2026:13:16:56 +0000] "POST /api/v1/leads/generate HTTP/1.1" 200 291 "-" "curl/8.5.0" 
+2026-02-18 18:51:17 [INFO] PostgreSQL Database connected successfully via Prisma. 
+2026-02-18 18:51:17 [INFO] Server running in development mode on port 5005 
+2026-02-18 18:51:46 [INFO] PostgreSQL Database connected successfully via Prisma. 
+2026-02-18 18:51:46 [INFO] Server running in development mode on port 5005 
+2026-02-18 18:52:00 [INFO] PostgreSQL Database connected successfully via Prisma. 
+2026-02-18 18:52:00 [INFO] Server running in development mode on port 5005 
+2026-02-18 18:52:08 [INFO] Static categorized "Test Restaurant" as Food and Drink 
+2026-02-18 18:52:09 [ERROR] AI categorization failed for "Test Unknown Place". Status: 404, Message: Request failed with status code 404, Data: {"error":{"code":404,"message":"models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.","status":"NOT_FOUND"}} 
+2026-02-18 18:52:37 [INFO] PostgreSQL Database connected successfully via Prisma. 
+2026-02-18 18:52:37 [INFO] Server running in development mode on port 5005 
+2026-02-18 18:52:39 [INFO] Static categorized "Test Restaurant" as Food and Drink 
+2026-02-18 18:52:40 [ERROR] AI categorization failed for "Test Unknown Place". Status: 404, Message: Request failed with status code 404, Data: {"error":{"code":404,"message":"models/gemini-1.5-flash-latest is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.","status":"NOT_FOUND"}} 
+2026-02-18 18:52:49 [INFO] PostgreSQL Database connected successfully via Prisma. 
+2026-02-18 18:52:49 [INFO] Server running in development mode on port 5005 
+2026-02-18 18:52:52 [INFO] Static categorized "Test Restaurant" as Food and Drink 
+2026-02-18 18:52:52 [ERROR] AI categorization failed for "Test Unknown Place". Status: 404, Message: Request failed with status code 404, Data: {"error":{"code":404,"message":"models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.","status":"NOT_FOUND"}} 
+2026-02-18 18:53:02 [INFO] PostgreSQL Database connected successfully via Prisma. 
+2026-02-18 18:53:02 [INFO] Server running in development mode on port 5005 
+2026-02-18 18:53:04 [INFO] Static categorized "Test Restaurant" as Food and Drink 
+2026-02-18 18:53:05 [ERROR] AI categorization failed for "Test Unknown Place". Status: 404, Message: Request failed with status code 404, Data: {"error":{"code":404,"message":"models/gemini-1.5-flash-001 is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.","status":"NOT_FOUND"}} 
+2026-02-18 18:53:14 [INFO] PostgreSQL Database connected successfully via Prisma. 
+2026-02-18 18:53:14 [INFO] Server running in development mode on port 5005 
+2026-02-18 18:53:16 [INFO] Static categorized "Test Restaurant" as Food and Drink 
+2026-02-18 18:53:17 [ERROR] AI categorization failed for "Test Unknown Place". Status: 404, Message: Request failed with status code 404, Data: {"error":{"code":404,"message":"models/gemini-1.0-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.","status":"NOT_FOUND"}} 
+2026-02-18 18:53:45 [INFO] PostgreSQL Database connected successfully via Prisma. 
+2026-02-18 18:53:45 [INFO] Server running in development mode on port 5005 
+2026-02-18 18:53:47 [INFO] Static categorized "Test Restaurant" as Food and Drink 
+2026-02-18 18:53:48 [ERROR] AI categorization failed for "Test Unknown Place". Status: 404, Message: Request failed with status code 404, Data: {"error":{"code":404,"message":"models/gemini-2.0-flash-exp is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.","status":"NOT_FOUND"}} 
+2026-02-18 18:53:59 [INFO] PostgreSQL Database connected successfully via Prisma. 
+2026-02-18 18:53:59 [INFO] Server running in development mode on port 5005 
+2026-02-18 18:54:02 [INFO] Static categorized "Test Restaurant" as Food and Drink 
+2026-02-18 22:07:16 [INFO] Lead generation started: salon in roorkee (radius: 3000, limit: 20) 
+2026-02-18 22:07:17 [INFO] Geocoded roorkee to 29.8542626, 77.8880002 (Cached) 
+2026-02-18 22:07:18 [INFO] Found 20 nearby places. Has next page: true 
+2026-02-18 22:07:19 [INFO] Static categorized "Fusion A Unisex Salon" as Services 
+2026-02-18 22:07:20 [INFO] Static categorized "Azhar unisex salon" as Services 
+2026-02-18 22:07:26 [INFO] Static categorized "Urban Studio a unisex Salon" as Services 
+2026-02-18 22:07:30 [INFO] Static categorized "Makeover Lounge Roorkee - Best Ladies Beauty Parlour | Makeover Salon | HD Bridal Makeup Salon in Roorkee" as Services 
+2026-02-18 22:07:32 [INFO] Static categorized "Ali Hair Zone & Beauty Salon" as Services 
+2026-02-18 22:07:32 [INFO] Static categorized "Divine Beauty Unisex Salon" as Services 
+2026-02-18 22:07:32 [INFO] Static categorized "He & She Unisex Salon" as Services 
+2026-02-18 22:07:33 [INFO] Static categorized "Gv Nails & Beauty Salon" as Services 
+2026-02-18 22:07:33 [INFO] Fetching more leads for 'salon'... (Current: 10/20) 
+2026-02-18 22:07:36 [INFO] Found 20 nearby places. Has next page: true 
+2026-02-18 22:07:37 [INFO] Static categorized "Ten Pachi Unisex Salon" as Services 
+2026-02-18 22:07:37 [INFO] Static categorized "Hair Fashion" as Services 
+2026-02-18 22:07:38 [INFO] Static categorized "Femina11salon" as Services 
+2026-02-18 22:07:38 [INFO] Static categorized "Esha Makeover and beauty salon -Best Makeup Artist in Roorkee |Makeover Salon in Roorkee" as Services 
+2026-02-18 22:07:41 [ERROR] AI categorization failed for "Mirror Shine Unisex Salon". Status: 429, Message: Request failed with status code 429, Data: {"error":{"code":429,"message":"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 15.897935036s.","status":"RESOURCE_EXHAUSTED","details":[{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-2.5-flash"},"quotaValue":"20"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"15s"}]}} 
+2026-02-18 22:07:42 [INFO] Static categorized "Perfect Makeover Salon" as Services 
+2026-02-18 22:07:42 [INFO] Static categorized "Hair Salon" as Services 
+2026-02-18 22:07:42 [INFO] Static categorized "c7 hair & beauty studio" as Services 
+2026-02-18 22:07:45 [ERROR] AI categorization failed for "Lifestyle Salon". Status: 429, Message: Request failed with status code 429, Data: {"error":{"code":429,"message":"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 11.826720512s.","status":"RESOURCE_EXHAUSTED","details":[{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"model":"gemini-2.5-flash","location":"global"},"quotaValue":"20"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"11s"}]}} 
+2026-02-18 22:07:45 [INFO] Static categorized "BLISS BEAUTY MAKEOVER SALON- Best Ladies Parlour in Rookee" as Services 
+2026-02-18 22:07:51 [INFO] Successfully appended 20 leads to Google Sheets 
+2026-02-18 22:07:51 [INFO] Lead generation completed {"totalFetched":40,"validLeadsCount":20,"duplicatesRemoved":0,"savedToPostgres":20,"savedToSheet":20,"fallbackUsed":false,"fallbackKeywords":[]}
+2026-02-18 22:07:51 [INFO] ::1 - - [18/Feb/2026:16:37:51 +0000] "POST /api/v1/leads/generate HTTP/1.1" 200 275 "http://localhost:5173/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" 
+2026-02-18 22:09:19 [INFO] ::1 - - [18/Feb/2026:16:39:19 +0000] "GET /api/v1/leads?city=&keyword=&subCategory=&whatsapp_status=&search=&page=1 HTTP/1.1" 200 - "http://localhost:5173/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" 
+2026-02-18 22:09:30 [INFO] ::1 - - [18/Feb/2026:16:39:30 +0000] "POST /api/v1/whatsapp/send HTTP/1.1" 200 908 "http://localhost:5173/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" 
+2026-02-18 22:22:09 [INFO] ::1 - - [18/Feb/2026:16:52:09 +0000] "GET /api/v1/leads?city=&keyword=&subCategory=&whatsapp_status=&search=&page=1 HTTP/1.1" 200 - "http://localhost:5173/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" 
+2026-02-18 23:09:50 [INFO] PostgreSQL Database connected successfully via Prisma. 
+2026-02-18 23:09:50 [INFO] Server running in development mode on port 5005 
+2026-02-18 23:10:11 [INFO] PostgreSQL Database connected successfully via Prisma. 
+2026-02-18 23:10:11 [INFO] Server running in development mode on port 5005 
+2026-02-18 23:10:13 [INFO] Static categorized "Test Restaurant" as Food & Beverage 
+2026-02-18 23:10:13 [INFO] Static categorized "Test Gym" as Health & Wellness 
+2026-02-18 23:10:13 [INFO] Static categorized "Test Beauty Salon" as Beauty & Personal Care 
+2026-02-18 23:10:13 [INFO] Static categorized "Test University" as Education 
+2026-02-18 23:10:13 [INFO] Static categorized "Test Shopping Mall" as Retail & Shopping 
+2026-02-18 23:10:13 [INFO] Static categorized "Test Lawyer" as Professional Services 
+2026-02-18 23:10:13 [INFO] Static categorized "Test Plumber" as Home Services 
+2026-02-18 23:10:13 [INFO] Static categorized "Test Car Repair" as Automotive 
+2026-02-18 23:10:13 [INFO] Static categorized "Test Hotel" as Lodging 
+2026-02-18 23:10:13 [INFO] Static categorized "Test Computer Store" as IT & Tech 
+2026-02-18 23:10:49 [INFO] PostgreSQL Database connected successfully via Prisma. 
+2026-02-18 23:10:49 [INFO] Server running in development mode on port 5005 
+2026-02-18 23:10:50 [INFO] Static categorized "Test Restaurant" as Food & Beverage 
+2026-02-18 23:10:50 [INFO] Static categorized "Test Gym" as Health & Wellness 
+2026-02-18 23:10:50 [INFO] Static categorized "Test Beauty Salon" as Beauty & Personal Care 
+2026-02-18 23:10:50 [INFO] Static categorized "Test University" as Education 
+2026-02-18 23:10:50 [INFO] Static categorized "Test Shopping Mall" as Retail & Shopping 
+2026-02-18 23:10:50 [INFO] Static categorized "Test Lawyer" as Professional Services 
+2026-02-18 23:10:50 [INFO] Static categorized "Test Plumber" as Home Services 
+2026-02-18 23:10:50 [INFO] Static categorized "Test Car Repair" as Automotive 
+2026-02-18 23:10:50 [INFO] Static categorized "Test Hotel" as Lodging 
+2026-02-18 23:10:50 [INFO] Static categorized "Test Computer Store" as IT & Tech 
+2026-02-18 23:10:50 [WARN] GEMINI_API_KEY is missing. Returning fallback category. 
+2026-02-18 23:12:33 [INFO] PostgreSQL Database connected successfully via Prisma. 
+2026-02-18 23:12:33 [INFO] Server running in development mode on port 5005 
+2026-02-18 23:12:39 [INFO] PostgreSQL Database connected successfully via Prisma. 
+2026-02-18 23:12:39 [INFO] Server running in development mode on port 5005 
+2026-02-18 23:23:00 [ERROR] [RID: 046195cf-2a0c-42a5-8671-2929dd0baa5c] 500 - 
+Invalid `prisma.lead.count()` invocation in
+/mnt/Drive_01/bhuexpert_test/Lead_Scrapper/Lead_Scraper_App/backend/controllers/leadController.js:464:19
+
+  461   take,
+  462   orderBy: { [sortBy]: order },
+  463 }),
+→ 464 prisma.lead.count(
+The table `public.Lead` does not exist in the current database. - /api/v1/leads?city=&keyword=&subCategory=&whatsapp_status=&search=&page=1 - GET - ::1 {"stack":"PrismaClientKnownRequestError: \nInvalid `prisma.lead.count()` invocation in\n/mnt/Drive_01/bhuexpert_test/Lead_Scrapper/Lead_Scraper_App/backend/controllers/leadController.js:464:19\n\n  461   take,\n  462   orderBy: { [sortBy]: order },\n  463 }),\n→ 464 prisma.lead.count(\nThe table `public.Lead` does not exist in the current database.\n    at zr.handleRequestError (/mnt/Drive_01/bhuexpert_test/Lead_Scrapper/Lead_Scraper_App/backend/node_modules/@prisma/client/runtime/client.js:65:8172)\n    at zr.handleAndLogRequestError (/mnt/Drive_01/bhuexpert_test/Lead_Scrapper/Lead_Scraper_App/backend/node_modules/@prisma/client/runtime/client.js:65:7467)\n    at zr.request (/mnt/Drive_01/bhuexpert_test/Lead_Scrapper/Lead_Scraper_App/backend/node_modules/@prisma/client/runtime/client.js:65:7174)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async a (/mnt/Drive_01/bhuexpert_test/Lead_Scrapper/Lead_Scraper_App/backend/node_modules/@prisma/client/runtime/client.js:75:5816)\n    at async Promise.all (index 1)\n    at async getLeads (/mnt/Drive_01/bhuexpert_test/Lead_Scrapper/Lead_Scraper_App/backend/controllers/leadController.js:457:28)"}
+2026-02-18 23:23:00 [INFO] ::1 - - [18/Feb/2026:17:53:00 +0000] "GET /api/v1/leads?city=&keyword=&subCategory=&whatsapp_status=&search=&page=1 HTTP/1.1" 500 354 "http://localhost:5173/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" 
+2026-02-18 23:23:01 [ERROR] [RID: c2780c4d-b670-44ab-bef5-8aef22654a63] 500 - 
+Invalid `prisma.lead.count()` invocation in
+/mnt/Drive_01/bhuexpert_test/Lead_Scrapper/Lead_Scraper_App/backend/controllers/leadController.js:464:19
+
+  461   take,
+  462   orderBy: { [sortBy]: order },
+  463 }),
+→ 464 prisma.lead.count(
+The table `public.Lead` does not exist in the current database. - /api/v1/leads?city=&keyword=&subCategory=&whatsapp_status=&search=&page=1 - GET - ::1 {"stack":"PrismaClientKnownRequestError: \nInvalid `prisma.lead.count()` invocation in\n/mnt/Drive_01/bhuexpert_test/Lead_Scrapper/Lead_Scraper_App/backend/controllers/leadController.js:464:19\n\n  461   take,\n  462   orderBy: { [sortBy]: order },\n  463 }),\n→ 464 prisma.lead.count(\nThe table `public.Lead` does not exist in the current database.\n    at zr.handleRequestError (/mnt/Drive_01/bhuexpert_test/Lead_Scrapper/Lead_Scraper_App/backend/node_modules/@prisma/client/runtime/client.js:65:8172)\n    at zr.handleAndLogRequestError (/mnt/Drive_01/bhuexpert_test/Lead_Scrapper/Lead_Scraper_App/backend/node_modules/@prisma/client/runtime/client.js:65:7467)\n    at zr.request (/mnt/Drive_01/bhuexpert_test/Lead_Scrapper/Lead_Scraper_App/backend/node_modules/@prisma/client/runtime/client.js:65:7174)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async a (/mnt/Drive_01/bhuexpert_test/Lead_Scrapper/Lead_Scraper_App/backend/node_modules/@prisma/client/runtime/client.js:75:5816)\n    at async Promise.all (index 1)\n    at async getLeads (/mnt/Drive_01/bhuexpert_test/Lead_Scrapper/Lead_Scraper_App/backend/controllers/leadController.js:457:28)"}
+2026-02-18 23:23:01 [INFO] ::1 - - [18/Feb/2026:17:53:01 +0000] "GET /api/v1/leads?city=&keyword=&subCategory=&whatsapp_status=&search=&page=1 HTTP/1.1" 500 354 "http://localhost:5173/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" 
+2026-02-18 23:23:12 [INFO] Lead generation started: Any in Lucknow (radius: 3000, limit: 50) 
+2026-02-18 23:23:12 [INFO] Geocode cache hit for Lucknow 
+2026-02-18 23:23:14 [INFO] Found 20 nearby places. Has next page: true 
+2026-02-18 23:23:17 [ERROR] Duplicate check failed for 093054 64533: 
+Invalid `prisma.lead.findUnique()` invocation in
+/mnt/Drive_01/bhuexpert_test/Lead_Scrapper/Lead_Scraper_App/backend/utils/duplicateChecker.js:14:44
+
+  11 const normalizedPhone = normalizePhone(phone);
+  12 if (!normalizedPhone) return false;
+  13 
+→ 14 const existingLead = await prisma.lead.findUnique(
+The table `public.Lead` does not exist in the current database. 
+2026-02-18 23:23:17 [INFO] Static categorized "IDBI Fortis Life Insurance Co Ltd" as Professional Services 
+2026-02-18 23:23:18 [ERROR] Duplicate check failed for 099350 84046: 
+Invalid `prisma.lead.findUnique()` invocation in
+/mnt/Drive_01/bhuexpert_test/Lead_Scrapper/Lead_Scraper_App/backend/utils/duplicateChecker.js:14:44
+
+  11 const normalizedPhone = normalizePhone(phone);
+  12 if (!normalizedPhone) return false;
+  13 
+→ 14 const existingLead = await prisma.lead.findUnique(
+The table `public.Lead` does not exist in the current database. 
+2026-02-18 23:23:32 [INFO] Fetching more leads for 'All'... (Current: 2/50) 
+2026-02-18 23:23:35 [INFO] Found 20 nearby places. Has next page: true 
+2026-02-18 23:23:35 [ERROR] Duplicate check failed for 0522 261 1377: 
+Invalid `prisma.lead.findUnique()` invocation in
+/mnt/Drive_01/bhuexpert_test/Lead_Scrapper/Lead_Scraper_App/backend/utils/duplicateChecker.js:14:44
+
+  11 const normalizedPhone = normalizePhone(phone);
+  12 if (!normalizedPhone) return false;
+  13 
+→ 14 const existingLead = await prisma.lead.findUnique(
+The table `public.Lead` does not exist in the current database. 
+2026-02-18 23:23:37 [ERROR] Duplicate check failed for 097924 18583: 
+Invalid `prisma.lead.findUnique()` invocation in
+/mnt/Drive_01/bhuexpert_test/Lead_Scrapper/Lead_Scraper_App/backend/utils/duplicateChecker.js:14:44
+
+  11 const normalizedPhone = normalizePhone(phone);
+  12 if (!normalizedPhone) return false;
+  13 
+→ 14 const existingLead = await prisma.lead.findUnique(
+The table `public.Lead` does not exist in the current database. 
+2026-02-18 23:23:42 [ERROR] AI categorization failed for "IMS Lucknow (Hazratganj) - Best coaching for CAT, IIM IPM, BBA, CLAT & CUET". Status: 429, Message: Request failed with status code 429, Data: {"error":{"code":429,"message":"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 15.087946827s.","status":"RESOURCE_EXHAUSTED","details":[{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"model":"gemini-2.5-flash","location":"global"},"quotaValue":"20"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"15s"}]}} 
+2026-02-18 23:23:42 [ERROR] Duplicate check failed for 094151 81330: 
+Invalid `prisma.lead.findUnique()` invocation in
+/mnt/Drive_01/bhuexpert_test/Lead_Scrapper/Lead_Scraper_App/backend/utils/duplicateChecker.js:14:44
+
+  11 const normalizedPhone = normalizePhone(phone);
+  12 if (!normalizedPhone) return false;
+  13 
+→ 14 const existingLead = await prisma.lead.findUnique(
+The table `public.Lead` does not exist in the current database. 
+2026-02-18 23:23:49 [ERROR] AI categorization failed for "Kesarwani Cosmetics". Status: 429, Message: Request failed with status code 429, Data: {"error":{"code":429,"message":"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 8.139567546s.","status":"RESOURCE_EXHAUSTED","details":[{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-2.5-flash"},"quotaValue":"20"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"8s"}]}} 
+2026-02-18 23:23:51 [ERROR] Duplicate check failed for 090446 05244: 
+Invalid `prisma.lead.findUnique()` invocation in
+/mnt/Drive_01/bhuexpert_test/Lead_Scrapper/Lead_Scraper_App/backend/utils/duplicateChecker.js:14:44
+
+  11 const normalizedPhone = normalizePhone(phone);
+  12 if (!normalizedPhone) return false;
+  13 
+→ 14 const existingLead = await prisma.lead.findUnique(
+The table `public.Lead` does not exist in the current database. 
+2026-02-18 23:23:54 [ERROR] AI categorization failed for "Multicare Laptop Repairing". Status: 429, Message: Request failed with status code 429, Data: {"error":{"code":429,"message":"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 3.007580685s.","status":"RESOURCE_EXHAUSTED","details":[{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-2.5-flash"},"quotaValue":"20"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"3s"}]}} 
+2026-02-18 23:23:55 [ERROR] Duplicate check failed for 0522 404 4577: 
+Invalid `prisma.lead.findUnique()` invocation in
+/mnt/Drive_01/bhuexpert_test/Lead_Scrapper/Lead_Scraper_App/backend/utils/duplicateChecker.js:14:44
+
+  11 const normalizedPhone = normalizePhone(phone);
+  12 if (!normalizedPhone) return false;
+  13 
+→ 14 const existingLead = await prisma.lead.findUnique(
+The table `public.Lead` does not exist in the current database. 
+2026-02-18 23:23:56 [INFO] Received shutdown signal. Closing server... 
+2026-02-18 23:23:56 [INFO] Received shutdown signal. Closing server... 
+2026-02-18 23:23:56 [INFO] Received shutdown signal. Closing server... 
+2026-02-18 23:24:09 [ERROR] Duplicate check failed for 0522 408 7900: 
+Invalid `prisma.lead.findUnique()` invocation in
+/mnt/Drive_01/bhuexpert_test/Lead_Scrapper/Lead_Scraper_App/backend/utils/duplicateChecker.js:14:44
+
+  11 const normalizedPhone = normalizePhone(phone);
+  12 if (!normalizedPhone) return false;
+  13 
+→ 14 const existingLead = await prisma.lead.findUnique(
+The table `public.Lead` does not exist in the current database. 
+2026-02-18 23:24:09 [ERROR] AI categorization failed for "Bharti AXA General Insurance Co. Ltd.". Status: 429, Message: Request failed with status code 429, Data: {"error":{"code":429,"message":"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 47.483883585s.","status":"RESOURCE_EXHAUSTED","details":[{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-2.5-flash"},"quotaValue":"20"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"47s"}]}} 
+2026-02-18 23:24:10 [ERROR] Duplicate check failed for 0522 223 5277: 
+Invalid `prisma.lead.findUnique()` invocation in
+/mnt/Drive_01/bhuexpert_test/Lead_Scrapper/Lead_Scraper_App/backend/utils/duplicateChecker.js:14:44
+
+  11 const normalizedPhone = normalizePhone(phone);
+  12 if (!normalizedPhone) return false;
+  13 
+→ 14 const existingLead = await prisma.lead.findUnique(
+The table `public.Lead` does not exist in the current database. 
+2026-02-18 23:24:19 [ERROR] AI categorization failed for "Information and Public Relation Department". Status: 429, Message: Request failed with status code 429, Data: {"error":{"code":429,"message":"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 40.994989487s.","status":"RESOURCE_EXHAUSTED","details":[{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-2.5-flash"},"quotaValue":"20"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"40s"}]}} 
+2026-02-18 23:24:21 [INFO] Fetching more leads for 'All'... (Current: 9/50) 
+2026-02-18 23:24:24 [INFO] Found 20 nearby places. Has next page: false 
+2026-02-18 23:24:25 [ERROR] Duplicate check failed for 093364 06780: 
+Invalid `prisma.lead.findUnique()` invocation in
+/mnt/Drive_01/bhuexpert_test/Lead_Scrapper/Lead_Scraper_App/backend/utils/duplicateChecker.js:14:44
+
+  11 const normalizedPhone = normalizePhone(phone);
+  12 if (!normalizedPhone) return false;
+  13 
+→ 14 const existingLead = await prisma.lead.findUnique(
+The table `public.Lead` does not exist in the current database. 
+2026-02-18 23:24:25 [INFO] Static categorized "Harry And Co." as Retail & Shopping 
+2026-02-18 23:24:25 [ERROR] Duplicate check failed for 099352 28509: 
+Invalid `prisma.lead.findUnique()` invocation in
+/mnt/Drive_01/bhuexpert_test/Lead_Scrapper/Lead_Scraper_App/backend/utils/duplicateChecker.js:14:44
+
+  11 const normalizedPhone = normalizePhone(phone);
+  12 if (!normalizedPhone) return false;
+  13 
+→ 14 const existingLead = await prisma.lead.findUnique(
+The table `public.Lead` does not exist in the current database. 
+2026-02-18 23:24:27 [ERROR] AI categorization failed for "V-Care Technology". Status: 429, Message: Request failed with status code 429, Data: {"error":{"code":429,"message":"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 33.039220261s.","status":"RESOURCE_EXHAUSTED","details":[{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-2.5-flash"},"quotaValue":"20"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"33s"}]}} 
+2026-02-18 23:24:27 [ERROR] Duplicate check failed for 0522 402 5119: 
+Invalid `prisma.lead.findUnique()` invocation in
+/mnt/Drive_01/bhuexpert_test/Lead_Scrapper/Lead_Scraper_App/backend/utils/duplicateChecker.js:14:44
+
+  11 const normalizedPhone = normalizePhone(phone);
+  12 if (!normalizedPhone) return false;
+  13 
+→ 14 const existingLead = await prisma.lead.findUnique(
+The table `public.Lead` does not exist in the current database. 
+2026-02-18 23:24:32 [ERROR] AI categorization failed for "SRL Religare Diagnostics". Status: 429, Message: Request failed with status code 429, Data: {"error":{"code":429,"message":"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 27.982297861s.","status":"RESOURCE_EXHAUSTED","details":[{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-2.5-flash"},"quotaValue":"20"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"27s"}]}} 
+2026-02-18 23:24:34 [ERROR] Duplicate check failed for 092358 58153: 
+Invalid `prisma.lead.findUnique()` invocation in
+/mnt/Drive_01/bhuexpert_test/Lead_Scrapper/Lead_Scraper_App/backend/utils/duplicateChecker.js:14:44
+
+  11 const normalizedPhone = normalizePhone(phone);
+  12 if (!normalizedPhone) return false;
+  13 
+→ 14 const existingLead = await prisma.lead.findUnique(
+The table `public.Lead` does not exist in the current database. 
+2026-02-18 23:24:39 [ERROR] AI categorization failed for "Dental care clinic". Status: 429, Message: Request failed with status code 429, Data: {"error":{"code":429,"message":"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 21.505816513s.","status":"RESOURCE_EXHAUSTED","details":[{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-2.5-flash"},"quotaValue":"20"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"21s"}]}} 
+2026-02-18 23:24:39 [ERROR] Duplicate check failed for 0522 400 2233: 
+Invalid `prisma.lead.findUnique()` invocation in
+/mnt/Drive_01/bhuexpert_test/Lead_Scrapper/Lead_Scraper_App/backend/utils/duplicateChecker.js:14:44
+
+  11 const normalizedPhone = normalizePhone(phone);
+  12 if (!normalizedPhone) return false;
+  13 
+→ 14 const existingLead = await prisma.lead.findUnique(
+The table `public.Lead` does not exist in the current database. 
+2026-02-18 23:24:44 [INFO] HTTP server closed. 
+2026-02-18 23:26:39 [INFO] PostgreSQL Database connected successfully via Prisma. 
+2026-02-18 23:26:39 [INFO] Server running in development mode on port 5005 
+2026-02-18 23:26:53 [INFO] Lead generation started: Any in Lucknow (radius: 3000, limit: 50) 
+2026-02-18 23:26:53 [INFO] Geocode cache hit for Lucknow 
+2026-02-18 23:26:56 [INFO] Found 20 nearby places. Has next page: true 
+2026-02-18 23:26:59 [ERROR] Duplicate check failed for 093054 64533: 
+Invalid `prisma.lead.findUnique()` invocation in
+/mnt/Drive_01/bhuexpert_test/Lead_Scrapper/Lead_Scraper_App/backend/utils/duplicateChecker.js:14:44
+
+  11 const normalizedPhone = normalizePhone(phone);
+  12 if (!normalizedPhone) return false;
+  13 
+→ 14 const existingLead = await prisma.lead.findUnique(
+The table `public.Lead` does not exist in the current database. 
+2026-02-18 23:26:59 [INFO] Static categorized "IDBI Fortis Life Insurance Co Ltd" as Professional Services 
+2026-02-18 23:27:00 [ERROR] Duplicate check failed for 099350 84046: 
+Invalid `prisma.lead.findUnique()` invocation in
+/mnt/Drive_01/bhuexpert_test/Lead_Scrapper/Lead_Scraper_App/backend/utils/duplicateChecker.js:14:44
+
+  11 const normalizedPhone = normalizePhone(phone);
+  12 if (!normalizedPhone) return false;
+  13 
+→ 14 const existingLead = await prisma.lead.findUnique(
+The table `public.Lead` does not exist in the current database. 
+2026-02-18 23:27:01 [ERROR] AI categorization failed for "Studio 8". Status: 429, Message: Request failed with status code 429, Data: {"error":{"code":429,"message":"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 58.541681908s.","status":"RESOURCE_EXHAUSTED","details":[{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-2.5-flash"},"quotaValue":"20"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"58s"}]}} 
+2026-02-18 23:27:02 [INFO] Fetching more leads for 'All'... (Current: 2/50) 
+2026-02-18 23:27:05 [INFO] Found 20 nearby places. Has next page: true 
+2026-02-18 23:27:05 [ERROR] Duplicate check failed for 0522 261 1377: 
+Invalid `prisma.lead.findUnique()` invocation in
+/mnt/Drive_01/bhuexpert_test/Lead_Scrapper/Lead_Scraper_App/backend/utils/duplicateChecker.js:14:44
+
+  11 const normalizedPhone = normalizePhone(phone);
+  12 if (!normalizedPhone) return false;
+  13 
+→ 14 const existingLead = await prisma.lead.findUnique(
+The table `public.Lead` does not exist in the current database. 
+2026-02-18 23:27:07 [ERROR] AI categorization failed for "National Insurance Company Limited". Status: 429, Message: Request failed with status code 429, Data: {"error":{"code":429,"message":"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 53.109868861s.","status":"RESOURCE_EXHAUSTED","details":[{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"model":"gemini-2.5-flash","location":"global"},"quotaValue":"20"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"53s"}]}} 
+2026-02-18 23:27:07 [ERROR] Duplicate check failed for 097924 18583: 
+Invalid `prisma.lead.findUnique()` invocation in
+/mnt/Drive_01/bhuexpert_test/Lead_Scrapper/Lead_Scraper_App/backend/utils/duplicateChecker.js:14:44
+
+  11 const normalizedPhone = normalizePhone(phone);
+  12 if (!normalizedPhone) return false;
+  13 
+→ 14 const existingLead = await prisma.lead.findUnique(
+The table `public.Lead` does not exist in the current database. 
+2026-02-18 23:27:08 [INFO] Received shutdown signal. Closing server... 
+2026-02-18 23:27:08 [INFO] Received shutdown signal. Closing server... 
+2026-02-18 23:27:08 [INFO] Received shutdown signal. Closing server... 
+2026-02-18 23:27:11 [INFO] HTTP server closed. 
+2026-02-18 23:28:44 [INFO] PostgreSQL Database connected successfully via Prisma. 
+2026-02-18 23:28:44 [INFO] Server running in development mode on port 5005 
+2026-02-18 23:29:58 [INFO] Lead generation started: Any in Lucknow (radius: 3000, limit: 20) 
+2026-02-18 23:29:58 [INFO] Geocode cache hit for Lucknow 
+2026-02-18 23:29:59 [INFO] Found 20 nearby places. Has next page: true 
+2026-02-18 23:30:03 [INFO] Static categorized "IDBI Fortis Life Insurance Co Ltd" as Professional Services 
+2026-02-18 23:30:06 [ERROR] AI categorization failed for "Studio 8". Status: 429, Message: Request failed with status code 429, Data: {"error":{"code":429,"message":"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 54.337930984s.","status":"RESOURCE_EXHAUSTED","details":[{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"model":"gemini-2.5-flash","location":"global"},"quotaValue":"20"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"54s"}]}} 
+2026-02-18 23:30:06 [INFO] Fetching more leads for 'All'... (Current: 2/20) 
+2026-02-18 23:30:09 [INFO] Found 20 nearby places. Has next page: true 
+2026-02-18 23:30:10 [ERROR] AI categorization failed for "National Insurance Company Limited". Status: 429, Message: Request failed with status code 429, Data: {"error":{"code":429,"message":"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 49.556244095s.","status":"RESOURCE_EXHAUSTED","details":[{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-2.5-flash"},"quotaValue":"20"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"49s"}]}} 
+2026-02-18 23:30:17 [ERROR] AI categorization failed for "IMS Lucknow (Hazratganj) - Best coaching for CAT, IIM IPM, BBA, CLAT & CUET". Status: 429, Message: Request failed with status code 429, Data: {"error":{"code":429,"message":"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 42.68446378s.","status":"RESOURCE_EXHAUSTED","details":[{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-2.5-flash"},"quotaValue":"20"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"42s"}]}} 
+2026-02-18 23:30:22 [ERROR] AI categorization failed for "Kesarwani Cosmetics". Status: 429, Message: Request failed with status code 429, Data: {"error":{"code":429,"message":"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 37.456188859s.","status":"RESOURCE_EXHAUSTED","details":[{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-2.5-flash"},"quotaValue":"20"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"37s"}]}} 
+2026-02-18 23:30:29 [ERROR] AI categorization failed for "Multicare Laptop Repairing". Status: 429, Message: Request failed with status code 429, Data: {"error":{"code":429,"message":"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 30.984360812s.","status":"RESOURCE_EXHAUSTED","details":[{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-2.5-flash"},"quotaValue":"20"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"30s"}]}} 
+2026-02-18 23:30:34 [ERROR] AI categorization failed for "Hi Time Express". Status: 429, Message: Request failed with status code 429, Data: {"error":{"code":429,"message":"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 25.576955611s.","status":"RESOURCE_EXHAUSTED","details":[{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"model":"gemini-2.5-flash","location":"global"},"quotaValue":"20"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"25s"}]}} 
+2026-02-18 23:30:41 [ERROR] AI categorization failed for "Bharti AXA General Insurance Co. Ltd.". Status: 429, Message: Request failed with status code 429, Data: {"error":{"code":429,"message":"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 18.944870608s.","status":"RESOURCE_EXHAUSTED","details":[{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-2.5-flash"},"quotaValue":"20"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"18s"}]}} 
+2026-02-18 23:30:46 [ERROR] AI categorization failed for "Information and Public Relation Department". Status: 429, Message: Request failed with status code 429, Data: {"error":{"code":429,"message":"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 13.500131144s.","status":"RESOURCE_EXHAUSTED","details":[{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-2.5-flash"},"quotaValue":"20"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"13s"}]}} 
+2026-02-18 23:30:47 [INFO] Fetching more leads for 'All'... (Current: 9/20) 
+2026-02-18 23:30:50 [INFO] Found 20 nearby places. Has next page: false 
+2026-02-18 23:30:51 [INFO] Static categorized "Harry And Co." as Retail & Shopping 
+2026-02-18 23:30:53 [ERROR] AI categorization failed for "V-Care Technology". Status: 429, Message: Request failed with status code 429, Data: {"error":{"code":429,"message":"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 6.594517382s.","status":"RESOURCE_EXHAUSTED","details":[{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-2.5-flash"},"quotaValue":"20"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"6s"}]}} 
+2026-02-18 23:30:59 [ERROR] AI categorization failed for "SRL Religare Diagnostics". Status: 429, Message: Request failed with status code 429, Data: {"error":{"code":429,"message":"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 1.4495746s.","status":"RESOURCE_EXHAUSTED","details":[{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-2.5-flash"},"quotaValue":"20"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"1s"}]}} 
+2026-02-18 23:31:06 [ERROR] AI categorization failed for "Dental care clinic". Status: 429, Message: Request failed with status code 429, Data: {"error":{"code":429,"message":"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 54.132656241s.","status":"RESOURCE_EXHAUSTED","details":[{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-2.5-flash"},"quotaValue":"20"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"54s"}]}} 
+2026-02-18 23:31:10 [ERROR] AI categorization failed for "Sahu Investment Co". Status: 429, Message: Request failed with status code 429, Data: {"error":{"code":429,"message":"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 49.656948535s.","status":"RESOURCE_EXHAUSTED","details":[{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"model":"gemini-2.5-flash","location":"global"},"quotaValue":"20"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"49s"}]}} 
+2026-02-18 23:31:14 [INFO] Initializing headers for 'Leads' sheet... 
+2026-02-18 23:31:15 [INFO] Headers initialized. 
+2026-02-18 23:31:16 [INFO] Successfully appended 14 leads to Google Sheets 
+2026-02-18 23:31:16 [INFO] Lead generation completed {"totalFetched":60,"validLeadsCount":14,"duplicatesRemoved":0,"savedToPostgres":14,"savedToSheet":14,"fallbackUsed":false,"fallbackKeywords":[]}
+2026-02-18 23:31:16 [INFO] ::1 - - [18/Feb/2026:18:01:16 +0000] "POST /api/v1/leads/generate HTTP/1.1" 200 275 "http://localhost:5173/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" 
+2026-02-18 23:39:37 [INFO] Lead generation started: Any in Lucknow (radius: 3000, limit: 50) 
+2026-02-18 23:39:37 [INFO] Geocode cache hit for Lucknow 
+2026-02-18 23:39:38 [INFO] Found 20 nearby places. Has next page: true 
+2026-02-18 23:39:44 [INFO] Fetching more leads for 'All'... (Current: 0/50) 
+2026-02-18 23:39:46 [INFO] Found 20 nearby places. Has next page: true 
+2026-02-18 23:39:51 [INFO] Fetching more leads for 'All'... (Current: 0/50) 
+2026-02-18 23:39:54 [INFO] Found 20 nearby places. Has next page: false 
+2026-02-18 23:39:58 [INFO] No leads found with initial search. Engaging fallback strategy with random keywords... 
+2026-02-18 23:39:58 [INFO] Fallback Attempt 1/3: Searching for 'hvac' 
+2026-02-18 23:39:59 [INFO] Found 9 nearby places. Has next page: false 
+2026-02-18 23:40:00 [INFO] Static categorized "Singhal Airconditioning" as Automotive 
+2026-02-18 23:40:00 [INFO] Static categorized "Shukla Enterprises" as Home Services 
+2026-02-18 23:40:02 [INFO] Fallback Attempt 2/3: Searching for 'dentist' 
+2026-02-18 23:40:03 [INFO] Found 20 nearby places. Has next page: true 
+2026-02-18 23:40:04 [INFO] Static categorized "BRITE SMILE DENTAL CARE | BEST DENTAL |BEST DENTIST |RCT| IMPLANT | FIXED TEETH| DENTURES l INVISALIGN DR.PRIYANK PRAKASH" as Health & Wellness 
+2026-02-18 23:40:05 [INFO] Static categorized "Dr. Rastogi's Dental & Maxillofacial Clinic" as Health & Wellness 
+2026-02-18 23:40:06 [INFO] Static categorized "Smile Kraft" as Health & Wellness 
+2026-02-18 23:40:10 [INFO] Static categorized "My Smile Artist Dental Clinic : Best Dental Clinic in Lucknow" as Health & Wellness 
+2026-02-18 23:40:15 [INFO] Static categorized "my dentist" as Health & Wellness 
+2026-02-18 23:40:15 [INFO] Fetching more leads for 'dentist'... (Current: 7/48) 
+2026-02-18 23:40:18 [INFO] Found 2 nearby places. Has next page: false 
+2026-02-18 23:40:18 [INFO] Static categorized "My Family Dentist" as Health & Wellness 
+2026-02-18 23:40:19 [INFO] Fallback Attempt 3/3: Searching for 'cafe' 
+2026-02-18 23:40:20 [INFO] Found 20 nearby places. Has next page: true 
+2026-02-18 23:40:20 [INFO] Static categorized "The Peddler’s Cafe" as Food & Beverage 
+2026-02-18 23:40:22 [INFO] Static categorized "The Cherry Tree Cafe" as Food & Beverage 
+2026-02-18 23:40:23 [INFO] Static categorized "Jc Cafe" as Food & Beverage 
+2026-02-18 23:40:23 [INFO] Static categorized "Cafe Tales" as Food & Beverage 
+2026-02-18 23:40:24 [INFO] Static categorized "Masaki" as Food & Beverage 
+2026-02-18 23:40:25 [INFO] Static categorized "River View Cafe" as Food & Beverage 
+2026-02-18 23:40:25 [INFO] Fetching more leads for 'cafe'... (Current: 6/40) 
+2026-02-18 23:40:28 [INFO] Found 20 nearby places. Has next page: true 
+2026-02-18 23:40:30 [INFO] Static categorized "Risotto Cafe and Lounge" as Food & Beverage 
+2026-02-18 23:40:31 [INFO] Static categorized "Sicily Cafe & Dine Ik" as Food & Beverage 
+2026-02-18 23:40:31 [INFO] Static categorized "Love cafe & restaurant" as Food & Beverage 
+2026-02-18 23:40:32 [INFO] Static categorized "Silver Spoon Bakers and Cafe (Aishbagh)" as Food & Beverage 
+2026-02-18 23:40:32 [INFO] Static categorized "The GP Cafe" as Food & Beverage 
+2026-02-18 23:40:32 [INFO] Static categorized "Farzi Engineer's Cafe" as Food & Beverage 
+2026-02-18 23:40:33 [INFO] Fetching more leads for 'cafe'... (Current: 12/40) 
+2026-02-18 23:40:36 [INFO] Found 20 nearby places. Has next page: false 
+2026-02-18 23:40:37 [INFO] Static categorized "Hons - All day Dining" as Food & Beverage 
+2026-02-18 23:40:37 [INFO] Static categorized "WAMESH CAFE (Al Baik)" as Food & Beverage 
+2026-02-18 23:40:38 [INFO] Static categorized "Impresso Espresso Cafe" as Food & Beverage 
+2026-02-18 23:40:40 [INFO] Static categorized "Globe cafe" as Food & Beverage 
+2026-02-18 23:40:45 [INFO] Successfully appended 26 leads to Google Sheets 
+2026-02-18 23:40:45 [INFO] Lead generation completed {"totalFetched":151,"validLeadsCount":26,"duplicatesRemoved":14,"savedToPostgres":26,"savedToSheet":26,"fallbackUsed":true,"fallbackKeywords":["hvac","dentist","cafe"]}
+2026-02-18 23:40:45 [INFO] ::1 - - [18/Feb/2026:18:10:45 +0000] "POST /api/v1/leads/generate HTTP/1.1" 200 317 "http://localhost:5173/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" 
+2026-02-18 23:43:28 [INFO] ::1 - - [18/Feb/2026:18:13:28 +0000] "GET /api/v1/leads?city=&keyword=&subCategory=&whatsapp_status=&search=&page=1 HTTP/1.1" 200 - "http://localhost:5173/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" 
+2026-02-18 23:43:31 [INFO] ::1 - - [18/Feb/2026:18:13:31 +0000] "GET /api/v1/leads?limit=1000 HTTP/1.1" 200 - "http://localhost:5173/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" 
+2026-02-18 23:43:31 [INFO] ::1 - - [18/Feb/2026:18:13:31 +0000] "GET /api/v1/leads?limit=1000 HTTP/1.1" 200 - "http://localhost:5173/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" 
+2026-02-18 23:43:33 [INFO] ::1 - - [18/Feb/2026:18:13:33 +0000] "GET /api/v1/whatsapp/settings HTTP/1.1" 200 201 "http://localhost:5173/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" 
+2026-02-18 23:43:33 [INFO] ::1 - - [18/Feb/2026:18:13:33 +0000] "GET /api/v1/whatsapp/settings HTTP/1.1" 200 201 "http://localhost:5173/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" 
+2026-02-18 23:44:44 [INFO] ::1 - - [18/Feb/2026:18:14:44 +0000] "GET /api/v1/leads?city=&keyword=&subCategory=&whatsapp_status=&search=&page=1 HTTP/1.1" 200 - "http://localhost:5173/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" 
+2026-02-18 23:44:45 [INFO] ::1 - - [18/Feb/2026:18:14:45 +0000] "GET /api/v1/leads?limit=1000 HTTP/1.1" 200 - "http://localhost:5173/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" 
+2026-02-18 23:44:45 [INFO] ::1 - - [18/Feb/2026:18:14:45 +0000] "GET /api/v1/leads?limit=1000 HTTP/1.1" 200 - "http://localhost:5173/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" 
+2026-02-18 23:44:46 [INFO] ::1 - - [18/Feb/2026:18:14:46 +0000] "GET /api/v1/whatsapp/settings HTTP/1.1" 200 201 "http://localhost:5173/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" 
+2026-02-18 23:44:46 [INFO] ::1 - - [18/Feb/2026:18:14:46 +0000] "GET /api/v1/whatsapp/settings HTTP/1.1" 200 201 "http://localhost:5173/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" 
+2026-02-18 23:44:48 [INFO] ::1 - - [18/Feb/2026:18:14:48 +0000] "GET /api/v1/leads?limit=1000 HTTP/1.1" 200 - "http://localhost:5173/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" 
+2026-02-18 23:44:48 [INFO] ::1 - - [18/Feb/2026:18:14:48 +0000] "GET /api/v1/leads?limit=1000 HTTP/1.1" 200 - "http://localhost:5173/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" 
+2026-02-18 23:44:50 [INFO] ::1 - - [18/Feb/2026:18:14:50 +0000] "GET /api/v1/leads?city=&keyword=&subCategory=&whatsapp_status=&search=&page=1 HTTP/1.1" 200 - "http://localhost:5173/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" 

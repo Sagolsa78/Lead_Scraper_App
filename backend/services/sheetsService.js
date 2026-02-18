@@ -9,8 +9,8 @@ const HEADERS = [
   "Website",
   "Google Maps URL",
   "Date Added",
-  "Main Category",
   "Sub Category",
+  "Main Category",
   "City",
 ];
 

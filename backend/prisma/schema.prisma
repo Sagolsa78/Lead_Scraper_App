@@ -20,6 +20,20 @@ model Lead {
   searchKeyword   String?
   placeId         String?      @unique
   whatsapp_sent   Boolean      @default(false)
+  
+  // New fields for Warm Lead Qualification
+  phoneValid      Boolean      @default(false)
+  whatsappEnabled Boolean      @default(false)
+  status          String       @default("new") // new | validated | contacted | replied | report_pending | converted
+  lastContactedAt DateTime?
+  replyReceived   Boolean      @default(false)
+  introMessageId  String?
+  fullReportSent  Boolean      @default(false)
+  
+  // Link to Enriched Business Data
+  businessId      String?
+  business        Business?    @relation(fields: [businessId], references: [id])
+
   createdAt       DateTime     @default(now())
   updatedAt       DateTime     @updatedAt
   messageLogs     MessageLog[]
@@ -56,4 +70,82 @@ model PhoneLookup {
   verifiedAt  DateTime @default(now())
 
   @@index([phone])
+}
+
+// --- Enterprise Architecture v2.0 Models ---
+
+model RawData {
+  id        String   @id @default(uuid())
+  source    String   // "google_places", "website_scrape", "social_media", "whatsapp"
+  dataType  String   // "business_list", "business_details", "reviews", "chat_log"
+  data      Json     // Immutable raw data
+  processed Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
+
+model Business {
+  id              String       @id @default(uuid())
+  googlePlaceId   String?      @unique
+  name            String
+  address         String?
+  phone           String?
+  website         String?
+  domain          String?      // Extracted from website for uniqueness
+  
+  // Enrichment Data
+  rating          Float?
+  reviewCount     Int?
+  priceLevel      Int?
+  
+  // Categorization
+  types           String[]
+  primaryCategory String?
+  
+  // Relations
+  leads           Lead[]
+  reviews         Review[]
+  competitors     Competitor[]
+  
+  createdAt       DateTime     @default(now())
+  updatedAt       DateTime     @updatedAt
+}
+
+model Review {
+  id             String    @id @default(uuid())
+  businessId     String
+  business       Business  @relation(fields: [businessId], references: [id])
+  
+  authorName     String?
+  rating         Int
+  text           String?
+  publishTime    DateTime?
+  originalId     String?   // ID from the source (e.g., Google Review ID)
+  
+  // Analysis
+  sentimentScore Float?
+  sentimentLabel String?   // "POSITIVE", "NEGATIVE", "NEUTRAL"
+  topics         String[]  // ["Service", "Price", "Quality"]
+  
+  createdAt      DateTime  @default(now())
+}
+
+model Competitor {
+  id              String   @id @default(uuid())
+  businessId      String
+  business        Business @relation(fields: [businessId], references: [id])
+  
+  name            String
+  placeId         String?
+  similarityScore Float? 
+  
+  createdAt       DateTime @default(now())
+}
+
+model Report {
+  id          String   @id @default(uuid())
+  targetId    String   // ID of the Lead or Business this report is for
+  type        String   // "SCOUT_REPORT", "STRATEGY_PLAN", "GAP_ANALYSIS"
+  content     Json     // The structured output from the LLM
+  
+  createdAt   DateTime @default(now())
 }

@@ -77,13 +77,31 @@ const LeadsDashboard = () => {
       const resultData = response.data;
 
       if (resultData.validLeadsCount === 0) {
-        toast("No new leads found matching the criteria in this area.", {
-          icon: "ℹ️",
-        });
+        if (resultData.fallbackUsed) {
+          toast(
+            `No new leads found even after fallback searches for: ${resultData.fallbackKeywords.join(", ")}`,
+            {
+              icon: "⚠️",
+            },
+          );
+        } else {
+          toast("No new leads found matching the criteria in this area.", {
+            icon: "ℹ️",
+          });
+        }
       } else {
-        toast.success(
-          `Smart search complete! Found ${resultData.validLeadsCount} new leads.`,
-        );
+        if (resultData.fallbackUsed) {
+          toast(
+            `Found ${resultData.validLeadsCount} leads using fallback keywords: ${resultData.fallbackKeywords.join(", ")}`,
+            {
+              icon: "⚠️",
+            },
+          );
+        } else {
+          toast.success(
+            `Smart search complete! Found ${resultData.validLeadsCount} new leads.`,
+          );
+        }
       }
       fetchLeads(1);
     } catch (error) {
