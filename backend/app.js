@@ -49,6 +49,7 @@ app.get("/health", (req, res) => {
 // API Routes
 app.use("/api/v1/leads", leadRoutes);
 app.use("/api/v1/whatsapp", whatsappRoutes);
+app.use("/api/v1/phone", require("./routes/phoneRoutes"));
 
 // Serve Frontend in Production
 if (process.env.NODE_ENV === "production" || true) {

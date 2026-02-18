@@ -79,7 +79,7 @@ const appendLeads = async (leads, metadata = {}) => {
       lead.rating || "N/A",
       lead.website || "N/A",
       lead.url || lead.googleMapsUrl,
-      new Date().toISOString(),
+      new Date().toLocaleString(),
       lead.businessType || metadata.businessType || "N/A",
       lead.subCategory || metadata.subCategory || "General",
       lead.city || metadata.city || "N/A",

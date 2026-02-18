@@ -45,3 +45,15 @@ model Settings {
   whatsappMode    String   @default("manual") // 'cloud' or 'manual'
   updatedAt       DateTime @updatedAt
 }
+
+model PhoneLookup {
+  id          String   @id @default(uuid())
+  phone       String   @unique // E.164 format
+  valid       Boolean
+  lineType    String?  // 'mobile', 'landline', 'voip', etc.
+  carrier     String?
+  countryCode String?
+  verifiedAt  DateTime @default(now())
+
+  @@index([phone])
+}
