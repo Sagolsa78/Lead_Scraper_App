@@ -12,6 +12,13 @@ import {
   XCircle,
   Zap,
   Loader2,
+  Star,
+  Facebook,
+  Instagram,
+  Linkedin,
+  ShieldCheck,
+  Calendar,
+  Globe,
 } from "lucide-react";
 import { leadService } from "../api/leadApi";
 import { toast } from "react-hot-toast";
@@ -26,6 +33,8 @@ const LeadsDashboard = () => {
     subCategory: "",
     whatsapp_status: "",
     search: "",
+    sortBy: "createdAt",
+    order: "desc",
   });
   const [smartSearch, setSmartSearch] = useState({
     city: "",
@@ -52,6 +61,19 @@ const LeadsDashboard = () => {
     return () => clearTimeout(timer);
   }, [filters]);
 
+  const handleSort = (field) => {
+    setFilters((prev) => ({
+      ...prev,
+      sortBy: field,
+      order: prev.sortBy === field && prev.order === "desc" ? "asc" : "desc",
+    }));
+  };
+
+  const SortIcon = ({ field }) => {
+    if (filters.sortBy !== field) return <span className="text-slate-300 ml-1">↕</span>;
+    return <span className="text-primary-500 ml-1">{filters.order === "desc" ? "↓" : "↑"}</span>;
+  };
+
   const handleSendWhatsApp = async (leadId) => {
     try {
       const response = await leadService.sendWhatsApp({ leadId });
@@ -71,45 +93,22 @@ const LeadsDashboard = () => {
     setIsSearching(true);
     try {
       const response = await leadService.searchLeads(smartSearch);
-
-      // response.data exists because leadApi.js returns response.data which is the formatter object
-      // The formatter object has a 'data' property which contains the result from controller
       const resultData = response.data;
 
       if (resultData.validLeadsCount === 0) {
-        if (resultData.fallbackUsed) {
-          toast(
-            `No new leads found even after fallback searches for: ${resultData.fallbackKeywords.join(", ")}`,
-            {
-              icon: "⚠️",
-            },
-          );
-        } else {
-          toast("No new leads found matching the criteria in this area.", {
-            icon: "ℹ️",
-          });
-        }
+        toast("No new leads found matching the criteria in this area.", {
+          icon: "ℹ️",
+        });
       } else {
-        if (resultData.fallbackUsed) {
-          toast(
-            `Found ${resultData.validLeadsCount} leads using fallback keywords: ${resultData.fallbackKeywords.join(", ")}`,
-            {
-              icon: "⚠️",
-            },
-          );
-        } else {
-          toast.success(
-            `Smart search complete! Found ${resultData.validLeadsCount} new leads.`,
-          );
-        }
+        toast.success(
+          `Smart search complete! Found ${resultData.validLeadsCount} new leads. Saved ${resultData.savedToPostgres} to database.`,
+        );
       }
       fetchLeads(1);
     } catch (error) {
-      // Improved error message handling
       const errorMessage =
         error.response?.data?.message || error.message || "Smart search failed";
       toast.error(errorMessage);
-      console.error("Smart search error:", error);
     } finally {
       setIsSearching(false);
     }
@@ -248,20 +247,26 @@ const LeadsDashboard = () => {
         <table className="w-full text-left border-collapse">
           <thead>
             <tr className="bg-slate-50 dark:bg-slate-900/50 border-b border-slate-200 dark:border-slate-800">
-              <th className="px-6 py-4 text-xs font-bold text-slate-500 uppercase">
-                Business
+              <th className="px-6 py-4 text-xs font-bold text-slate-500 uppercase cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" onClick={() => handleSort("name")}>
+                Business <SortIcon field="name" />
+              </th>
+              <th className="px-6 py-4 text-xs font-bold text-slate-500 uppercase cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" onClick={() => handleSort("priority")}>
+                Priority <SortIcon field="priority" />
+              </th>
+              <th className="px-6 py-4 text-xs font-bold text-slate-500 uppercase cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" onClick={() => handleSort("status")}>
+                Status <SortIcon field="status" />
               </th>
               <th className="px-6 py-4 text-xs font-bold text-slate-500 uppercase">
-                Sub Category
+                Phone / Valid
               </th>
-              <th className="px-6 py-4 text-xs font-bold text-slate-500 uppercase">
-                Phone
+              <th className="px-6 py-4 text-xs font-bold text-slate-500 uppercase cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" onClick={() => handleSort("socialScore")}>
+                Social / Web <SortIcon field="socialScore" />
               </th>
-              <th className="px-6 py-4 text-xs font-bold text-slate-500 uppercase">
-                City
+              <th className="px-6 py-4 text-xs font-bold text-slate-500 uppercase cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" onClick={() => handleSort("rating")}>
+                Rating <SortIcon field="rating" />
               </th>
-              <th className="px-6 py-4 text-xs font-bold text-slate-500 uppercase">
-                Website
+              <th className="px-6 py-4 text-xs font-bold text-slate-500 uppercase cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" onClick={() => handleSort("createdAt")}>
+                Created <SortIcon field="createdAt" />
               </th>
               <th className="px-6 py-4 text-xs font-bold text-slate-500 uppercase">
                 WhatsApp
@@ -275,7 +280,7 @@ const LeadsDashboard = () => {
             {loading ? (
               [...Array(5)].map((_, i) => (
                 <tr key={i} className="animate-pulse">
-                  <td colSpan="6" className="px-6 py-4">
+                  <td colSpan="9" className="px-6 py-4">
                     <div className="h-10 bg-slate-100 dark:bg-slate-800 rounded-lg"></div>
                   </td>
                 </tr>
@@ -283,7 +288,7 @@ const LeadsDashboard = () => {
             ) : leads.length === 0 ? (
               <tr>
                 <td
-                  colSpan="6"
+                  colSpan="9"
                   className="px-6 py-12 text-center text-slate-500"
                 >
                   No leads found matching current filters.
@@ -300,36 +305,193 @@ const LeadsDashboard = () => {
                       {lead.name}
                     </div>
                     <div className="text-[10px] text-primary-500 font-bold uppercase tracking-wider">
-                      {lead.businessType}
+                      {lead.businessType} • {lead.subCategory || "General"}
                     </div>
-                    <div className="text-xs text-slate-500 truncate max-w-[200px]">
-                      {lead.address}
+                    <div className="text-xs text-slate-500 truncate max-w-[200px] flex items-center gap-1">
+                      <MapPin className="w-3 h-3" /> {lead.city}
                     </div>
-                  </td>
-                  <td className="px-6 py-4">
-                    <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 uppercase">
-                      {lead.subCategory || "N/A"}
-                    </span>
-                  </td>
-                  <td className="px-6 py-4 text-sm font-medium text-slate-700 dark:text-slate-300">
-                    {lead.phone}
-                  </td>
-                  <td className="px-6 py-4 text-sm text-slate-600 dark:text-slate-400">
-                    {lead.city}
-                  </td>
-                  <td className="px-6 py-4">
-                    {lead.website !== "N/A" ? (
+                    {lead.googleMapsUrl && (
                       <a
-                        href={lead.website}
+                        href={lead.googleMapsUrl}
                         target="_blank"
                         rel="noreferrer"
-                        className="text-primary-600 hover:underline flex items-center gap-1 text-xs"
+                        className="text-[10px] text-blue-500 hover:underline flex items-center gap-1 mt-1"
                       >
-                        Visit <ExternalLink className="w-3 h-3" />
+                        View on Maps <ExternalLink className="w-2 h-2" />
                       </a>
-                    ) : (
-                      <span className="text-xs text-slate-400">None</span>
                     )}
+                  </td>
+                  <td className="px-6 py-4">
+                    <span
+                      className={`inline-flex items-center px-2 py-1 rounded text-[10px] font-bold uppercase tracking-wider ${
+                        lead.priority === "HIGH"
+                          ? "priority-badge-high"
+                          : lead.priority === "MEDIUM"
+                            ? "priority-badge-medium"
+                            : "priority-badge-low"
+                      }`}
+                    >
+                      {lead.priority || "LOW"}
+                    </span>
+                    <div className="text-[10px] text-slate-400 mt-1 font-mono">
+                      {lead.finalScore?.toFixed(1) || "0.0"} pts
+                    </div>
+                  </td>
+                  <td className="px-6 py-4">
+                    <span
+                      className={`inline-flex items-center px-2 py-1 rounded text-xs font-medium uppercase tracking-wider
+                        ${
+                          lead.status === "converted"
+                            ? "bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400"
+                            : lead.status === "contacted"
+                              ? "bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400"
+                              : lead.status === "qualified"
+                                ? "bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-400"
+                                : "bg-slate-100 text-slate-800 dark:bg-slate-800 dark:text-slate-400"
+                        }
+                     `}
+                    >
+                      {lead.status || "New"}
+                    </span>
+                  </td>
+                  <td className="px-6 py-4">
+                    <div className="flex flex-col gap-1">
+                      <span className="text-sm font-mono text-slate-700 dark:text-slate-300">
+                        {lead.phone}
+                      </span>
+                      <div className="flex items-center gap-2">
+                        {lead.phoneValid ? (
+                          <span className="text-[10px] flex items-center gap-0.5 text-emerald-600 bg-emerald-50 dark:bg-emerald-900/20 px-1.5 py-0.5 rounded">
+                            <ShieldCheck className="w-3 h-3" /> Valid
+                          </span>
+                        ) : (
+                          <span className="text-[10px] text-slate-400 bg-slate-100 dark:bg-slate-800 px-1.5 py-0.5 rounded">
+                            Unverified
+                          </span>
+                        )}
+                        {lead.whatsappEnabled && (
+                          <span className="text-[10px] flex items-center gap-0.5 text-green-600 bg-green-50 dark:bg-green-900/20 px-1.5 py-0.5 rounded">
+                            <MessageSquare className="w-3 h-3" /> WA
+                          </span>
+                        )}
+                      </div>
+                    </div>
+                  </td>
+                  <td className="px-6 py-4">
+                    <div className="flex flex-col gap-2">
+                      {/* Social Score Badge */}
+                      {(() => {
+                        const statusColors = {
+                          STRONG:
+                            "bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400",
+                          ACTIVE:
+                            "bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400",
+                          WEAK: "bg-orange-100 text-orange-700 dark:bg-orange-900/30 dark:text-orange-400",
+                          NONE: "bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-400",
+                        };
+                        const status = lead.socialStatus || "NONE";
+                        const score = lead.socialScore || 0;
+                        const colorClass =
+                          statusColors[status] || statusColors["NONE"];
+
+                        return (
+                          <div className="flex items-center gap-2">
+                            <span
+                              className={`inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider ${colorClass}`}
+                            >
+                              {status}
+                            </span>
+                            <span className="text-[10px] font-mono text-slate-500 dark:text-slate-400">
+                              {score}/80
+                            </span>
+                          </div>
+                        );
+                      })()}
+
+                      {/* Social Icons */}
+                      <div className="flex items-center gap-2 text-slate-400">
+                        {lead.website !== "N/A" && lead.website ? (
+                          <a
+                            href={lead.website}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="hover:text-primary-500 transition-colors"
+                            title="Website"
+                          >
+                            <Globe className="w-4 h-4" />
+                          </a>
+                        ) : (
+                          <Globe className="w-4 h-4 opacity-30" />
+                        )}
+                        {lead.instagramProfile ? (
+                          <a
+                            href={lead.instagramProfile}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="hover:text-pink-600 transition-colors"
+                            title="Instagram"
+                          >
+                            <Instagram className="w-4 h-4" />
+                          </a>
+                        ) : (
+                          <Instagram className="w-4 h-4 opacity-30" />
+                        )}
+                        {lead.facebookProfile ? (
+                          <a
+                            href={lead.facebookProfile}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="hover:text-blue-600 transition-colors"
+                            title="Facebook"
+                          >
+                            <Facebook className="w-4 h-4" />
+                          </a>
+                        ) : (
+                          <Facebook className="w-4 h-4 opacity-30" />
+                        )}
+                        {lead.linkedinProfile ? (
+                          <a
+                            href={lead.linkedinProfile}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="hover:text-blue-700 transition-colors"
+                            title="LinkedIn"
+                          >
+                            <Linkedin className="w-4 h-4" />
+                          </a>
+                        ) : (
+                          <Linkedin className="w-4 h-4 opacity-30" />
+                        )}
+                      </div>
+                    </div>
+                  </td>
+                  <td className="px-6 py-4">
+                    <div className="flex items-center gap-1 text-amber-500 font-bold text-sm">
+                      <Star
+                        className={`w-4 h-4 ${lead.rating ? "fill-amber-500" : "text-slate-300"}`}
+                      />
+                      <span
+                        className={
+                          lead.rating
+                            ? "text-slate-900 dark:text-white"
+                            : "text-slate-400"
+                        }
+                      >
+                        {lead.rating || "N/A"}
+                      </span>
+                    </div>
+                  </td>
+                  <td className="px-6 py-4">
+                    <div className="flex items-center gap-1.5 text-xs text-slate-500">
+                      <Calendar className="w-3.5 h-3.5" />
+                      {new Date(lead.createdAt).toLocaleDateString()}
+                    </div>
+                    <div className="text-[10px] text-slate-400 pl-5">
+                      {new Date(lead.createdAt).toLocaleTimeString([], {
+                        hour: "2-digit",
+                        minute: "2-digit",
+                      })}
+                    </div>
                   </td>
                   <td className="px-6 py-4">
                     {lead.whatsapp_sent ? (

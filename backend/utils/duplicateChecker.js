@@ -1,9 +1,14 @@
 const prisma = require("../config/prisma");
 const logger = require("../config/logger");
 
+const { normalizeIndianNumber } = require("./phoneUtils");
+
 const normalizePhone = (phone) => {
   if (!phone) return null;
-  return phone.replace(/[^0-9]/g, ""); // Keep only digits
+  const normalized = normalizeIndianNumber(phone);
+  if (normalized) return normalized;
+  // Fallback for non-Indian numbers: just keep digits and + 
+  return phone.replace(/[^0-9+]/g, ""); 
 };
 
 const isDuplicate = async (phone) => {

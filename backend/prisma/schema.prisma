@@ -6,6 +6,55 @@ datasource db {
   provider = "postgresql"
 }
 
+// ─── Auth & Tenant Models ────────────────────────────────────────────
+
+enum UserRole {
+  OWNER
+  ADMIN
+  MEMBER
+  VIEWER
+}
+
+model Organization {
+  id        String     @id @default(uuid())
+  name      String
+  slug      String     @unique
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+  users     User[]
+  leads     Lead[]
+  settings  Settings[]
+  jobs      Job[]
+}
+
+model User {
+  id             String         @id @default(uuid())
+  email          String         @unique
+  passwordHash   String
+  name           String
+  role           UserRole       @default(MEMBER)
+  organizationId String
+  organization   Organization   @relation(fields: [organizationId], references: [id])
+  createdAt      DateTime       @default(now())
+  updatedAt      DateTime       @updatedAt
+  refreshTokens  RefreshToken[]
+
+  @@index([organizationId])
+}
+
+model RefreshToken {
+  id        String   @id @default(uuid())
+  token     String   @unique
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+
+  @@index([userId])
+}
+
+// ─── Core Business Models ────────────────────────────────────────────
+
 model Lead {
   id              String       @id @default(uuid())
   name            String
@@ -20,8 +69,24 @@ model Lead {
   searchKeyword   String?
   placeId         String?      @unique
   whatsapp_sent   Boolean      @default(false)
-  
-  // New fields for Warm Lead Qualification
+
+  // Social Discovery Fields
+  instagramProfile String?
+  facebookProfile  String?
+  linkedinProfile  String?
+  socialStatus     String       @default("NONE") // NONE | WEAK | ACTIVE | STRONG
+  socialScore      Int          @default(0)
+  socialData       Json?
+  lastSocialCheck  DateTime?
+
+  // Priority Scoring
+  reviewScore      Int          @default(0)
+  urgencyScore     Int          @default(0)
+  categoryScore    Int          @default(0)
+  finalScore       Float        @default(0)
+  priority         String       @default("LOW") // HIGH | MEDIUM | LOW
+
+  // Warm Lead Qualification
   phoneValid      Boolean      @default(false)
   whatsappEnabled Boolean      @default(false)
   status          String       @default("new") // new | validated | contacted | replied | report_pending | converted
@@ -29,10 +94,12 @@ model Lead {
   replyReceived   Boolean      @default(false)
   introMessageId  String?
   fullReportSent  Boolean      @default(false)
-  
-  // Link to Enriched Business Data
+
+  // Relations
   businessId      String?
   business        Business?    @relation(fields: [businessId], references: [id])
+  organizationId  String?
+  organization    Organization? @relation(fields: [organizationId], references: [id])
 
   createdAt       DateTime     @default(now())
   updatedAt       DateTime     @updatedAt
@@ -40,6 +107,7 @@ model Lead {
 
   @@index([phone])
   @@index([city, businessType])
+  @@index([organizationId])
 }
 
 model MessageLog {
@@ -54,17 +122,21 @@ model MessageLog {
 }
 
 model Settings {
-  id              Int      @id @default(1)
-  whatsappToken   String?  // Will be encrypted
-  whatsappMode    String   @default("manual") // 'cloud' or 'manual'
-  updatedAt       DateTime @updatedAt
+  id              Int           @id @default(1)
+  whatsappToken   String?       // Encrypted with AES-256-GCM
+  whatsappMode    String        @default("manual") // 'cloud' or 'manual'
+  organizationId  String?
+  organization    Organization? @relation(fields: [organizationId], references: [id])
+  updatedAt       DateTime      @updatedAt
+
+  @@index([organizationId])
 }
 
 model PhoneLookup {
   id          String   @id @default(uuid())
   phone       String   @unique // E.164 format
   valid       Boolean
-  lineType    String?  // 'mobile', 'landline', 'voip', etc.
+  lineType    String?
   carrier     String?
   countryCode String?
   verifiedAt  DateTime @default(now())
@@ -72,7 +144,7 @@ model PhoneLookup {
   @@index([phone])
 }
 
-// --- Enterprise Architecture v2.0 Models ---
+// ─── Enrichment Models ───────────────────────────────────────────────
 
 model RawData {
   id        String   @id @default(uuid())
@@ -90,22 +162,17 @@ model Business {
   address         String?
   phone           String?
   website         String?
-  domain          String?      // Extracted from website for uniqueness
-  
-  // Enrichment Data
+  domain          String?
   rating          Float?
   reviewCount     Int?
   priceLevel      Int?
-  
-  // Categorization
   types           String[]
   primaryCategory String?
-  
-  // Relations
+
   leads           Lead[]
   reviews         Review[]
   competitors     Competitor[]
-  
+
   createdAt       DateTime     @default(now())
   updatedAt       DateTime     @updatedAt
 }
@@ -114,18 +181,14 @@ model Review {
   id             String    @id @default(uuid())
   businessId     String
   business       Business  @relation(fields: [businessId], references: [id])
-  
   authorName     String?
   rating         Int
   text           String?
   publishTime    DateTime?
-  originalId     String?   // ID from the source (e.g., Google Review ID)
-  
-  // Analysis
+  originalId     String?
   sentimentScore Float?
-  sentimentLabel String?   // "POSITIVE", "NEGATIVE", "NEUTRAL"
-  topics         String[]  // ["Service", "Price", "Quality"]
-  
+  sentimentLabel String?
+  topics         String[]
   createdAt      DateTime  @default(now())
 }
 
@@ -133,11 +196,9 @@ model Competitor {
   id              String   @id @default(uuid())
   businessId      String
   business        Business @relation(fields: [businessId], references: [id])
-  
   name            String
   placeId         String?
-  similarityScore Float? 
-  
+  similarityScore Float?
   createdAt       DateTime @default(now())
 }
 
@@ -148,4 +209,38 @@ model Report {
   content     Json     // The structured output from the LLM
   
   createdAt   DateTime @default(now())
+}
+
+// ─── Job Models ─────────────────────────────────────────────────────
+
+enum JobStatus {
+  PENDING
+  RUNNING
+  COMPLETED
+  FAILED
+}
+
+enum JobType {
+  DISCOVERY
+  ENRICHMENT
+  BULK_WHATSAPP
+}
+
+model Job {
+  id             String        @id @default(uuid())
+  type           JobType
+  status         JobStatus     @default(PENDING)
+  progress       Int           @default(0)
+  data           Json?         // Input parameters
+  result         Json?         // Output summary
+  error          String?       // Error message if failed
+  organizationId String?
+  organization   Organization? @relation(fields: [organizationId], references: [id])
+  createdAt      DateTime      @default(now())
+  updatedAt      DateTime      @updatedAt
+  startedAt      DateTime?
+  completedAt    DateTime?
+
+  @@index([organizationId])
+  @@index([status])
 }

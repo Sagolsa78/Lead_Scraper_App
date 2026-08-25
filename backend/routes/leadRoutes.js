@@ -2,8 +2,12 @@ const express = require("express");
 const { z } = require("zod");
 const leadController = require("../controllers/leadController");
 const validate = require("../middleware/validateMiddleware");
+const { authenticate } = require("../middleware/authMiddleware");
 
 const router = express.Router();
+
+// All lead routes require authentication
+router.use(authenticate);
 
 const leadSchema = z.object({
   body: z.object({
@@ -36,6 +40,12 @@ const getLeadsSchema = z.object({
   }),
 });
 
+const jobSchema = z.object({
+  params: z.object({
+    id: z.string().uuid("Invalid Job ID"),
+  }),
+});
+
 router.post("/generate", validate(leadSchema), leadController.generateLeads);
 router.post(
   "/search",
@@ -43,5 +53,6 @@ router.post(
   leadController.advancedSearch,
 );
 router.get("/", validate(getLeadsSchema), leadController.getLeads);
+router.get("/jobs/:id", validate(jobSchema), leadController.getJobStatus);
 
 module.exports = router;

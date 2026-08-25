@@ -72,7 +72,7 @@ const getPlaceDetails = async (placeId) => {
         params: {
           place_id: placeId,
           fields:
-            "name,formatted_address,formatted_phone_number,rating,website,url,types",
+            "name,formatted_address,formatted_phone_number,rating,user_ratings_total,business_status,website,url,types",
           key: googleConfig.placesApiKey,
         },
         timeout: 5000,

@@ -80,13 +80,13 @@ async function lookupPhoneNumber(phone) {
       },
     });
 
-    console.log({
+    logger.debug("Phone lookup result", {
       valid: isMobile,
       phoneNumber: response.phoneNumber,
       lineType: lineType,
       carrier: carrier,
       cached: false,
-    })
+    });
     return {
       valid: isMobile,
       phoneNumber: response.phoneNumber,

@@ -14,5 +14,7 @@ connection.on("error", (err) => {
 });
 
 const whatsappQueue = new Queue("whatsapp-queue", { connection });
+const discoveryQueue = new Queue("discovery-queue", { connection });
+const enrichmentQueue = new Queue("enrichment-queue", { connection });
 
-module.exports = { whatsappQueue, connection };
+module.exports = { whatsappQueue, discoveryQueue, enrichmentQueue, connection };

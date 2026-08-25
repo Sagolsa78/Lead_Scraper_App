@@ -1,15 +1,20 @@
 {
-  "name": "google-places-lead-finder",
+  "name": "leadfinder-api",
   "version": "1.0.0",
-  "description": "Proof of concept backend for fetching business leads using Google Places API",
+  "description": "LeadFinder - B2B lead discovery and outreach CRM API",
   "main": "server.js",
   "engines": {
     "node": "20.x"
   },
   "scripts": {
     "start": "node server.js",
-    "dev": "nodemon server.js",
-    "build": "npm install && npx prisma generate"
+    "dev": "nodemon --watch .env --ext js,json,env server.js",
+    "worker": "node workers/index.js",
+    "build": "npm install && npx prisma generate",
+    "db:migrate": "npx prisma migrate dev",
+    "db:migrate:deploy": "npx prisma migrate deploy",
+    "db:generate": "npx prisma generate",
+    "db:studio": "npx prisma studio"
   },
   "dependencies": {
     "@google/generative-ai": "^0.24.1",
@@ -17,27 +22,29 @@
     "@prisma/client": "^7.4.0",
     "axios": "^1.6.0",
     "axios-retry": "^4.5.0",
+    "bcryptjs": "^2.4.3",
     "bottleneck": "^2.19.5",
-    "bullmq": "^5.69.2",
+    "bullmq": "^5.81.3",
     "compression": "^1.8.1",
     "cors": "^2.8.6",
-    "crypto-js": "^4.2.0",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "express-rate-limit": "^8.2.1",
+    "google-search-results-nodejs": "^2.1.0",
     "googleapis": "^126.0.1",
     "helmet": "^8.1.0",
-    "ioredis": "^5.9.3",
-    "joi": "^18.0.2",
+    "ioredis": "^5.11.1",
+    "jsonwebtoken": "^9.0.3",
     "morgan": "^1.10.1",
     "pg": "^8.18.0",
-    "sequelize": "^6.37.7",
+    "puppeteer": "^24.37.4",
     "twilio": "^5.12.1",
     "uuid": "^13.0.0",
     "winston": "^3.19.0",
     "zod": "^4.3.6"
   },
   "devDependencies": {
-    "nodemon": "^3.0.1"
+    "nodemon": "^3.0.1",
+    "prisma": "^7.4.0"
   }
 }

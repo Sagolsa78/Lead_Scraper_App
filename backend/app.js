@@ -7,12 +7,15 @@ const morgan = require("morgan");
 const { v4: uuidv4 } = require("uuid");
 
 const logger = require("./config/logger");
+const envConfig = require("./config/env");
 const apiLimiter = require("./utils/apiLimiter");
 const errorMiddleware = require("./middleware/errorMiddleware");
+
+// Routes
+const authRoutes = require("./routes/authRoutes");
 const leadRoutes = require("./routes/leadRoutes");
 const whatsappRoutes = require("./routes/whatsappRoutes");
-// Start background worker
-require("./workers/whatsappWorker");
+const phoneRoutes = require("./routes/phoneRoutes");
 
 const app = express();
 
@@ -24,10 +27,26 @@ app.use((req, res, next) => {
 
 // Security & Performance Middlewares
 app.use(helmet());
-app.use(cors({ origin: process.env.ALLOWED_ORIGINS || "*" })); // In production, restrict this
+
+// CORS: validate against configured allowed origins
+const allowedOrigins = envConfig.allowedOrigins;
+app.use(
+  cors({
+    origin: (origin, callback) => {
+      // Allow requests with no origin (server-to-server, curl, etc.)
+      if (!origin) return callback(null, true);
+      if (allowedOrigins.includes(origin)) {
+        return callback(null, true);
+      }
+      return callback(new Error(`Origin ${origin} not allowed by CORS`));
+    },
+    credentials: true,
+  }),
+);
+
 app.use(compression());
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.json({ limit: "1mb" }));
+app.use(express.urlencoded({ extended: true, limit: "1mb" }));
 
 // Rate Limiting
 app.use("/api", apiLimiter);
@@ -39,26 +58,32 @@ app.use(
   }),
 );
 
-// Health Check
+// Health Check (public, no auth)
 app.get("/health", (req, res) => {
   res
     .status(200)
     .json({ status: "running", timestamp: new Date().toISOString() });
 });
 
+// Also mount at /api/v1/health so frontend can use its base URL
+app.get("/api/v1/health", (req, res) => {
+  res
+    .status(200)
+    .json({ status: "running", timestamp: new Date().toISOString() });
+});
+
 // API Routes
+app.use("/api/v1/auth", authRoutes);
 app.use("/api/v1/leads", leadRoutes);
 app.use("/api/v1/whatsapp", whatsappRoutes);
-app.use("/api/v1/phone", require("./routes/phoneRoutes"));
+app.use("/api/v1/phone", phoneRoutes);
 
-// Serve Frontend in Production
-if (process.env.NODE_ENV === "production" || true) {
-  // Configured to work both locally and in web service environments
+// Serve Frontend in Production ONLY
+if (envConfig.env === "production") {
   const clientDistPath = path.join(__dirname, "../client/dist");
   app.use(express.static(clientDistPath));
 
   app.get("*", (req, res, next) => {
-    // Only serve index.html if not an API route
     if (req.path.startsWith("/api")) {
       return next();
     }

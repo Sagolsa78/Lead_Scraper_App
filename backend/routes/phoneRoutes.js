@@ -3,11 +3,15 @@ const router = express.Router();
 const { lookupPhoneNumber } = require("../services/phoneLookupService");
 const { normalizeIndianNumber } = require("../utils/phoneUtils");
 const logger = require("../config/logger");
+const { authenticate } = require("../middleware/authMiddleware");
+
+// All phone routes require authentication
+router.use(authenticate);
 
 /**
  * @route POST /api/v1/phone/validate
  * @desc Validate a phone number using Twilio Lookup (with local caching)
- * @access Public (or Protected if middleware added)
+ * @access Authenticated
  */
 router.post("/validate", async (req, res) => {
   try {
