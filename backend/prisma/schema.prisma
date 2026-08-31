@@ -3,7 +3,7 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider  = "postgresql"
 }
 
 // ─── Auth & Tenant Models ────────────────────────────────────────────
@@ -12,7 +12,7 @@ enum UserRole {
   OWNER
   ADMIN
   MEMBER
-  VIEWER
+  VIEWER  
 }
 
 model Organization {

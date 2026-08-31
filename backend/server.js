@@ -30,7 +30,7 @@ const startServer = async () => {
       logger.info(
         `Server running in ${process.env.NODE_ENV || "development"} mode on port ${PORT}`,
       );
-      console.log(`\n🚀 [SERVER] LeadFinder API running on http://localhost:${PORT}`);
+      console.log(`\n🚀 [SERVER] LeadFinder API running on port ${PORT}`);
       console.log(`📡 [SERVER] Workers are processing jobs from Redis queue\n`);
     });
   } catch (error) {

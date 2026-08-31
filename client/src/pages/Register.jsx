@@ -179,7 +179,7 @@ const Register = () => {
 
           <div className="flex items-center gap-2 justify-center pt-1">
             <Shield className="w-3 h-3 text-slate-300 dark:text-slate-600" />
-            <span className="text-[10px] text-slate-400 dark:text-slate-500 font-medium">Secured with AES-256 encryption</span>
+            <span className="text-[10px] text-slate-400 dark:text-slate-500 font-medium">Secured with industry-standard encryption</span>
           </div>
         </div>
 
