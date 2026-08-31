@@ -39,8 +39,8 @@ const register = async (req, res, next) => {
   try {
     const { email, password, name, organizationName } = req.body;
 
-    const existing = await prisma.user.findUnique({ where: { email } });
-    if (existing) {
+    const existingEmail = await prisma.user.findUnique({ where: { email } });
+    if (existingEmail) {
       return res.status(409).json({
         success: false,
         message: "An account with this email already exists",

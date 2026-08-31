@@ -1,7 +1,7 @@
 const geocodeService = require("../services/geocodeService");
 const placesService = require("../services/placesService");
 const leadSearchService = require("../services/leadSearchService");
-const sheetsService = require("../services/sheetsService");
+
 const validationService = require("../services/validationService");
 const duplicateChecker = require("../utils/duplicateChecker");
 const responseFormatter = require("../utils/responseFormatter");
@@ -189,15 +189,7 @@ const advancedSearch = async (req, res, next) => {
         );
     }
 
-    // 3. Save to Google Sheets
-    try {
-      result.savedToSheet = await sheetsService.appendLeads(savedLeads, {
-        city,
-        businessType,
-      });
-    } catch (err) {
-      logger.error(`Failed to sync to Google Sheets: ${err.message}`);
-    }
+
 
     res
       .status(200)
@@ -231,7 +223,9 @@ const getLeads = async (req, res, next) => {
     const skip = (parseInt(page) - 1) * parseInt(limit);
     const take = Math.min(parseInt(limit), 100); // Cap at 100
 
-    const where = {};
+    const organizationId = req.user?.organizationId;
+
+    const where = { organizationId };
     if (city) where.city = { contains: city, mode: "insensitive" };
     if (keyword)
       where.searchKeyword = { contains: keyword, mode: "insensitive" };
@@ -280,7 +274,7 @@ const getJobStatus = async (req, res, next) => {
     const organizationId = req.user?.organizationId;
 
     const job = await prisma.job.findUnique({
-      where: { id },
+      where: { id, organizationId },
     });
 
     if (!job) {
@@ -295,11 +289,13 @@ const getJobStatus = async (req, res, next) => {
 
 const getStats = async (req, res, next) => {
   try {
+    const organizationId = req.user?.organizationId;
+
     const [totalLeads, whatsappSent, verifiedPhones, highPriority] = await Promise.all([
-      prisma.lead.count(),
-      prisma.lead.count({ where: { whatsapp_sent: true } }),
-      prisma.lead.count({ where: { phoneValid: true } }),
-      prisma.lead.count({ where: { priority: "HIGH" } }),
+      prisma.lead.count({ where: { organizationId } }),
+      prisma.lead.count({ where: { organizationId, whatsapp_sent: true } }),
+      prisma.lead.count({ where: { organizationId, phoneValid: true } }),
+      prisma.lead.count({ where: { organizationId, priority: "HIGH" } }),
     ]);
 
     const conversionRate = totalLeads > 0 ? ((whatsappSent / totalLeads) * 100).toFixed(1) : "0.0";
@@ -363,7 +359,7 @@ const cancelJob = async (req, res, next) => {
     const organizationId = req.user?.organizationId;
 
     const job = await prisma.job.findUnique({
-      where: { id },
+      where: { id, organizationId },
     });
 
     if (!job) {
