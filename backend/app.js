@@ -18,6 +18,7 @@ const whatsappRoutes = require("./routes/whatsappRoutes");
 const phoneRoutes = require("./routes/phoneRoutes");
 
 const app = express();
+app.set("trust proxy", 1);
 
 // Request ID tracking
 app.use((req, res, next) => {
