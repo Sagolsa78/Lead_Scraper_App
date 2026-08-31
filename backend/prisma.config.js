@@ -1,4 +1,6 @@
 /** @type {import('prisma').PrismaConfig} */
+require("dotenv").config();
+
 module.exports = {
   schema: "prisma/schema.prisma",
   datasource: {

@@ -2,8 +2,12 @@ const express = require("express");
 const { z } = require("zod");
 const whatsappController = require("../controllers/whatsappController");
 const validate = require("../middleware/validateMiddleware");
+const { authenticate, authorize } = require("../middleware/authMiddleware");
 
 const router = express.Router();
+
+// All WhatsApp routes require authentication
+router.use(authenticate);
 
 const sendSchema = z.object({
   body: z.object({
@@ -35,6 +39,7 @@ router.post(
 router.get("/settings", whatsappController.getSettings);
 router.post(
   "/settings",
+  authorize("OWNER", "ADMIN"),
   validate(settingsSchema),
   whatsappController.updateSettings,
 );
