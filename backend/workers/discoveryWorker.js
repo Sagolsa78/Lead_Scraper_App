@@ -6,7 +6,7 @@ const logger = require("../config/logger");
 const geocodeService = require("../services/geocodeService");
 const placesService = require("../services/placesService");
 const leadSearchService = require("../services/leadSearchService");
-const sheetsService = require("../services/sheetsService");
+
 const validationService = require("../services/validationService");
 const duplicateChecker = require("../utils/duplicateChecker");
 const socialDiscoveryService = require("../services/socialDiscoveryService");
@@ -345,16 +345,6 @@ const processDiscoveryJob = async (job) => {
     }
 
     let savedToSheetCount = 0;
-    try {
-      savedToSheetCount = await sheetsService.appendLeads(allValidLeads, {
-        city,
-        businessType: keyword || "Mixed/Fallback",
-      });
-      logger.info(`   📊 Saved ${savedToSheetCount} leads to Google Sheets`);
-    } catch (err) {
-      logger.error(`Failed to sync to Google Sheets: ${err.message}`);
-      logger.info(`   ⚠️  Google Sheets sync failed: ${err.message}`);
-    }
 
     await job.updateProgress(100);
 

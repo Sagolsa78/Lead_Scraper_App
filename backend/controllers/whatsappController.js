@@ -6,9 +6,11 @@ const logger = require("../config/logger");
 const sendMessage = async (req, res, next) => {
   try {
     const { leadId, customMessage } = req.body;
+    const organizationId = req.user?.organizationId;
     const result = await whatsappService.sendDirectMessage(
       leadId,
       customMessage,
+      organizationId
     );
 
     res
@@ -61,7 +63,8 @@ const sendBulkMessages = async (req, res, next) => {
 
 const getSettings = async (req, res, next) => {
   try {
-    const settings = await whatsappService.getSettings();
+    const organizationId = req.user?.organizationId;
+    const settings = await whatsappService.getSettings(organizationId);
     // Don't leak the actual token, just indicate if it's set
     const sanitizedSettings = {
       ...settings,
@@ -78,7 +81,8 @@ const getSettings = async (req, res, next) => {
 const updateSettings = async (req, res, next) => {
   try {
     const { token, mode } = req.body;
-    await whatsappService.updateSettings(token, mode);
+    const organizationId = req.user?.organizationId;
+    await whatsappService.updateSettings(token, mode, organizationId);
     res
       .status(200)
       .json(responseFormatter(null, "Settings updated successfully"));
