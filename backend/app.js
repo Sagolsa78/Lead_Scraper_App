@@ -8,7 +8,7 @@ const { v4: uuidv4 } = require("uuid");
 
 const logger = require("./config/logger");
 const envConfig = require("./config/env");
-const apiLimiter = require("./utils/apiLimiter");
+const { apiLimiter, heavyEndpointLimiter } = require("./utils/apiLimiter");
 const errorMiddleware = require("./middleware/errorMiddleware");
 
 // Routes

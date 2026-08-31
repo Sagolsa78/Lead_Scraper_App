@@ -14,11 +14,24 @@ const startServer = async () => {
     await prisma.$connect();
     logger.info("PostgreSQL Database connected successfully via Prisma.");
 
-    // 2. Start Server
+    // 2. Start BullMQ Workers in-process (dev mode)
+    try {
+      const discoveryWorker = require("./workers/discoveryWorker");
+      const whatsappWorker = require("./workers/whatsappWorker");
+      logger.info("✅ BullMQ workers started in-process (discovery + whatsapp)");
+      console.log("\n🔧 [WORKERS] Discovery worker and WhatsApp worker are ACTIVE and listening for jobs.\n");
+    } catch (workerErr) {
+      logger.error("Failed to start workers:", workerErr.message);
+      console.error("❌ [WORKERS] Failed to start workers:", workerErr.message);
+    }
+
+    // 3. Start Server
     server.listen(PORT, () => {
       logger.info(
         `Server running in ${process.env.NODE_ENV || "development"} mode on port ${PORT}`,
       );
+      console.log(`\n🚀 [SERVER] LeadFinder API running on http://localhost:${PORT}`);
+      console.log(`📡 [SERVER] Workers are processing jobs from Redis queue\n`);
     });
   } catch (error) {
     logger.error("Failed to start server:", error);

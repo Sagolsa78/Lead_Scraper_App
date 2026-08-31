@@ -36,6 +36,7 @@ const refreshSchema = z.object({
 
 router.post("/register", validate(registerSchema), authController.register);
 router.post("/login", validate(loginSchema), authController.login);
+router.post("/google", authController.googleLogin);
 router.post("/refresh", validate(refreshSchema), authController.refresh);
 router.post("/logout", authController.logout);
 router.get("/me", authenticate, authController.me);

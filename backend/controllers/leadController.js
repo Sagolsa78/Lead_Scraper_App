@@ -115,22 +115,27 @@ const advancedSearch = async (req, res, next) => {
     const savedLeads = [];
     for (const lead of leads) {
       try {
-        const normalizedPhone = duplicateChecker.normalizePhone(lead.phone);
-        if (!normalizedPhone || normalizedPhone === "Pending") {
-          continue;
-        }
+        const details = await placesService.getPlaceDetails(lead.placeId);
+        if (!details) continue;
 
-        const scoreData = await calculateLeadPriority(lead, lead.reviews || []);
+        const isValid = await validationService.validateLeadData(details);
+        if (!isValid) continue;
+
+        const normalizedPhone = duplicateChecker.normalizePhone(details.formatted_phone_number);
+        if (!normalizedPhone || normalizedPhone === "Pending") continue;
+
+        const { calculateLeadPriority } = require("../services/finalScoringEngine");
+        const scoreData = await calculateLeadPriority(details, details.reviews || []);
 
         const saved = await prisma.lead.upsert({
           where: { phone: normalizedPhone },
           update: {
-            name: lead.name,
-            address: lead.address,
-            rating: lead.rating,
-            googleMapsUrl: lead.googleMapsUrl,
-            businessType: lead.businessType,
-            subCategory: lead.subCategory,
+            name: details.name,
+            address: details.formatted_address,
+            rating: details.rating,
+            googleMapsUrl: details.url,
+            businessType: businessType,
+            subCategory: details.types?.[0] || "General",
             city: city,
             searchKeyword: businessType,
             reviewScore: scoreData.reviewScore,
@@ -141,14 +146,14 @@ const advancedSearch = async (req, res, next) => {
             priority: scoreData.priority,
           },
           create: {
-            name: lead.name,
-            address: lead.address,
+            name: details.name,
+            address: details.formatted_address,
             phone: normalizedPhone,
-            rating: lead.rating,
-            website: "N/A",
-            googleMapsUrl: lead.googleMapsUrl,
-            businessType: lead.businessType,
-            subCategory: lead.subCategory,
+            rating: details.rating,
+            website: details.website || "N/A",
+            googleMapsUrl: details.url,
+            businessType: businessType,
+            subCategory: details.types?.[0] || "General",
             city: city,
             searchKeyword: businessType,
             placeId: lead.placeId,
@@ -168,12 +173,12 @@ const advancedSearch = async (req, res, next) => {
 
     const result = {
       totalFound: leads.length,
-      validLeadsCount: leads.length,
+      validLeadsCount: savedLeads.length,
       savedToPostgres: savedLeads.length,
       savedToSheet: 0,
     };
 
-    if (leads.length === 0) {
+    if (savedLeads.length === 0) {
       return res
         .status(200)
         .json(
@@ -186,7 +191,7 @@ const advancedSearch = async (req, res, next) => {
 
     // 3. Save to Google Sheets
     try {
-      result.savedToSheet = await sheetsService.appendLeads(leads, {
+      result.savedToSheet = await sheetsService.appendLeads(savedLeads, {
         city,
         businessType,
       });
@@ -282,16 +287,105 @@ const getJobStatus = async (req, res, next) => {
       return res.status(404).json({ success: false, message: "Job not found" });
     }
 
-    if (job.organizationId && job.organizationId !== organizationId) {
-      return res.status(403).json({ success: false, message: "Unauthorized access to job" });
-    }
+    res.status(200).json(responseFormatter(job, "Job status retrieved successfully"));
+  } catch (error) {
+    next(error);
+  }
+};
+
+const getStats = async (req, res, next) => {
+  try {
+    const [totalLeads, whatsappSent, verifiedPhones, highPriority] = await Promise.all([
+      prisma.lead.count(),
+      prisma.lead.count({ where: { whatsapp_sent: true } }),
+      prisma.lead.count({ where: { phoneValid: true } }),
+      prisma.lead.count({ where: { priority: "HIGH" } }),
+    ]);
+
+    const conversionRate = totalLeads > 0 ? ((whatsappSent / totalLeads) * 100).toFixed(1) : "0.0";
 
     res.status(200).json(
-      responseFormatter(job, "Job status retrieved successfully")
+      responseFormatter(
+        {
+          totalLeads,
+          whatsappSent,
+          verifiedPhones,
+          highPriority,
+          conversionRate,
+        },
+        "Statistics retrieved successfully"
+      )
     );
   } catch (error) {
     next(error);
   }
 };
 
-module.exports = { generateLeads, advancedSearch, getLeads, getJobStatus };
+const getJobs = async (req, res, next) => {
+  try {
+    const organizationId = req.user?.organizationId;
+    const { status } = req.query;
+
+    let where = {};
+    if (organizationId) {
+      where.organizationId = organizationId;
+    }
+
+    if (status === "active") {
+      // Return PENDING + RUNNING jobs
+      where.status = { in: ["PENDING", "RUNNING"] };
+    } else if (status === "completed") {
+      where.status = "COMPLETED";
+    } else if (status === "failed") {
+      where.status = "FAILED";
+    }
+
+    const jobs = await prisma.job.findMany({
+      where,
+      orderBy: { createdAt: "desc" },
+      take: 20,
+    });
+
+    res.status(200).json(
+      responseFormatter(
+        { jobs },
+        "Jobs retrieved successfully"
+      )
+    );
+  } catch (error) {
+    next(error);
+  }
+};
+
+const cancelJob = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const organizationId = req.user?.organizationId;
+
+    const job = await prisma.job.findUnique({
+      where: { id },
+    });
+
+    if (!job) {
+      return res.status(404).json({ success: false, message: "Job not found" });
+    }
+
+    if (job.status === "COMPLETED" || job.status === "FAILED") {
+      return res.status(400).json({ success: false, message: "Job is already finished" });
+    }
+
+    await prisma.job.update({
+      where: { id },
+      data: { status: "CANCELLED", completedAt: new Date() }
+    });
+
+    res.status(200).json(
+      responseFormatter({}, "Job cancelled successfully")
+    );
+  } catch (error) {
+    next(error);
+  }
+};
+
+module.exports = { generateLeads, advancedSearch, getLeads, getJobStatus, getJobs, getStats, cancelJob };
+

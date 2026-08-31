@@ -20,6 +20,7 @@ const envSchema = z.object({
 
   // Security
   ENCRYPTION_KEY: z.string().min(16, "ENCRYPTION_KEY must be at least 16 characters"),
+  WHATSAPP_PHONE_NUMBER_ID: z.string().optional(),
   JWT_SECRET: z.string().min(32, "JWT_SECRET must be at least 32 characters"),
   JWT_REFRESH_SECRET: z.string().min(32, "JWT_REFRESH_SECRET must be at least 32 characters"),
   ALLOWED_ORIGINS: z.string().min(1, "ALLOWED_ORIGINS is required (comma-separated URLs)"),

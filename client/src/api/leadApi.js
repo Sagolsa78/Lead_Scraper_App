@@ -63,6 +63,10 @@ export const authService = {
     const response = await api.post("/auth/login", data);
     return response.data;
   },
+  googleLogin: async (token) => {
+    const response = await api.post("/auth/google", { token });
+    return response.data;
+  },
   logout: async () => {
     const refreshToken = localStorage.getItem("refreshToken");
     await api.post("/auth/logout", { refreshToken }).catch(() => null);
@@ -88,6 +92,10 @@ export const leadService = {
     const response = await api.get("/leads", { params });
     return response.data;
   },
+  getStats: async () => {
+    const response = await api.get("/leads/stats");
+    return response.data;
+  },
   sendWhatsApp: async (data) => {
     const response = await api.post("/whatsapp/send", data);
     return response.data;
@@ -106,6 +114,14 @@ export const leadService = {
   },
   getJobStatus: async (id) => {
     const response = await api.get(`/leads/jobs/${id}`);
+    return response.data;
+  },
+  getJobs: async (params) => {
+    const response = await api.get("/leads/jobs", { params });
+    return response.data;
+  },
+  cancelJob: async (id) => {
+    const response = await api.post(`/leads/jobs/${id}/cancel`);
     return response.data;
   },
   getHealth: async () => {

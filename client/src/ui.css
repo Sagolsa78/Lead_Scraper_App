@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Fira+Sans:wght@400;500;600;700&display=swap');
+
+:root { font-family: 'Fira Sans', system-ui, sans-serif; }
+.font-mono { font-family: 'Fira Code', monospace; }
+.page-title { font-size: 1.5rem; line-height: 2rem; font-weight: 700; letter-spacing: -.025em; }
+.page-subtitle { margin-top: .25rem; font-size: .875rem; color: rgb(71 85 105); }
+.dark .page-subtitle { color: rgb(148 163 184); }
+.btn { display: inline-flex; min-height: 2.75rem; align-items: center; justify-content: center; gap: .5rem; border-radius: .5rem; padding: .5rem 1rem; font-size: .875rem; font-weight: 600; transition: background-color .18s, color .18s; }
+.btn-primary { background: rgb(37 99 235); color: white; }.btn-primary:hover { background: rgb(29 78 216); }
+.btn-secondary { border: 1px solid rgb(203 213 225); color: rgb(51 65 85); }.btn-secondary:hover { background: rgb(248 250 252); }.dark .btn-secondary { border-color: rgb(51 65 85); color: rgb(226 232 240); }.dark .btn-secondary:hover { background: rgb(30 41 59); }
+.status-pill { display:inline-flex; align-items:center; gap:.25rem; border-radius:999px; padding:.25rem .625rem; font-size:.75rem; font-weight:600; }
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible { outline: 2px solid rgb(37 99 235); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { *,::before,::after { animation-duration:.01ms!important; transition-duration:.01ms!important; } }
+

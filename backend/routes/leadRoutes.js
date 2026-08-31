@@ -3,11 +3,9 @@ const { z } = require("zod");
 const leadController = require("../controllers/leadController");
 const validate = require("../middleware/validateMiddleware");
 const { authenticate } = require("../middleware/authMiddleware");
+const { heavyEndpointLimiter } = require("../utils/apiLimiter");
 
 const router = express.Router();
-
-// All lead routes require authentication
-router.use(authenticate);
 
 const leadSchema = z.object({
   body: z.object({
@@ -46,13 +44,20 @@ const jobSchema = z.object({
   }),
 });
 
-router.post("/generate", validate(leadSchema), leadController.generateLeads);
+// All lead routes require authentication
+router.use(authenticate);
+
+router.post("/generate", heavyEndpointLimiter, validate(leadSchema), leadController.generateLeads);
 router.post(
   "/search",
+  heavyEndpointLimiter,
   validate(advancedSearchSchema),
   leadController.advancedSearch,
 );
 router.get("/", validate(getLeadsSchema), leadController.getLeads);
+router.get("/stats", leadController.getStats);
+router.get("/jobs", leadController.getJobs);
 router.get("/jobs/:id", validate(jobSchema), leadController.getJobStatus);
+router.post("/jobs/:id/cancel", validate(jobSchema), leadController.cancelJob);
 
 module.exports = router;

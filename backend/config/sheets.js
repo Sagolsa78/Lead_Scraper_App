@@ -3,7 +3,7 @@ const { google } = require("googleapis");
 
 const serviceAccountAuth = new google.auth.JWT({
   email: process.env.GOOGLE_CLIENT_EMAIL,
-  key: process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, "\n"),
+  key: process.env.GOOGLE_PRIVATE_KEY ? process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, "\n") : "",
   scopes: ["https://www.googleapis.com/auth/spreadsheets"],
 });
 

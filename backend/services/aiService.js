@@ -135,9 +135,9 @@ Return JSON:
 }
 `;
 
-    // Reverting to gemini-2.5-flash as other models returned 404.
+    // Reverting to gemini-1.5-flash as other models returned 404.
     // Relying on Bottleneck rate limiter (10 RPM) to avoid 429s.
-    const modelId = "gemini-2.5-flash";
+    const modelId = "gemini-1.5-flash";
     const url = `https://generativelanguage.googleapis.com/v1beta/models/${modelId}:generateContent?key=${apiKey}`;
 
     const payload = {

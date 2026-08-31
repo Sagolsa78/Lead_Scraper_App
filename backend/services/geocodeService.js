@@ -1,17 +1,30 @@
 const axios = require("axios");
-const axiosRetry = require("axios-retry").default;
+const axiosRetry = require("axios-retry").default || require("axios-retry");
 const logger = require("../config/logger");
 const googleConfig = require("../config/google");
 const { connection: redis } = require("../config/bullQueue");
 
-// Setup Retry logic
-axiosRetry(axios, {
-  retries: 3,
-  retryDelay: axiosRetry.exponentialDelay,
+// Create dedicated axios client for Geocoding with retry logic
+const client = axios.create({
+  timeout: 10000,
+});
+
+axiosRetry(client, {
+  retries: 4,
+  retryDelay: (retryCount) => retryCount * 1000, // 1s, 2s, 3s, 4s
   retryCondition: (error) => {
     return (
       axiosRetry.isNetworkOrIdempotentRequestError(error) ||
-      error.code === "ECONNABORTED"
+      error.code === "ECONNABORTED" ||
+      error.code === "EAI_AGAIN" ||
+      error.code === "ENOTFOUND" ||
+      error.code === "ETIMEDOUT" ||
+      error.code === "ECONNRESET"
+    );
+  },
+  onRetry: (retryCount, error, requestConfig) => {
+    logger.warn(
+      `Geocoding request failed (${error.code || error.message}). Retrying attempt #${retryCount}...`
     );
   },
 });
@@ -27,14 +40,13 @@ const getCoordinates = async (location) => {
       return JSON.parse(cached);
     }
 
-    const response = await axios.get(
+    const response = await client.get(
       "https://maps.googleapis.com/maps/api/geocode/json",
       {
         params: {
           address: location,
           key: googleConfig.geocodingApiKey,
         },
-        timeout: 5000,
       },
     );
 
